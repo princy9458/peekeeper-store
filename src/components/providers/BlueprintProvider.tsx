@@ -11,6 +11,7 @@ import {
   setThemeContext,
 } from '@/redux/slices/blueprint';
 import { setEditableMode } from '@/redux/slices/pages/pagesSlice';
+import { fetchAllPages } from '@/redux/slices/pages/pagesThunk';
 import applyTheme from '@/lib/applyTheme';
 
 interface BlueprintProviderProps {
@@ -40,6 +41,7 @@ export default function BlueprintProvider({ children, context = 'public' }: Blue
     if (shouldFetch && !isLoading) {
       hasFetched.current = true;
       dispatch(fetchBlueprintThunk());
+      dispatch(fetchAllPages());
     }
   }, [dispatch, lastFetched, isLoading]);
 

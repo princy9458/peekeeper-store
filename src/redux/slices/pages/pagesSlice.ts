@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { PagesState, Page } from './pageType';
 import type { RootState } from '@/redux/store';
 import { loadPageData, loadAllPages } from '@/components/cms/loader';
+import { fetchAllPages } from './pagesThunk';
 
 const allPagesData = loadAllPages();
 
@@ -83,6 +84,18 @@ const pagesSlice = createSlice({
         }
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllPages.fulfilled, (state, action) => {
+      state.allPages = action.payload;
+      if (state.currentPage) {
+        const refreshed = state.allPages[state.currentPage.slug];
+        if (refreshed) {
+          state.currentPage = deepClone(refreshed);
+        }
+      }
+      console.log('[CMS] All pages loaded from DB -', Object.keys(action.payload).length, 'pages');
+    });
   },
 });
 

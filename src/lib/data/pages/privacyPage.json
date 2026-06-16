@@ -1,0 +1,39 @@
+{
+    "title":  {
+                  "en":  "Privacy Policy"
+              },
+    "slug":  "privacy",
+    "metaTitle":  {
+                      "en":  "Privacy Policy - PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "PeeKeeper privacy policy and data protection information."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "privacy-header-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Privacy Header",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Privacy Policy"
+                                                  },
+                                      "alignment":  "center"
+                                  }
+                    },
+                    {
+                        "id":  "privacy-content-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Privacy Content",
+                        "props":  {
+                                      "content":  {
+                                                      "en":  "PeeKeeper respects your privacy. This policy outlines how we collect, use, and protect your personal information.\n\nWe collect information you provide directly, such as your name, email address, and shipping address when placing an order. This information is used solely for processing your order and improving our services.\n\nWe do not sell, trade, or share your personal information with third parties except as necessary to fulfill your order (e.g., shipping carriers, payment processors).\n\nWe use industry-standard security measures to protect your data. By using our website, you consent to this privacy policy."
+                                                  },
+                                      "alignment":  "left"
+                                  }
+                    }
+                ]
+}

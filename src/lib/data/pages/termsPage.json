@@ -1,0 +1,39 @@
+{
+    "title":  {
+                  "en":  "Terms \u0026 Conditions"
+              },
+    "slug":  "terms",
+    "metaTitle":  {
+                      "en":  "Terms \u0026 Conditions - PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Terms and conditions for using PeeKeeper website and services."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "terms-header-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Terms Header",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Terms \u0026 Conditions"
+                                                  },
+                                      "alignment":  "center"
+                                  }
+                    },
+                    {
+                        "id":  "terms-content-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Terms Content",
+                        "props":  {
+                                      "content":  {
+                                                      "en":  "By accessing and using the PeeKeeper website, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using our website.\n\nAll products and services are provided on an \u0027as is\u0027 basis without any warranties. We reserve the right to modify or discontinue any product without prior notice.\n\nPrices are subject to change without notice. We are not responsible for typographical errors regarding price or product descriptions.\n\nYour use of any information or materials on this website is entirely at your own risk. It is your responsibility to ensure that any products, services, or information available through this website meet your specific requirements."
+                                                  },
+                                      "alignment":  "left"
+                                  }
+                    }
+                ]
+}

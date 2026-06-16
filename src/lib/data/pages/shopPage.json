@@ -1,0 +1,290 @@
+{
+    "title":  {
+                  "en":  "Shop"
+              },
+    "slug":  "shop",
+    "metaTitle":  {
+                      "en":  "Shop - PeeKeeper Pet Care Products"
+                  },
+    "metaDescription":  {
+                            "en":  "Browse our collection of pet care products, dog diapers, and accessories."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "shop-header-1",
+                        "type":  "hero",
+                        "layout":  "container",
+                        "adminTitle":  "Shop Header",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Shop the Best for Your Best Friend"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "Every product is vet-recommended, rigorously tested, and Made in the USA."
+                                                     },
+                                      "image":  "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200\u0026q=80"
+                                  }
+                    },
+                    {
+                        "id":  "shop-filters-1",
+                        "type":  "filters",
+                        "layout":  "container",
+                        "adminTitle":  "Filters",
+                        "props":  {
+                                      "categories":  [
+                                                         {
+                                                             "slug":  "all",
+                                                             "label":  {
+                                                                           "en":  "All Products"
+                                                                       }
+                                                         },
+                                                         {
+                                                             "slug":  "diapers",
+                                                             "label":  {
+                                                                           "en":  "Puppy Diapers"
+                                                                       }
+                                                         },
+                                                         {
+                                                             "slug":  "training-pants",
+                                                             "label":  {
+                                                                           "en":  "Training Pants"
+                                                                       }
+                                                         },
+                                                         {
+                                                             "slug":  "senior-diapers",
+                                                             "label":  {
+                                                                           "en":  "Senior Dog Diapers"
+                                                                       }
+                                                         },
+                                                         {
+                                                             "slug":  "accessories",
+                                                             "label":  {
+                                                                           "en":  "Accessories"
+                                                                       }
+                                                         },
+                                                         {
+                                                             "slug":  "eco-friendly",
+                                                             "label":  {
+                                                                           "en":  "Eco-Friendly"
+                                                                       }
+                                                         }
+                                                     ],
+                                      "sortOptions":  [
+                                                          {
+                                                              "value":  "popular",
+                                                              "label":  {
+                                                                            "en":  "Most Popular"
+                                                                        }
+                                                          },
+                                                          {
+                                                              "value":  "newest",
+                                                              "label":  {
+                                                                            "en":  "Newest"
+                                                                        }
+                                                          },
+                                                          {
+                                                              "value":  "price-asc",
+                                                              "label":  {
+                                                                            "en":  "Price: Low to High"
+                                                                        }
+                                                          },
+                                                          {
+                                                              "value":  "price-desc",
+                                                              "label":  {
+                                                                            "en":  "Price: High to Low"
+                                                                        }
+                                                          },
+                                                          {
+                                                              "value":  "rating",
+                                                              "label":  {
+                                                                            "en":  "Highest Rated"
+                                                                        }
+                                                          }
+                                                      ],
+                                      "products":  [
+                                                       {
+                                                           "id":  1,
+                                                           "name":  {
+                                                                        "en":  "Premium Puppy Diapers â€” 20 Pack"
+                                                                    },
+                                                           "slug":  "premium-puppy-diapers",
+                                                           "category":  {
+                                                                            "en":  "diapers"
+                                                                        },
+                                                           "price":  29.99,
+                                                           "compareAtPrice":  39.99,
+                                                           "rating":  4.9,
+                                                           "reviewCount":  328,
+                                                           "badge":  {
+                                                                         "en":  "Best Seller"
+                                                                     },
+                                                           "image":  "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1544568100-7cf1b7f9a1d5?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "XS",
+                                                                         "S",
+                                                                         "M",
+                                                                         "L",
+                                                                         "XL"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "White",
+                                                                          "Blue",
+                                                                          "Pink"
+                                                                      ],
+                                                           "isNew":  false,
+                                                           "inStock":  true
+                                                       },
+                                                       {
+                                                           "id":  2,
+                                                           "name":  {
+                                                                        "en":  "Washable Training Pants â€” Eco Set"
+                                                                    },
+                                                           "slug":  "washable-training-pants",
+                                                           "category":  {
+                                                                            "en":  "training-pants"
+                                                                        },
+                                                           "price":  44.99,
+                                                           "compareAtPrice":  59.99,
+                                                           "rating":  4.8,
+                                                           "reviewCount":  215,
+                                                           "badge":  {
+                                                                         "en":  "Eco-Friendly"
+                                                                     },
+                                                           "image":  "https://images.unsplash.com/photo-1544568100-7cf1b7f9a1d5?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "S",
+                                                                         "M",
+                                                                         "L",
+                                                                         "XL"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "Green",
+                                                                          "Gray",
+                                                                          "Beige"
+                                                                      ],
+                                                           "isNew":  false,
+                                                           "inStock":  true
+                                                       },
+                                                       {
+                                                           "id":  3,
+                                                           "name":  {
+                                                                        "en":  "Senior Dog Diapers â€” Maximum Absorbency"
+                                                                    },
+                                                           "slug":  "senior-dog-diapers",
+                                                           "category":  {
+                                                                            "en":  "senior-diapers"
+                                                                        },
+                                                           "price":  34.99,
+                                                           "compareAtPrice":  44.99,
+                                                           "rating":  4.9,
+                                                           "reviewCount":  186,
+                                                           "badge":  {
+                                                                         "en":  "Vet Recommended"
+                                                                     },
+                                                           "image":  "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "M",
+                                                                         "L",
+                                                                         "XL",
+                                                                         "XXL"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "White",
+                                                                          "Beige"
+                                                                      ],
+                                                           "isNew":  false,
+                                                           "inStock":  true
+                                                       },
+                                                       {
+                                                           "id":  4,
+                                                           "name":  {
+                                                                        "en":  "PeeKeeper Dry Mats â€” Waterproof"
+                                                                    },
+                                                           "slug":  "waterproof-dry-mats",
+                                                           "category":  {
+                                                                            "en":  "accessories"
+                                                                        },
+                                                           "price":  19.99,
+                                                           "compareAtPrice":  null,
+                                                           "rating":  4.7,
+                                                           "reviewCount":  94,
+                                                           "badge":  null,
+                                                           "image":  "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "Small",
+                                                                         "Medium",
+                                                                         "Large"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "Gray",
+                                                                          "Blue"
+                                                                      ],
+                                                           "isNew":  true,
+                                                           "inStock":  true
+                                                       },
+                                                       {
+                                                           "id":  5,
+                                                           "name":  {
+                                                                        "en":  "Organic Cotton Diaper Liner â€” 50 Pack"
+                                                                    },
+                                                           "slug":  "organic-cotton-liners",
+                                                           "category":  {
+                                                                            "en":  "eco-friendly"
+                                                                        },
+                                                           "price":  14.99,
+                                                           "compareAtPrice":  18.99,
+                                                           "rating":  4.6,
+                                                           "reviewCount":  67,
+                                                           "badge":  {
+                                                                         "en":  "New"
+                                                                     },
+                                                           "image":  "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "One Size"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "Natural"
+                                                                      ],
+                                                           "isNew":  true,
+                                                           "inStock":  true
+                                                       },
+                                                       {
+                                                           "id":  6,
+                                                           "name":  {
+                                                                        "en":  "Pet Diaper Bag â€” Premium Backpack"
+                                                                    },
+                                                           "slug":  "pet-diaper-bag",
+                                                           "category":  {
+                                                                            "en":  "accessories"
+                                                                        },
+                                                           "price":  59.99,
+                                                           "compareAtPrice":  79.99,
+                                                           "rating":  4.8,
+                                                           "reviewCount":  43,
+                                                           "badge":  {
+                                                                         "en":  "Trending"
+                                                                     },
+                                                           "image":  "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400\u0026q=85",
+                                                           "hoverImage":  "https://images.unsplash.com/photo-1544568100-7cf1b7f9a1d5?w=400\u0026q=85",
+                                                           "sizes":  [
+                                                                         "One Size"
+                                                                     ],
+                                                           "colors":  [
+                                                                          "Black",
+                                                                          "Gray",
+                                                                          "Olive"
+                                                                      ],
+                                                           "isNew":  false,
+                                                           "inStock":  true
+                                                       }
+                                                   ]
+                                  }
+                    }
+                ]
+}

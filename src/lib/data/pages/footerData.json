@@ -1,0 +1,60 @@
+{
+  "brand": {
+    "name": { "en": "PeeKeeper" },
+    "description": { "en": "The original escape-proof dog diaper. Family-owned, USA-made, and trusted by thousands of dog families since 2009. Patented in the USA and Canada." }
+  },
+  "socialLinks": [
+    { "platform": "pinterest", "url": "#" },
+    { "platform": "facebook", "url": "#" },
+    { "platform": "instagram", "url": "#" },
+    { "platform": "tiktok", "url": "#" }
+  ],
+  "quickLinksColumns": [
+    {
+      "title": { "en": "Shop & Products" },
+      "links": [
+        { "label": { "en": "PeeKeeper Diaper" }, "href": "/shop" },
+        { "label": { "en": "Net Wash Bag" }, "href": "/shop" },
+        { "label": { "en": "Bundle Deals" }, "href": "/shop" },
+        { "label": { "en": "Extra Small (XS)" }, "href": "/shop" },
+        { "label": { "en": "Small (SM)" }, "href": "/shop" },
+        { "label": { "en": "Medium (MED)" }, "href": "/shop" },
+        { "label": { "en": "All Colors" }, "href": "/shop" },
+        { "label": { "en": "What's New" }, "href": "/shop" }
+      ]
+    },
+    {
+      "title": { "en": "Quick Links" },
+      "links": [
+        { "label": { "en": "About PeeKeeper" }, "href": "/about" },
+        { "label": { "en": "How to Measure" }, "href": "/faq" },
+        { "label": { "en": "AR Size Tool" }, "href": "/#ar-tool" },
+        { "label": { "en": "Customer Reviews" }, "href": "#" },
+        { "label": { "en": "FAQs" }, "href": "/faq" },
+        { "label": { "en": "Blog & Gallery" }, "href": "#" },
+        { "label": { "en": "Privacy Policy" }, "href": "/privacy" },
+        { "label": { "en": "Return Policy" }, "href": "/returns" }
+      ]
+    }
+  ],
+  "quickLinks": [
+    { "label": { "en": "Shop" }, "href": "/shop" },
+    { "label": { "en": "About" }, "href": "/about" },
+    { "label": { "en": "Contact" }, "href": "/contact" },
+    { "label": { "en": "FAQ" }, "href": "/faq" }
+  ],
+  "contact": {
+    "address": { "en": "Pennsylvania, USA" },
+    "phone": "+1 (Contact via website)",
+    "email": "info@peekeeper.com",
+    "patent": "US Patent # 8302565 · Canada Patent #2771645"
+  },
+  "bottomBar": {
+    "copyright": { "en": "{year} PeeKeeper LLC. All Rights Reserved. PeeKeeper is a registered trademark." },
+    "links": [
+      { "label": { "en": "Privacy Policy" }, "href": "/privacy" },
+      { "label": { "en": "Terms of Service" }, "href": "/terms" },
+      { "label": { "en": "Returns" }, "href": "/returns" }
+    ]
+  }
+}

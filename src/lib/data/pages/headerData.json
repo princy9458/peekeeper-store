@@ -1,0 +1,69 @@
+{
+  "logo": {
+    "text": {
+      "en": "PeeKeeper"
+    },
+    "tagline": {
+      "en": "Escape-Proof Diapers"
+    }
+  },
+  "navigation": [
+    { "label": { "en": "Home" }, "href": "/" },
+    {
+      "label": { "en": "Shop" },
+      "href": "/shop",
+      "megaColumns": [
+        {
+          "title": "Products",
+          "items": [
+            { "label": { "en": "PeeKeeper Diaper" }, "href": "/shop" },
+            { "label": { "en": "Net Wash Bag" }, "href": "/shop" },
+            { "label": { "en": "Bundle & Save" }, "href": "/shop" }
+          ]
+        },
+        {
+          "title": "By Size",
+          "items": [
+            { "label": { "en": "Extra Small (XS)" }, "href": "/shop" },
+            { "label": { "en": "Small (SM)" }, "href": "/shop" },
+            { "label": { "en": "Medium (MED)" }, "href": "/shop" }
+          ]
+        },
+        {
+          "title": "By Color",
+          "items": [
+            { "label": { "en": "Denim" }, "href": "/shop" },
+            { "label": { "en": "Hot Pink" }, "href": "/shop" },
+            { "label": { "en": "Lilac / Peri" }, "href": "/shop" },
+            { "label": { "en": "Fire Engine Red" }, "href": "/shop" }
+          ]
+        }
+      ]
+    },
+    {
+      "label": { "en": "About" },
+      "href": "/about",
+      "megaColumns": [
+        {
+          "title": "Our Story",
+          "items": [
+            { "label": { "en": "About PeeKeeper" }, "href": "/about" },
+            { "label": { "en": "Made in USA" }, "href": "/about" },
+            { "label": { "en": "Our Patent" }, "href": "/about" }
+          ]
+        },
+        {
+          "title": "Resources",
+          "items": [
+            { "label": { "en": "How to Measure" }, "href": "/faq" },
+            { "label": { "en": "Customer Reviews" }, "href": "#" },
+            { "label": { "en": "FAQs" }, "href": "/faq" }
+          ]
+        }
+      ]
+    },
+    { "label": { "en": "Size Finder" }, "href": "/#ar-tool" },
+    { "label": { "en": "Reviews" }, "href": "#" },
+    { "label": { "en": "Contact" }, "href": "/contact" }
+  ]
+}

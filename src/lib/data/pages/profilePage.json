@@ -1,0 +1,65 @@
+{
+    "title":  {
+                  "en":  "Profile Settings"
+              },
+    "slug":  "account/profile",
+    "metaTitle":  {
+                      "en":  "Profile Settings | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Manage your profile"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "profile-main",
+                        "type":  "profile-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Profile Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Profile"
+                                                          },
+                                      "heading":  {
+                                                      "en":  "Profile Settings"
+                                                  },
+                                      "firstNameLabel":  {
+                                                             "en":  "First Name"
+                                                         },
+                                      "firstNamePlaceholder":  {
+                                                                   "en":  "Enter your first name"
+                                                               },
+                                      "lastNameLabel":  {
+                                                            "en":  "Last Name"
+                                                        },
+                                      "lastNamePlaceholder":  {
+                                                                  "en":  "Enter your last name"
+                                                              },
+                                      "emailLabel":  {
+                                                         "en":  "Email"
+                                                     },
+                                      "emailPlaceholder":  {
+                                                               "en":  "Enter your email"
+                                                           },
+                                      "phoneLabel":  {
+                                                         "en":  "Phone"
+                                                     },
+                                      "phonePlaceholder":  {
+                                                               "en":  "Enter your phone number"
+                                                           },
+                                      "saveButtonLabel":  {
+                                                              "en":  "Save Changes"
+                                                          },
+                                      "savingText":  {
+                                                         "en":  "Saving..."
+                                                     },
+                                      "successMessage":  {
+                                                             "en":  "Profile updated successfully."
+                                                         },
+                                      "errorMessage":  {
+                                                           "en":  "Failed to update profile. Please try again."
+                                                       }
+                                  }
+                    }
+                ]
+}

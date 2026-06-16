@@ -1,0 +1,91 @@
+{
+    "title":  {
+                  "en":  "FAQ"
+              },
+    "slug":  "faq",
+    "metaTitle":  {
+                      "en":  "FAQ - PeeKeeper Pet Care"
+                  },
+    "metaDescription":  {
+                            "en":  "Frequently asked questions about PeeKeeper products."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "faq-header-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "FAQ Header",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Frequently Asked Questions"
+                                                  },
+                                      "content":  {
+                                                      "en":  "Find answers to common questions about our products."
+                                                  },
+                                      "alignment":  "center"
+                                  }
+                    },
+                    {
+                        "id":  "faq-accordion-1",
+                        "type":  "faq-accordion",
+                        "layout":  "container",
+                        "adminTitle":  "FAQ Items",
+                        "props":  {
+                                      "sectionTitle":  {
+                                                           "en":  "Product Questions"
+                                                       }
+                                  },
+                        "content":  [
+                                        {
+                                            "id":  "faq-1",
+                                            "type":  "faq-item",
+                                            "props":  {
+                                                          "question":  {
+                                                                           "en":  "How do I choose the right size?"
+                                                                       },
+                                                          "answer":  {
+                                                                         "en":  "Measure your dog\u0027s waist at the narrowest point and refer to our size guide. If between sizes, we recommend sizing up for comfort."
+                                                                     }
+                                                      }
+                                        },
+                                        {
+                                            "id":  "faq-2",
+                                            "type":  "faq-item",
+                                            "props":  {
+                                                          "question":  {
+                                                                           "en":  "Are PeeKeeper diapers reusable?"
+                                                                       },
+                                                          "answer":  {
+                                                                         "en":  "Yes! Our diapers are washable and reusable. Simply machine wash cold and air dry for best results."
+                                                                     }
+                                                      }
+                                        },
+                                        {
+                                            "id":  "faq-3",
+                                            "type":  "faq-item",
+                                            "props":  {
+                                                          "question":  {
+                                                                           "en":  "Do you ship internationally?"
+                                                                       },
+                                                          "answer":  {
+                                                                         "en":  "Yes, we ship to select countries. Shipping costs and times vary by destination."
+                                                                     }
+                                                      }
+                                        },
+                                        {
+                                            "id":  "faq-4",
+                                            "type":  "faq-item",
+                                            "props":  {
+                                                          "question":  {
+                                                                           "en":  "What is your return policy?"
+                                                                       },
+                                                          "answer":  {
+                                                                         "en":  "We offer a 30-day hassle-free return policy. If you\u0027re not satisfied, contact us for a return."
+                                                                     }
+                                                      }
+                                        }
+                                    ]
+                    }
+                ]
+}

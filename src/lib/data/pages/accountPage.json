@@ -1,0 +1,92 @@
+{
+    "title":  {
+                  "en":  "Account"
+              },
+    "slug":  "account",
+    "metaTitle":  {
+                      "en":  "Account | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Manage your account"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "account-main",
+                        "type":  "account-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Account Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Account"
+                                                          },
+                                      "signInHeading":  {
+                                                            "en":  "Sign In"
+                                                        },
+                                      "signInButtonLabel":  {
+                                                                "en":  "Sign In"
+                                                            },
+                                      "createAccountHeading":  {
+                                                                   "en":  "Create Account"
+                                                               },
+                                      "createAccountButtonLabel":  {
+                                                                       "en":  "Create Account"
+                                                                   },
+                                      "emailLabel":  {
+                                                         "en":  "Email"
+                                                     },
+                                      "emailPlaceholder":  {
+                                                               "en":  "Enter your email"
+                                                           },
+                                      "passwordLabel":  {
+                                                            "en":  "Password"
+                                                        },
+                                      "passwordPlaceholder":  {
+                                                                  "en":  "Enter your password"
+                                                              },
+                                      "firstNameLabel":  {
+                                                             "en":  "First Name"
+                                                         },
+                                      "firstNamePlaceholder":  {
+                                                                   "en":  "Enter your first name"
+                                                               },
+                                      "lastNameLabel":  {
+                                                            "en":  "Last Name"
+                                                        },
+                                      "lastNamePlaceholder":  {
+                                                                  "en":  "Enter your last name"
+                                                              },
+                                      "phoneLabel":  {
+                                                         "en":  "Phone"
+                                                     },
+                                      "phonePlaceholder":  {
+                                                               "en":  "Enter your phone number"
+                                                           },
+                                      "toggleToRegisterLabel":  {
+                                                                    "en":  "Don\u0027t have an account? Create one"
+                                                                },
+                                      "toggleToLoginLabel":  {
+                                                                 "en":  "Already have an account? Sign in"
+                                                             },
+                                      "dashboardHeading":  {
+                                                               "en":  "My Account"
+                                                           },
+                                      "menuMyOrdersLabel":  {
+                                                                "en":  "My Orders"
+                                                            },
+                                      "menuProfileLabel":  {
+                                                               "en":  "Profile Settings"
+                                                           },
+                                      "menuLogoutLabel":  {
+                                                              "en":  "Logout"
+                                                          },
+                                      "loadingText":  {
+                                                          "en":  "Loading..."
+                                                      },
+                                      "errorDisplay":  {
+                                                           "en":  "Something went wrong. Please try again."
+                                                       }
+                                  }
+                    }
+                ]
+}

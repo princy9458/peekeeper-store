@@ -1,0 +1,53 @@
+{
+    "title":  {
+                  "en":  "My Wishlist"
+              },
+    "slug":  "wishlist",
+    "metaTitle":  {
+                      "en":  "Wishlist | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Your saved products"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "wishlist-main",
+                        "type":  "wishlist-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Wishlist Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Wishlist"
+                                                          },
+                                      "heading":  {
+                                                      "en":  "My Wishlist"
+                                                  },
+                                      "emptyTitle":  {
+                                                         "en":  "Your wishlist is empty"
+                                                     },
+                                      "emptyDescription":  {
+                                                               "en":  "Save your favorite products and find them here."
+                                                           },
+                                      "emptyCtaLabel":  {
+                                                            "en":  "Browse Products"
+                                                        },
+                                      "removeButtonLabel":  {
+                                                                "en":  "Remove"
+                                                            },
+                                      "addToCartButtonLabel":  {
+                                                                   "en":  "Add to Cart"
+                                                               },
+                                      "sizePrefix":  {
+                                                         "en":  "Size:"
+                                                     },
+                                      "colorPrefix":  {
+                                                          "en":  "Color:"
+                                                      },
+                                      "priceLabel":  {
+                                                         "en":  "Price"
+                                                     }
+                                  }
+                    }
+                ]
+}

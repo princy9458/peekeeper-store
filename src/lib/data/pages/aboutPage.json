@@ -1,0 +1,95 @@
+{
+    "title":  {
+                  "en":  "About PeeKeeper"
+              },
+    "slug":  "about",
+    "metaTitle":  {
+                      "en":  "About Us - PeeKeeper Pet Care"
+                  },
+    "metaDescription":  {
+                            "en":  "Learn about PeeKeeper\u0027s story, mission, and commitment to pet care excellence."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "about-hero-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "About Hero",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Our Story"
+                                                  },
+                                      "content":  {
+                                                      "en":  "Founded in 2009, PeeKeeper has been dedicated to creating escape-proof, comfortable, and reliable pet care solutions. Handmade in Pennsylvania, USA, every product is crafted with love and attention to detail."
+                                                  },
+                                      "alignment":  "center"
+                                  }
+                    },
+                    {
+                        "id":  "about-mission-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Mission",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Our Mission"
+                                                  },
+                                      "content":  {
+                                                      "en":  "To provide pet parents with products that give their beloved companions the freedom, comfort, and dignity they deserve. We believe every dog deserves to live life fully, without limitations."
+                                                  },
+                                      "alignment":  "left"
+                                  }
+                    },
+                    {
+                        "id":  "about-values-1",
+                        "type":  "featured-collections",
+                        "layout":  "container",
+                        "adminTitle":  "Values",
+                        "props":  {
+                                      "sectionTitle":  {
+                                                           "en":  "What We Stand For"
+                                                       },
+                                      "columns":  "3"
+                                  },
+                        "content":  [
+                                        {
+                                            "id":  "val-1",
+                                            "type":  "card",
+                                            "props":  {
+                                                          "title":  {
+                                                                        "en":  "Quality"
+                                                                    },
+                                                          "description":  {
+                                                                              "en":  "Premium materials and meticulous craftsmanship in every product."
+                                                                          }
+                                                      }
+                                        },
+                                        {
+                                            "id":  "val-2",
+                                            "type":  "card",
+                                            "props":  {
+                                                          "title":  {
+                                                                        "en":  "Innovation"
+                                                                    },
+                                                          "description":  {
+                                                                              "en":  "Patented escape-proof design that truly works."
+                                                                          }
+                                                      }
+                                        },
+                                        {
+                                            "id":  "val-3",
+                                            "type":  "card",
+                                            "props":  {
+                                                          "title":  {
+                                                                        "en":  "Community"
+                                                                    },
+                                                          "description":  {
+                                                                              "en":  "Family-owned and committed to our customers and their pets."
+                                                                          }
+                                                      }
+                                        }
+                                    ]
+                    }
+                ]
+}

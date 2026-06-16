@@ -1,0 +1,3775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeeKeeper — The Escape-Proof Dog Diaper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+    <style>
+      /* =============================================
+   DESIGN TOKENS
+============================================= */
+      :root {
+        --cream: #FDF7EF;
+        --cream-dark: #F5EDE0;
+        --blush: #F2B8C6;
+        --blush-dk: #E8899F;
+        --rose: #D9547A;
+        --rose-dk: #B83A60;
+        --sage: #8BAF85;
+        --sage-lt: #B4CDB0;
+        --sage-dk: #5A8C54;
+        --lavender: #C4B5D4;
+        --lav-lt: #E0D8EC;
+        --warm-brown: #3D2E2E;
+        --mid-brown: #6B5555;
+        --muted: #A49090;
+        --white: #FFFFFF;
+        --font-display: 'DM Serif Display', Georgia, serif;
+        --font-body: 'Nunito', sans-serif;
+        --shadow-sm: 0 2px 12px rgba(61, 46, 46, 0.08);
+        --shadow-md: 0 6px 28px rgba(61, 46, 46, 0.12);
+        --shadow-lg: 0 16px 56px rgba(61, 46, 46, 0.16);
+        --radius-sm: 8px;
+        --radius-md: 16px;
+        --radius-lg: 28px;
+        --radius-pill: 100px;
+        --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        --max-w: 1280px;
+      }
+
+      /* =============================================
+   RESET & BASE
+============================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0
+      }
+
+      html {
+        scroll-behavior: smooth
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--cream);
+        color: var(--warm-brown);
+        font-size: 15px;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none
+      }
+
+      ul {
+        list-style: none
+      }
+
+      img {
+        display: block;
+        max-width: 100%
+      }
+
+      button {
+        cursor: pointer;
+        font-family: var(--font-body);
+        border: none;
+        background: none
+      }
+
+      input,
+      select,
+      textarea {
+        font-family: var(--font-body)
+      }
+
+      .container {
+        width: min(var(--max-w), 100%);
+        margin: 0 auto;
+        padding: 0 28px
+      }
+
+      /* =============================================
+   TOPBAR
+============================================= */
+      .topbar {
+        background: var(--rose);
+        text-align: center;
+        padding: 9px 20px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--white);
+        position: relative;
+      }
+
+      .topbar a {
+        color: var(--white);
+        text-decoration: underline;
+        text-underline-offset: 3px
+      }
+
+      .topbar-close {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.25);
+        border: none;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        cursor: pointer;
+        transition: background var(--transition);
+      }
+
+      .topbar-close:hover {
+        background: rgba(255, 255, 255, 0.4)
+      }
+
+      /* =============================================
+   HEADER
+============================================= */
+      .header {
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        border-bottom: 2px solid var(--cream-dark);
+      }
+
+      .header__inner {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 72px;
+        padding: 0 28px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        text-decoration: none
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--rose);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1
+      }
+
+      .logo-text strong {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--warm-brown);
+        letter-spacing: -0.01em;
+      }
+
+      .logo-text span {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--rose);
+      }
+
+      /* Search */
+      .header__search {
+        flex: 1;
+        max-width: 480px;
+        display: flex;
+        align-items: stretch;
+        border: 1.5px solid var(--cream-dark);
+        border-radius: var(--radius-pill);
+        overflow: hidden;
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .header__search:focus-within {
+        border-color: var(--blush-dk);
+        box-shadow: 0 0 0 3px rgba(242, 184, 198, 0.25);
+      }
+
+      .header__search input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 0 18px;
+        font-size: 14px;
+        color: var(--warm-brown);
+        outline: none;
+      }
+
+      .header__search input::placeholder {
+        color: var(--muted)
+      }
+
+      .search-btn {
+        background: var(--rose);
+        color: var(--white);
+        padding: 0 18px;
+        border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: background var(--transition);
+      }
+
+      .search-btn:hover {
+        background: var(--rose-dk)
+      }
+
+      /* Header actions */
+      .header__actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0
+      }
+
+      .hdr-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 8px 12px;
+        border-radius: var(--radius-sm);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--mid-brown);
+        transition: background var(--transition), color var(--transition);
+        position: relative;
+      }
+
+      .hdr-btn:hover {
+        background: var(--cream);
+        color: var(--rose)
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: 4px;
+        right: 8px;
+        background: var(--rose);
+        color: var(--white);
+        font-size: 9px;
+        font-weight: 800;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hdr-cta {
+        background: var(--rose);
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 10px 22px;
+        border-radius: var(--radius-pill);
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+        white-space: nowrap;
+        margin-left: 8px;
+      }
+
+      .hdr-cta:hover {
+        background: var(--rose-dk);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(217, 84, 122, 0.35)
+      }
+
+      /* =============================================
+   NAV
+============================================= */
+      .nav {
+        background: var(--cream);
+        border-bottom: 1px solid var(--cream-dark);
+        position: relative;
+        z-index: 800;
+      }
+
+      .nav__inner {
+        display: flex;
+        align-items: stretch;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: stretch
+      }
+
+      .nav-item>a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0 18px;
+        height: 46px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--mid-brown);
+        transition: color var(--transition), background var(--transition);
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+
+      .nav-item>a:hover,
+      .nav-item.active>a {
+        color: var(--rose);
+        border-bottom-color: var(--rose);
+      }
+
+      .nav-chev {
+        width: 11px;
+        height: 11px;
+        transition: transform var(--transition)
+      }
+
+      .nav-item:hover .nav-chev {
+        transform: rotate(180deg)
+      }
+
+      /* Mega Menu */
+      .mega {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--white);
+        border: 1px solid var(--cream-dark);
+        border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        padding: 28px 32px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px 32px;
+        min-width: 580px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.22s ease;
+        pointer-events: none;
+      }
+
+      .nav-item:hover .mega {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .mega-title {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--cream-dark);
+      }
+
+      .mega-link {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--mid-brown);
+        padding: 5px 0;
+        transition: color var(--transition), padding-left var(--transition);
+      }
+
+      .mega-link:hover {
+        color: var(--rose);
+        padding-left: 5px
+      }
+
+      .mega-link svg {
+        opacity: 0.35;
+        flex-shrink: 0
+      }
+
+      /* =============================================
+   HERO
+============================================= */
+      .hero {
+        background: linear-gradient(135deg, var(--cream) 0%, var(--lav-lt) 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='rgba(242,184,198,0.18)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+        pointer-events: none;
+      }
+
+      .hero__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        padding: 80px 28px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--rose);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: var(--radius-pill);
+        margin-bottom: 20px;
+      }
+
+      .hero-tag svg {
+        flex-shrink: 0
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.05;
+        color: var(--warm-brown);
+        margin-bottom: 22px;
+      }
+
+      .hero-title em {
+        font-style: italic;
+        color: var(--rose)
+      }
+
+      .hero-desc {
+        font-size: 16px;
+        line-height: 1.75;
+        color: var(--mid-brown);
+        max-width: 440px;
+        margin-bottom: 36px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center
+      }
+
+      .btn-primary {
+        background: var(--rose);
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 14px 32px;
+        border-radius: var(--radius-pill);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      }
+
+      .btn-primary:hover {
+        background: var(--rose-dk);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(217, 84, 122, 0.35);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--rose);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        padding: 13px 28px;
+        border-radius: var(--radius-pill);
+        border: 2px solid var(--blush);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      }
+
+      .btn-ghost:hover {
+        background: var(--lav-lt);
+        border-color: var(--rose);
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 28px;
+        margin-top: 36px;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {}
+
+      .hero-stat strong {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 32px;
+        color: var(--rose);
+        line-height: 1;
+      }
+
+      .hero-stat span {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* Hero product showcase */
+      .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-main-img {
+        width: 100%;
+        max-width: 520px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-main-img img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        display: block
+      }
+
+      .hero-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        padding: 14px 18px;
+        box-shadow: var(--shadow-md);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hero-badge svg {
+        color: var(--rose)
+      }
+
+      .hero-badge strong {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 18px;
+        color: var(--warm-brown);
+      }
+
+      .hero-badge span {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em
+      }
+
+      .hero-badge2 {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: var(--rose);
+        border-radius: var(--radius-md);
+        padding: 12px 18px;
+        box-shadow: var(--shadow-md);
+        color: var(--white);
+        font-weight: 800;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .hero-color-dots {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        background: var(--white);
+        padding: 10px 16px;
+        border-radius: var(--radius-pill);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .c-dot {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: transform var(--transition), border-color var(--transition);
+      }
+
+      .c-dot:hover,
+      .c-dot.active {
+        transform: scale(1.2);
+        border-color: var(--warm-brown)
+      }
+
+      /* =============================================
+   TRUST BAR
+============================================= */
+      .trust {
+        background: var(--white);
+        border-top: 1px solid var(--cream-dark);
+        border-bottom: 1px solid var(--cream-dark);
+      }
+
+      .trust__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: var(--max-w);
+        margin: 0 auto;
+        divide-x: 1px solid var(--cream-dark);
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 22px 24px;
+        border-right: 1px solid var(--cream-dark);
+      }
+
+      .trust-item:last-child {
+        border-right: none
+      }
+
+      .trust-icon {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--lav-lt), var(--cream));
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--rose);
+      }
+
+      .trust-info h4 {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--warm-brown);
+        margin-bottom: 2px
+      }
+
+      .trust-info p {
+        font-size: 12px;
+        color: var(--muted)
+      }
+
+      /* =============================================
+   SECTION UTILITY
+============================================= */
+      .section {
+        padding: 80px 0
+      }
+
+      .section-alt {
+        background: var(--cream-dark)
+      }
+
+      .section-white {
+        background: var(--white)
+      }
+
+      .sec-header {
+        text-align: center;
+        margin-bottom: 52px
+      }
+
+      .sec-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 12px;
+      }
+
+      .sec-tag::before,
+      .sec-tag::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 2px;
+        background: var(--blush);
+        border-radius: 2px;
+      }
+
+      .sec-title {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 4vw, 46px);
+        color: var(--warm-brown);
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+
+      .sec-title span {
+        color: var(--rose);
+        font-style: italic
+      }
+
+      .sec-sub {
+        font-size: 16px;
+        color: var(--mid-brown);
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7
+      }
+
+      /* =============================================
+   PRODUCT CARDS
+============================================= */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .product-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--cream-dark);
+        transition: transform var(--transition), box-shadow var(--transition);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-md)
+      }
+
+      .product-img-wrap {
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background: var(--cream);
+        position: relative;
+      }
+
+      .product-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-img-wrap img {
+        transform: scale(1.07)
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 2;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: var(--radius-pill);
+      }
+
+      .badge-sale {
+        background: var(--rose);
+        color: var(--white)
+      }
+
+      .badge-new {
+        background: var(--sage);
+        color: var(--white)
+      }
+
+      .badge-bestseller {
+        background: var(--lavender);
+        color: var(--warm-brown)
+      }
+
+      .product-wishlist {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        z-index: 2;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: color var(--transition), transform var(--transition);
+        border: none;
+      }
+
+      .product-wishlist:hover {
+        color: var(--rose);
+        transform: scale(1.1)
+      }
+
+      .product-info {
+        padding: 20px 22px 22px
+      }
+
+      .product-category {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--sage-dk);
+        margin-bottom: 6px;
+      }
+
+      .product-name {
+        font-family: var(--font-display);
+        font-size: 20px;
+        color: var(--warm-brown);
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+
+      .product-name a:hover {
+        color: var(--rose)
+      }
+
+      .product-stars {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 12px;
+        color: var(--blush-dk);
+      }
+
+      .product-stars span {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 600;
+        margin-left: 4px
+      }
+
+      .product-color-row {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 14px;
+        flex-wrap: wrap
+      }
+
+      .product-swatch {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: transform var(--transition), border-color var(--transition);
+      }
+
+      .product-swatch:hover,
+      .product-swatch.active {
+        transform: scale(1.25);
+        border-color: var(--warm-brown)
+      }
+
+      .product-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .product-price {
+        font-family: var(--font-display);
+        font-size: 24px;
+        color: var(--warm-brown)
+      }
+
+      .product-price-old {
+        font-size: 14px;
+        color: var(--muted);
+        text-decoration: line-through;
+        margin-left: 6px
+      }
+
+      .add-cart-btn {
+        background: var(--rose);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 10px 18px;
+        border-radius: var(--radius-pill);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        border: none;
+        transition: background var(--transition), transform var(--transition);
+      }
+
+      .add-cart-btn:hover {
+        background: var(--rose-dk);
+        transform: translateY(-1px)
+      }
+
+      /* =============================================
+   FEATURES BENTO
+============================================= */
+      .features-bento {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+      }
+
+      .feature-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        padding: 32px 30px;
+        border: 1px solid var(--cream-dark);
+        transition: transform var(--transition), box-shadow var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md)
+      }
+
+      .feature-card.large {
+        grid-column: span 2;
+        display: flex;
+        gap: 28px;
+        align-items: center
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-bottom: 18px;
+      }
+
+      .fi-rose {
+        background: rgba(217, 84, 122, 0.1);
+        color: var(--rose)
+      }
+
+      .fi-sage {
+        background: rgba(139, 175, 133, 0.15);
+        color: var(--sage-dk)
+      }
+
+      .fi-lav {
+        background: rgba(196, 181, 212, 0.2);
+        color: var(--lavender);
+      }
+
+      .fi-lav svg {
+        color: #8B72B8
+      }
+
+      .feature-card h3 {
+        font-family: var(--font-display);
+        font-size: 22px;
+        color: var(--warm-brown);
+        margin-bottom: 10px;
+      }
+
+      .feature-card p {
+        font-size: 14px;
+        color: var(--mid-brown);
+        line-height: 1.7
+      }
+
+      .feature-card.large img {
+        width: 220px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        flex-shrink: 0;
+      }
+
+      /* =============================================
+   AR SIZE TOOL
+============================================= */
+      .ar-section {
+        background: linear-gradient(135deg, var(--warm-brown) 0%, #5A3E3E 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ar-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='rgba(242,184,198,0.08)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+      }
+
+      .ar-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ar-copy .sec-tag {
+        color: var(--blush);
+        margin-bottom: 16px
+      }
+
+      .ar-copy .sec-tag::before,
+      .ar-copy .sec-tag::after {
+        background: rgba(242, 184, 198, 0.4)
+      }
+
+      .ar-copy h2 {
+        font-family: var(--font-display);
+        font-size: clamp(30px, 4vw, 50px);
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 18px;
+      }
+
+      .ar-copy h2 em {
+        color: var(--blush);
+        font-style: italic
+      }
+
+      .ar-copy p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.75;
+        margin-bottom: 28px
+      }
+
+      .ar-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 32px
+      }
+
+      .ar-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius-md);
+        padding: 14px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .ar-step-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--rose);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .ar-step p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        line-height: 1.5
+      }
+
+      .ar-step p strong {
+        color: var(--white)
+      }
+
+      .ar-launch-btn {
+        background: var(--rose);
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 16px 36px;
+        border-radius: var(--radius-pill);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      }
+
+      .ar-launch-btn:hover {
+        background: var(--rose-dk);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(217, 84, 122, 0.45);
+      }
+
+      /* AR Preview Widget */
+      .ar-widget {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .ar-widget-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        background: rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .ar-widget-header span {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .ar-widget-header div {
+        display: flex;
+        gap: 6px
+      }
+
+      .ar-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%
+      }
+
+      .ar-dot-r {
+        background: #FF5F57
+      }
+
+      .ar-dot-y {
+        background: #FEBC2E
+      }
+
+      .ar-dot-g {
+        background: #28C840
+      }
+
+      .ar-viewport {
+        position: relative;
+        height: 320px;
+        background: #0D0D0D;
+        overflow: hidden;
+      }
+
+      #ar-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .ar-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ar-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        padding: 20px;
+      }
+
+      .ar-placeholder svg {
+        opacity: 0.4
+      }
+
+      .ar-placeholder p {
+        font-size: 13px
+      }
+
+      /* AR overlays (shown when camera active or simulated) */
+      .ar-guide-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .ar-guide-overlay svg {
+        width: 100%;
+        height: 100%
+      }
+
+      .ar-controls {
+        padding: 16px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .ar-size-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px
+      }
+
+      .ar-input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px
+      }
+
+      .ar-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .ar-input {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-sm);
+        padding: 9px 13px;
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        transition: border-color var(--transition);
+      }
+
+      .ar-input:focus {
+        border-color: var(--blush)
+      }
+
+      .ar-input::placeholder {
+        color: rgba(255, 255, 255, 0.3)
+      }
+
+      .ar-result {
+        background: rgba(217, 84, 122, 0.15);
+        border: 1px solid rgba(217, 84, 122, 0.3);
+        border-radius: var(--radius-sm);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity var(--transition), transform var(--transition);
+      }
+
+      .ar-result.show {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      .ar-result-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 3px;
+      }
+
+      .ar-result-size {
+        font-family: var(--font-display);
+        font-size: 22px;
+        color: var(--blush);
+      }
+
+      .ar-btn-row {
+        display: flex;
+        gap: 10px
+      }
+
+      .ar-cam-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 11px;
+        border-radius: var(--radius-sm);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        transition: all var(--transition);
+      }
+
+      .ar-cam-btn.primary {
+        background: var(--rose);
+        color: var(--white)
+      }
+
+      .ar-cam-btn.primary:hover {
+        background: var(--rose-dk)
+      }
+
+      .ar-cam-btn.secondary {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .ar-cam-btn.secondary:hover {
+        background: rgba(255, 255, 255, 0.14)
+      }
+
+      /* AR overlay lines (animated) */
+      @keyframes dash {
+        from {
+          stroke-dashoffset: 60
+        }
+
+        to {
+          stroke-dashoffset: 0
+        }
+      }
+
+      @keyframes pulse-ar {
+
+        0%,
+        100% {
+          opacity: 0.6
+        }
+
+        50% {
+          opacity: 1
+        }
+      }
+
+      .ar-line {
+        animation: pulse-ar 2s ease-in-out infinite
+      }
+
+      /* =============================================
+   SIZE GUIDE TABLE
+============================================= */
+      .size-table-wrap {
+        overflow-x: auto
+      }
+
+      .size-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .size-table th {
+        background: var(--rose);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 18px;
+        text-align: left;
+      }
+
+      .size-table th:first-child {
+        border-radius: var(--radius-sm) 0 0 0
+      }
+
+      .size-table th:last-child {
+        border-radius: 0 var(--radius-sm) 0 0
+      }
+
+      .size-table td {
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--cream-dark);
+        color: var(--mid-brown);
+        font-weight: 600;
+      }
+
+      .size-table tr:last-child td {
+        border-bottom: none
+      }
+
+      .size-table tr:hover td {
+        background: var(--cream)
+      }
+
+      .size-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: var(--radius-pill);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .size-xs {
+        background: var(--lav-lt);
+        color: #7A5CA0
+      }
+
+      .size-sm {
+        background: rgba(139, 175, 133, 0.2);
+        color: var(--sage-dk)
+      }
+
+      .size-md {
+        background: rgba(217, 84, 122, 0.1);
+        color: var(--rose)
+      }
+
+      /* =============================================
+   TESTIMONIALS
+============================================= */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .testi-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        padding: 28px 26px;
+        border: 1px solid var(--cream-dark);
+        transition: transform var(--transition), box-shadow var(--transition);
+        position: relative;
+      }
+
+      .testi-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md)
+      }
+
+      .testi-quote {
+        width: 36px;
+        height: 36px;
+        background: var(--lav-lt);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--lavender);
+        margin-bottom: 16px;
+      }
+
+      .testi-quote svg {
+        color: #8B72B8
+      }
+
+      .testi-text {
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--mid-brown);
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .testi-stars {
+        display: flex;
+        gap: 3px;
+        color: var(--rose);
+        margin-bottom: 14px
+      }
+
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-top: 1px solid var(--cream-dark);
+        padding-top: 16px;
+      }
+
+      .testi-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blush), var(--lavender));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 16px;
+        color: var(--white);
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+      }
+
+      .testi-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--warm-brown)
+      }
+
+      .testi-role {
+        font-size: 11px;
+        color: var(--muted)
+      }
+
+      .testi-tag {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--cream);
+        border-radius: var(--radius-pill);
+        padding: 3px 10px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .testi-tag.verified {
+        background: rgba(139, 175, 133, 0.15);
+        color: var(--sage-dk)
+      }
+
+      /* =============================================
+   PRESS LOGOS
+============================================= */
+      .press-logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .press-item {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--cream-dark);
+        background: var(--white);
+        padding: 10px;
+        transition: box-shadow var(--transition), transform var(--transition);
+        filter: grayscale(0.5) opacity(0.7);
+        cursor: pointer;
+      }
+
+      .press-item:hover {
+        filter: grayscale(0) opacity(1);
+        box-shadow: var(--shadow-sm);
+        transform: scale(1.05);
+      }
+
+      .press-item img {
+        height: 60px;
+        width: 160px;
+        object-fit: contain
+      }
+
+      /* =============================================
+   NEWSLETTER
+============================================= */
+      .newsletter {
+        background: linear-gradient(135deg, var(--blush) 0%, var(--lavender) 100%);
+        padding: 70px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .newsletter::before {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        top: -150px;
+        right: -100px;
+        pointer-events: none;
+      }
+
+      .newsletter::after {
+        content: '';
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        bottom: -80px;
+        left: -60px;
+        pointer-events: none;
+      }
+
+      .nl-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .nl-copy h2 {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 4vw, 44px);
+        color: var(--warm-brown);
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+
+      .nl-copy p {
+        font-size: 15px;
+        color: rgba(61, 46, 46, 0.7);
+        line-height: 1.7
+      }
+
+      .nl-form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px
+      }
+
+      .nl-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px
+      }
+
+      .nl-field {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1.5px solid rgba(255, 255, 255, 0.8);
+        border-radius: var(--radius-pill);
+        padding: 13px 20px;
+        color: var(--warm-brown);
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        transition: all var(--transition);
+        backdrop-filter: blur(8px);
+      }
+
+      .nl-field::placeholder {
+        color: rgba(61, 46, 46, 0.45)
+      }
+
+      .nl-field:focus {
+        background: var(--white);
+        border-color: var(--rose);
+        box-shadow: 0 0 0 3px rgba(217, 84, 122, 0.15);
+      }
+
+      .nl-submit {
+        background: var(--warm-brown);
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 14px 28px;
+        border-radius: var(--radius-pill);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      }
+
+      .nl-submit:hover {
+        background: var(--rose);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(61, 46, 46, 0.25);
+      }
+
+      .nl-disclaimer {
+        font-size: 11px;
+        color: rgba(61, 46, 46, 0.5);
+        line-height: 1.6
+      }
+
+      .nl-perks {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+        flex-wrap: wrap
+      }
+
+      .nl-perk {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        color: rgba(61, 46, 46, 0.65);
+      }
+
+      .nl-perk svg {
+        color: var(--rose)
+      }
+
+      /* =============================================
+   FOOTER
+============================================= */
+      .footer {
+        background: var(--warm-brown);
+        padding: 64px 0 0;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .footer__grid {
+        display: grid;
+        grid-template-columns: 280px 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        text-decoration: none;
+      }
+
+      .footer-logo-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--rose);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-logo-icon svg {
+        color: var(--white)
+      }
+
+      .footer-brand-text strong {
+        font-family: var(--font-display);
+        font-size: 18px;
+        color: var(--white);
+        display: block;
+      }
+
+      .footer-brand-text span {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blush)
+      }
+
+      .footer-brand-desc {
+        font-size: 13px;
+        line-height: 1.75;
+        margin-bottom: 20px
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 8px
+      }
+
+      .social-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        transition: background var(--transition), color var(--transition), border-color var(--transition);
+      }
+
+      .social-btn:hover {
+        background: var(--rose);
+        color: var(--white);
+        border-color: var(--rose)
+      }
+
+      .footer-col-title {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blush);
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+      }
+
+      .footer-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color var(--transition), gap var(--transition);
+      }
+
+      .footer-links a::before {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: background var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        gap: 10px
+      }
+
+      .footer-links a:hover::before {
+        background: var(--rose)
+      }
+
+      .footer-contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 14px
+      }
+
+      .footer-contact-item {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start
+      }
+
+      .fci-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: var(--radius-sm);
+        background: rgba(242, 184, 198, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blush);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .fci-text p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5)
+      }
+
+      .fci-text a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 13px;
+        transition: color var(--transition)
+      }
+
+      .fci-text a:hover {
+        color: var(--blush)
+      }
+
+      .footer__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 12px
+      }
+
+      .footer-payments {
+        display: flex;
+        align-items: center;
+        gap: 6px
+      }
+
+      .pay-chip {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.04em;
+      }
+
+      .footer-patent {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.25);
+        margin-top: 6px
+      }
+
+      /* =============================================
+   CART DRAWER
+============================================= */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        backdrop-filter: blur(2px);
+      }
+
+      .overlay.open {
+        opacity: 1;
+        visibility: visible
+      }
+
+      .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 370px;
+        background: var(--white);
+        z-index: 1001;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .cart-drawer.open {
+        transform: translateX(0)
+      }
+
+      .cart-drawer-hdr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 22px;
+        border-bottom: 1px solid var(--cream-dark);
+      }
+
+      .cart-drawer-hdr h3 {
+        font-family: var(--font-display);
+        font-size: 22px;
+        color: var(--warm-brown);
+      }
+
+      .close-x {
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--cream-dark);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        transition: all var(--transition);
+      }
+
+      .close-x:hover {
+        background: var(--cream);
+        color: var(--warm-brown)
+      }
+
+      .cart-empty-state {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        color: var(--muted);
+        text-align: center;
+        padding: 30px;
+      }
+
+      .cart-empty-state svg {
+        opacity: 0.25
+      }
+
+      .cart-items-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px 22px
+      }
+
+      .cart-item {
+        display: flex;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--cream-dark);
+        align-items: center;
+      }
+
+      .cart-item-img {
+        width: 64px;
+        height: 64px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        flex-shrink: 0;
+        background: var(--cream);
+      }
+
+      .cart-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+      }
+
+      .cart-item-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--warm-brown);
+        margin-bottom: 2px
+      }
+
+      .cart-item-sub {
+        font-size: 12px;
+        color: var(--muted)
+      }
+
+      .cart-item-price {
+        font-family: var(--font-display);
+        font-size: 18px;
+        color: var(--warm-brown);
+        margin-left: auto;
+        white-space: nowrap
+      }
+
+      .cart-foot {
+        padding: 18px 22px;
+        border-top: 1px solid var(--cream-dark)
+      }
+
+      .cart-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px
+      }
+
+      .cart-total-row span:first-child {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted)
+      }
+
+      .cart-total-row span:last-child {
+        font-family: var(--font-display);
+        font-size: 24px;
+        color: var(--warm-brown)
+      }
+
+      .checkout-btn {
+        width: 100%;
+        background: var(--rose);
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 15px;
+        border-radius: var(--radius-pill);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background var(--transition);
+      }
+
+      .checkout-btn:hover {
+        background: var(--rose-dk)
+      }
+
+      /* =============================================
+   TOAST
+============================================= */
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%) translateY(16px);
+        background: var(--warm-brown);
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 700;
+        padding: 12px 24px;
+        border-radius: var(--radius-pill);
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+        z-index: 9999;
+        white-space: nowrap;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+      }
+
+      /* Back to top */
+      .back-top {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 44px;
+        height: 44px;
+        background: var(--rose);
+        color: var(--white);
+        border-radius: var(--radius-md);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-md);
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: all var(--transition);
+        z-index: 999;
+      }
+
+      .back-top.show {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      .back-top:hover {
+        background: var(--rose-dk)
+      }
+
+      /* =============================================
+   RESPONSIVE
+============================================= */
+      @media(max-width:1024px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr)
+        }
+
+        .footer__grid {
+          grid-template-columns: 1fr 1fr
+        }
+
+        .features-bento {
+          grid-template-columns: 1fr 1fr
+        }
+
+        .feature-card.large {
+          grid-column: span 2
+        }
+      }
+
+      @media(max-width:820px) {
+        .hero__inner {
+          grid-template-columns: 1fr;
+          gap: 40px
+        }
+
+        .hero-visual {
+          order: -1
+        }
+
+        .ar-inner {
+          grid-template-columns: 1fr;
+          gap: 36px
+        }
+
+        .nl-inner {
+          grid-template-columns: 1fr;
+          gap: 32px
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr
+        }
+
+        .trust__grid {
+          grid-template-columns: 1fr 1fr
+        }
+      }
+
+      @media(max-width:640px) {
+        .header__search {
+          display: none
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr
+        }
+
+        .features-bento {
+          grid-template-columns: 1fr
+        }
+
+        .feature-card.large {
+          grid-column: auto;
+          flex-direction: column
+        }
+
+        .feature-card.large img {
+          width: 100%;
+          height: 180px
+        }
+
+        .footer__grid {
+          grid-template-columns: 1fr
+        }
+
+        .press-logos {
+          gap: 8px
+        }
+
+        .press-item img {
+          width: 110px;
+          height: 44px
+        }
+
+        .trust__grid {
+          grid-template-columns: 1fr
+        }
+
+        .hero-main-img img {
+          height: 320px
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- TOPBAR -->
+    <div class="topbar" id="topbar">
+      Free shipping on all USA orders &mdash; <a href="#">Shop Now</a>
+      <button class="topbar-close" onclick="document.getElementById('topbar').style.display='none'" aria-label="Close">
+        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 10 10">
+          <path d="M1 1l8 8M9 1L1 9" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__inner">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
+          <div class="logo-text">
+            <strong>PeeKeeper</strong>
+            <span>Escape-Proof Diapers</span>
+          </div>
+        </a>
+
+        <!-- Search -->
+        <div class="header__search">
+          <input type="text" placeholder="Search diapers, sizes, accessories...">
+          <button class="search-btn" aria-label="Search">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            Search
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="header__actions">
+          <a href="#" class="hdr-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Account</span>
+          </a>
+          <a href="#" class="hdr-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            <span>Wishlist</span>
+          </a>
+          <button class="hdr-btn" id="cartToggle">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span>Cart</span>
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+          <a href="#shop" class="hdr-cta">Shop Now</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav__inner">
+        <ul style="display:flex;align-items:stretch;width:100%">
+          <li class="nav-item"><a href="#">Home</a></li>
+
+          <li class="nav-item">
+            <a href="#shop">
+              Shop
+              <svg class="nav-chev" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 11 11">
+                <path d="M2 3.5l3.5 4 3.5-4" />
+              </svg>
+            </a>
+            <div class="mega">
+              <div>
+                <div class="mega-title">Products</div>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>PeeKeeper Diaper</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Net Wash Bag</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Bundle &amp; Save</a>
+              </div>
+              <div>
+                <div class="mega-title">By Size</div>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Extra Small (XS)</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Small (SM)</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Medium (MED)</a>
+              </div>
+              <div>
+                <div class="mega-title">By Color</div>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Denim</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Hot Pink</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Lilac / Peri</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Fire Engine Red</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="#">
+              About
+              <svg class="nav-chev" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 11 11">
+                <path d="M2 3.5l3.5 4 3.5-4" />
+              </svg>
+            </a>
+            <div class="mega" style="min-width:400px;grid-template-columns:1fr 1fr">
+              <div>
+                <div class="mega-title">Our Story</div>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>About PeeKeeper</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Made in USA</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Our Patent</a>
+              </div>
+              <div>
+                <div class="mega-title">Resources</div>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>How to Measure</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>Customer Reviews</a>
+                <a href="#" class="mega-link"><svg width="12" height="12" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                  </svg>FAQs</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#ar-tool">Size Finder <span
+                style="background:var(--sage);color:white;font-size:9px;font-weight:800;padding:2px 7px;border-radius:var(--radius-pill);margin-left:4px;letter-spacing:0.06em">AR</span></a>
+          </li>
+          <li class="nav-item"><a href="#">Reviews</a></li>
+          <li class="nav-item"><a href="#">Blog</a></li>
+          <li class="nav-item"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero-copy">
+          <div class="hero-tag">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+            </svg>
+            #1 Escape-Proof Dog Diaper
+          </div>
+          <h1 class="hero-title">
+            Your Dog Deserves<br>
+            <em>Comfort & Freedom</em>
+          </h1>
+          <p class="hero-desc">The only dog diaper that truly stays on. Made from premium cotton fabrics in
+            Pennsylvania, USA. Trusted by thousands of dog families since 2009.</p>
+          <div class="hero-btns">
+            <a href="#shop" class="btn-primary">
+              Shop Now
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#ar-tool" class="btn-ghost">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 3l-4 4-4-4M8 21v-2M16 21v-2" />
+              </svg>
+              AR Size Tool
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><strong>4.86</strong><span>Star Rating</span></div>
+            <div class="hero-stat"><strong>125+</strong><span>Reviews</span></div>
+            <div class="hero-stat"><strong>15+</strong><span>Years of Love</span></div>
+            <div class="hero-stat"><strong>USA</strong><span>Made &amp; Patented</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-main-img" id="heroMainImg">
+            <img id="heroImg" src="https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg"
+              alt="PeeKeeper Dog Diaper - Walnut">
+            <div class="hero-badge">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <div>
+                <strong>Escape-Proof</strong>
+                <span>Patented Design</span>
+              </div>
+            </div>
+            <div class="hero-badge2">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.657 6.343a8 8 0 1 0 0 11.314 8 8 0 0 0 0-11.314zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+              </svg>
+              Made in USA
+            </div>
+          </div>
+          <div class="hero-color-dots">
+            <div class="c-dot active" style="background:#8B6914"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg')"
+              title="Walnut"></div>
+            <div class="c-dot" style="background:#F0A0B8"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg')"
+              title="Pink Begonia"></div>
+            <div class="c-dot" style="background:#8090C8"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/peri-600x450.jpg')"
+              title="Peri"></div>
+            <div class="c-dot" style="background:#C8A0D0"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/lilac-600x450.jpg')"
+              title="Lilac"></div>
+            <div class="c-dot" style="background:#FF5070"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/hot-pink-600x450.jpg')"
+              title="Hot Pink"></div>
+            <div class="c-dot" style="background:#C82020"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/fire-engine-red-600x450.jpg')"
+              title="Fire Red"></div>
+            <div class="c-dot" style="background:#4878A8"
+              onclick="changeHeroColor(this,'https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg')"
+              title="Denim"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="trust">
+      <div class="trust__grid container">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="1" y="3" width="22" height="18" rx="2" />
+              <path d="m1 9h22" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Free US Shipping</h4>
+            <p>On every single order</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>30-Day Returns</h4>
+            <p>Hassle-free guarantee</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path
+                d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>USA Patented</h4>
+            <p>Patent #8302565 &amp; #2771645</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Expert Support</h4>
+            <p>Family-owned, always here</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="sec-header">
+          <div class="sec-tag">Our Collection</div>
+          <h2 class="sec-title">Choose Your Perfect <span>PeeKeeper</span></h2>
+          <p class="sec-sub">7 beautiful colors, 3 sizes, premium cotton fabrics — all made with love in Pennsylvania.
+          </p>
+        </div>
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-bestseller">Best Seller</span>
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+              <img src="https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg"
+                alt="PeeKeeper Diaper Walnut">
+            </div>
+            <div class="product-info">
+              <div class="product-category">Dog Diaper / Unisex</div>
+              <h3 class="product-name"><a href="#">PeeKeeper Diaper — Walnut</a></h3>
+              <div class="product-stars">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <span>4.86 (125)</span>
+              </div>
+              <div class="product-color-row">
+                <div class="product-swatch active" style="background:#8B6914" title="Walnut"></div>
+                <div class="product-swatch" style="background:#F0A0B8" title="Pink Begonia"></div>
+                <div class="product-swatch" style="background:#4878A8" title="Denim"></div>
+                <div class="product-swatch" style="background:#C8A0D0" title="Lilac"></div>
+                <div class="product-swatch" style="background:#FF5070" title="Hot Pink"></div>
+                <div class="product-swatch" style="background:#C82020" title="Fire Red"></div>
+              </div>
+              <div class="product-footer">
+                <div>
+                  <span class="product-price">$46.99</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this,'PeeKeeper Walnut',46.99)">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-new">New</span>
+              <button class="product-wishlist" aria-label="Add to wishlist"><svg width="15" height="15" fill="none"
+                  stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg></button>
+              <img src="https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg" alt="Pink Begonia">
+            </div>
+            <div class="product-info">
+              <div class="product-category">Dog Diaper / Unisex</div>
+              <h3 class="product-name"><a href="#">PeeKeeper Diaper — Pink Begonia</a></h3>
+              <div class="product-stars">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <span>4.5 (88)</span>
+              </div>
+              <div class="product-color-row">
+                <div class="product-swatch" style="background:#8B6914" title="Walnut"></div>
+                <div class="product-swatch active" style="background:#F0A0B8" title="Pink Begonia"></div>
+                <div class="product-swatch" style="background:#8090C8" title="Peri"></div>
+              </div>
+              <div class="product-footer">
+                <span class="product-price">$46.99</span>
+                <button class="add-cart-btn" onclick="addToCart(this,'PeeKeeper Pink Begonia',46.99)">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-sale">Bundle</span>
+              <button class="product-wishlist" aria-label="Add to wishlist"><svg width="15" height="15" fill="none"
+                  stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg></button>
+              <img src="https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg" alt="Denim">
+            </div>
+            <div class="product-info">
+              <div class="product-category">Dog Diaper + Net Bag</div>
+              <h3 class="product-name"><a href="#">PeeKeeper Bundle — Denim + Net Bag</a></h3>
+              <div class="product-stars">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+                <span>5.0 (34)</span>
+              </div>
+              <div class="product-color-row">
+                <div class="product-swatch active" style="background:#4878A8" title="Denim"></div>
+                <div class="product-swatch" style="background:#C82020" title="Fire Red"></div>
+              </div>
+              <div class="product-footer">
+                <div>
+                  <span class="product-price">$49.99</span>
+                  <span class="product-price-old">$55.89</span>
+                </div>
+                <button class="add-cart-btn" onclick="addToCart(this,'PeeKeeper Bundle',49.99)">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES BENTO -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="sec-header">
+          <div class="sec-tag">Why PeeKeeper</div>
+          <h2 class="sec-title">Engineered for <span>Real Life</span></h2>
+        </div>
+        <div class="features-bento">
+
+          <div class="feature-card large">
+            <img src="https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg" alt="Size Guide">
+            <div>
+              <div class="feature-icon fi-rose">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3>Truly Escape-Proof</h3>
+              <p>Our patented Velcro and strap system wraps around the torso — not just the belly. Dogs that have
+                escaped every other diaper can't get out of PeeKeeper.</p>
+              <a href="#"
+                style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--rose);margin-top:14px">
+                See How It Works
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon fi-sage">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              </svg>
+            </div>
+            <h3>Premium Cotton Fabrics</h3>
+            <p>From 100% cotton denim to pima cotton and flannel — soft, breathable, and gentle on your dog's skin.
+              Machine washable for life.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon fi-lav">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72" />
+                <path d="M10.5 21.39a10.9 10.9 0 0 1-8.5-8.5" />
+              </svg>
+            </div>
+            <h3>Made in Pennsylvania, USA</h3>
+            <p>A family-owned business since 2009 that supports American jobs and takes pride in every diaper we ship.
+              Patented in both the USA and Canada.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon fi-rose">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3>Works with Any Pad</h3>
+            <p>Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad — no need
+              to wash after every use.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AR SIZE TOOL -->
+    <section class="ar-section" id="ar-tool">
+      <div class="ar-inner">
+        <div class="ar-copy">
+          <div class="sec-tag">Smart Sizing</div>
+          <h2>Find the Perfect Fit with <em>AR Preview</em></h2>
+          <p>Not sure which size fits your dog? Use our interactive AR Size Tool — point your camera at your dog and our
+            guide overlays exactly where to measure.</p>
+
+          <div class="ar-steps">
+            <div class="ar-step">
+              <div class="ar-step-num">1</div>
+              <p><strong>Allow camera access</strong> when prompted — your privacy is protected, no images are stored.
+              </p>
+            </div>
+            <div class="ar-step">
+              <div class="ar-step-num">2</div>
+              <p><strong>Point at your dog</strong> — the AR overlay shows exactly where to measure waist and length.
+              </p>
+            </div>
+            <div class="ar-step">
+              <div class="ar-step-num">3</div>
+              <p><strong>Enter your measurements</strong> and get an instant size recommendation with one click.</p>
+            </div>
+          </div>
+          <button class="ar-launch-btn" onclick="launchAR()">
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 3l-4 4-4-4M8 21v-2M16 21v-2" />
+            </svg>
+            Launch AR Camera
+          </button>
+        </div>
+
+        <!-- AR WIDGET -->
+        <div class="ar-widget">
+          <div class="ar-widget-header">
+            <span>PeeKeeper AR Size Finder</span>
+            <div>
+              <div class="ar-dot ar-dot-r"></div>
+              <div class="ar-dot ar-dot-y"></div>
+              <div class="ar-dot ar-dot-g"></div>
+            </div>
+          </div>
+
+          <!-- Camera Viewport -->
+          <div class="ar-viewport" id="arViewport">
+            <video id="ar-video" autoplay muted playsinline></video>
+
+            <!-- Placeholder shown when no camera -->
+            <div class="ar-overlay" id="arPlaceholder">
+              <div class="ar-placeholder">
+                <svg width="60" height="60" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"
+                  viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 3l-4 4-4-4M8 21v-2M16 21v-2" />
+                </svg>
+                <p>Click "Launch AR Camera" to begin<br>or enter measurements manually below</p>
+              </div>
+            </div>
+
+            <!-- AR Guide Overlay (shown when camera is active or simulating) -->
+            <div class="ar-guide-overlay" id="arGuideOverlay" style="display:none">
+              <svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dog silhouette hint -->
+                <ellipse cx="270" cy="190" rx="140" ry="75" fill="none" stroke="rgba(255,255,255,0.12)"
+                  stroke-width="1.5" stroke-dasharray="8,5" />
+                <!-- Waist measurement arc -->
+                <path class="ar-line" d="M210 170 Q270 145 330 170" fill="none" stroke="#F2B8C6" stroke-width="2.5"
+                  stroke-dasharray="6,4" />
+                <circle cx="210" cy="170" r="5" fill="#F2B8C6" class="ar-line" />
+                <circle cx="330" cy="170" r="5" fill="#F2B8C6" class="ar-line" />
+                <!-- Waist label -->
+                <rect x="230" y="132" width="82" height="24" rx="5" fill="rgba(217,84,122,0.85)" />
+                <text x="271" y="149" text-anchor="middle" fill="white" font-size="11" font-family="Nunito,sans-serif"
+                  font-weight="700">WAIST</text>
+                <!-- Waist tick lines -->
+                <line x1="210" y1="165" x2="210" y2="178" stroke="#F2B8C6" stroke-width="2" class="ar-line" />
+                <line x1="330" y1="165" x2="330" y2="178" stroke="#F2B8C6" stroke-width="2" class="ar-line" />
+
+                <!-- Length measurement -->
+                <line class="ar-line" x1="150" y1="190" x2="385" y2="190" stroke="#B4CDB0" stroke-width="2.5"
+                  stroke-dasharray="6,4" />
+                <circle cx="150" cy="190" r="5" fill="#8BAF85" class="ar-line" />
+                <circle cx="385" cy="190" r="5" fill="#8BAF85" class="ar-line" />
+                <!-- Length label -->
+                <rect x="228" y="196" width="84" height="24" rx="5" fill="rgba(90,140,84,0.85)" />
+                <text x="270" y="213" text-anchor="middle" fill="white" font-size="11" font-family="Nunito,sans-serif"
+                  font-weight="700">LENGTH</text>
+                <!-- Length tick lines -->
+                <line x1="150" y1="183" x2="150" y2="200" stroke="#8BAF85" stroke-width="2" class="ar-line" />
+                <line x1="385" y1="183" x2="385" y2="200" stroke="#8BAF85" stroke-width="2" class="ar-line" />
+
+                <!-- Corner guide brackets -->
+                <path d="M30 30 L30 60 M30 30 L60 30" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+                <path d="M510 30 L510 60 M510 30 L480 30" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+                <path d="M30 290 L30 260 M30 290 L60 290" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+                <path d="M510 290 L510 260 M510 290 L480 290" fill="none" stroke="rgba(255,255,255,0.4)"
+                  stroke-width="2" />
+
+                <!-- Scanning line -->
+                <line id="scanLine" x1="0" y1="160" x2="540" y2="160" stroke="rgba(242,184,198,0.4)"
+                  stroke-width="1.5" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Controls Panel -->
+          <div class="ar-controls">
+            <div class="ar-size-row">
+              <div class="ar-input-group">
+                <label class="ar-label">Waist (inches)</label>
+                <input type="number" class="ar-input" id="waistInput" placeholder="e.g. 14" min="5" max="30"
+                  oninput="calcSize()">
+              </div>
+              <div class="ar-input-group">
+                <label class="ar-label">Length (inches)</label>
+                <input type="number" class="ar-input" id="lengthInput" placeholder="e.g. 15" min="8" max="25"
+                  oninput="calcSize()">
+              </div>
+            </div>
+
+            <div class="ar-result" id="arResult">
+              <div>
+                <div class="ar-result-label">Recommended Size</div>
+                <div class="ar-result-size" id="arResultSize"></div>
+              </div>
+              <div style="text-align:right">
+                <div class="ar-result-label">Available Lengths</div>
+                <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.8)" id="arResultLengths"></div>
+              </div>
+            </div>
+
+            <div class="ar-btn-row">
+              <button class="ar-cam-btn primary" id="arCamBtn" onclick="launchAR()">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 3l-4 4-4-4" />
+                </svg>
+                Start Camera
+              </button>
+              <button class="ar-cam-btn secondary" onclick="simulateAR()">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                Show Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIZE TABLE -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="sec-header">
+          <div class="sec-tag">Sizing Guide</div>
+          <h2 class="sec-title">Find Your Dog's <span>Perfect Size</span></h2>
+          <p class="sec-sub">Measure waist 1 inch in front of hind legs. Measure length from collar base to tail.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+          <div class="size-table-wrap">
+            <table class="size-table">
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Waist</th>
+                  <th>Available Lengths</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="size-tag size-xs">Extra Small</span></td>
+                  <td>9" to 12"</td>
+                  <td>10" to 12"</td>
+                  <td>min. 5 lbs</td>
+                </tr>
+                <tr>
+                  <td><span class="size-tag size-sm">Small</span></td>
+                  <td>13" to 16"</td>
+                  <td>12" to 16"</td>
+                  <td>varies</td>
+                </tr>
+                <tr>
+                  <td><span class="size-tag size-md">Medium</span></td>
+                  <td>17" to 21"</td>
+                  <td>14" to 18"</td>
+                  <td>max. 40 lbs</td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              style="margin-top:14px;padding:14px;background:var(--lav-lt);border-radius:var(--radius-sm);font-size:13px;color:var(--mid-brown)">
+              <strong>Tip:</strong> Use a soft flexible tape measure. If between sizes, choose the larger size for
+              comfort.
+            </div>
+          </div>
+          <img src="https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg" alt="How to measure your dog"
+            style="border-radius:var(--radius-lg);width:100%;max-height:340px;object-fit:cover;box-shadow:var(--shadow-md)">
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="sec-header">
+          <div class="sec-tag">Happy Families</div>
+          <h2 class="sec-title">Dogs (and Owners) <span>Love PeeKeeper</span></h2>
+          <p class="sec-sub">Over 125 verified reviews and counting. Read what real customers are saying.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card">
+            <span class="testi-tag verified">Verified</span>
+            <div class="testi-quote"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg></div>
+            <p class="testi-text">"Amazing product… changed my dog's life! Around here we call them magic pants. Nothing
+              else has ever stayed on her."</p>
+            <div class="testi-stars">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+            </div>
+            <div class="testi-author">
+              <div class="testi-avatar">R</div>
+              <div>
+                <div class="testi-name">Rimmie</div>
+                <div class="testi-role">Dachshund Mom</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <span class="testi-tag verified">Verified</span>
+            <div class="testi-quote"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg></div>
+            <p class="testi-text">"Dog saver, carpet saver, wood floor saver, tile grout saver — most of all, marriage
+              saver!!! Five years of daily use and still going strong."</p>
+            <div class="testi-stars">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+            </div>
+            <div class="testi-author">
+              <div class="testi-avatar">C</div>
+              <div>
+                <div class="testi-name">C***** — Old Mini Doxie Dad</div>
+                <div class="testi-role">14-yr Dachshund Owner</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <span class="testi-tag verified">Verified</span>
+            <div class="testi-quote"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg></div>
+            <p class="testi-text">"This is truly a life-changing product. She's almost 8 years old now, and she's owned
+              MANY of these over the years. They've become integrated into our daily routine."</p>
+            <div class="testi-stars">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+            </div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,var(--sage-lt),var(--lavender))">
+                <img src="https://peekeeper.com/wp-content/uploads/2019/04/20230724_134149-225x300.jpg"
+                  alt="Sweetie Wheatie">
+              </div>
+              <div>
+                <div class="testi-name">S******* L****** — Sweetie Wheatie</div>
+                <div class="testi-role">Ectopic Ureter, 8 years of use</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <a href="#" class="btn-ghost" style="display:inline-flex">
+            Read All 125 Reviews
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="sec-header">
+          <div class="sec-tag">As Featured In</div>
+          <h2 class="sec-title">Loved by the <span>Pet Community</span></h2>
+        </div>
+        <div class="press-logos">
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/Cesars_Way_1_1.jpg"
+              alt="Cesar's Way"></div>
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/Modern_Dog.jpg"
+              alt="Modern Dog"></div>
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/FIDO_FRIENDLY.jpg"
+              alt="Fido Friendly"></div>
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/hamptons-pet-magazine.jpg"
+              alt="Hamptons Pet"></div>
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/Doxie_Digest_Fall_1.jpg"
+              alt="Doxie Digest"></div>
+          <div class="press-item"><img src="https://peekeeper.com/wp-content/uploads/2022/04/dog-fancy-1.jpg"
+              alt="Dog Fancy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="container nl-inner">
+        <div class="nl-copy">
+          <h2>Join the PeeKeeper Family</h2>
+          <p>Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you —
+            delivered to your inbox.</p>
+          <div class="nl-perks">
+            <div class="nl-perk">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              10% off first order
+            </div>
+            <div class="nl-perk">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              New color drops
+            </div>
+            <div class="nl-perk">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Size guides &amp; tips
+            </div>
+          </div>
+        </div>
+        <div>
+          <form class="nl-form" onsubmit="nlSubmit(event)">
+            <div class="nl-row">
+              <input class="nl-field" type="text" placeholder="Your name" required>
+              <input class="nl-field" type="text" placeholder="Dog's name">
+            </div>
+            <input class="nl-field" type="email" placeholder="Your email address" required>
+            <button type="submit" class="nl-submit">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M22 2L11 13" />
+                <path d="M22 2L15 22l-4-9-9-4z" />
+              </svg>
+              Subscribe &amp; Get 10% Off
+            </button>
+            <p class="nl-disclaimer">No spam, ever. You can unsubscribe any time. We'll never share your data.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <!-- Brand -->
+          <div>
+            <a href="#" class="footer-brand-logo">
+              <div class="footer-logo-icon">
+                <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </div>
+              <div class="footer-brand-text">
+                <strong>PeeKeeper</strong>
+                <span>Escape-Proof Diapers</span>
+              </div>
+            </a>
+            <p class="footer-brand-desc">The original escape-proof dog diaper. Family-owned, USA-made, and trusted by
+              thousands of dog families since 2009. Patented in the USA and Canada.</p>
+            <div class="footer-socials">
+              <a href="#" class="social-btn" aria-label="Pinterest">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Facebook">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="TikTok">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.02a8.16 8.16 0 0 0 4.77 1.52V7.1a4.85 4.85 0 0 1-1-.41z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Nav Col 1: Shop & Products -->
+          <div>
+            <div class="footer-col-title">Shop & Products</div>
+            <ul class="footer-links">
+              <li><a href="#">PeeKeeper Diaper</a></li>
+              <li><a href="#">Net Wash Bag</a></li>
+              <li><a href="#">Bundle Deals</a></li>
+              <li><a href="#">Extra Small (XS)</a></li>
+              <li><a href="#">Small (SM)</a></li>
+              <li><a href="#">Medium (MED)</a></li>
+              <li><a href="#">All Colors</a></li>
+              <li><a href="#">What's New</a></li>
+            </ul>
+            <div class="footer-patent">US Patent # 8302565 &bull; Canada Patent #2771645</div>
+          </div>
+
+          <!-- Nav Col 2: Quick Links -->
+          <div>
+            <div class="footer-col-title">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="#">About PeeKeeper</a></li>
+              <li><a href="#">How to Measure</a></li>
+              <li><a href="#">AR Size Tool</a></li>
+              <li><a href="#">Customer Reviews</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Blog &amp; Gallery</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Return Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <div class="footer-col-title">Get in Touch</div>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <div class="fci-icon">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div class="fci-text">
+                  <p>Email Us</p>
+                  <a href="mailto:info@PeeKeeper.com">info@PeeKeeper.com</a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">
+                  <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                  </svg>
+                </div>
+                <div class="fci-text">
+                  <p>Made in Pennsylvania, USA</p>
+                  <a href="#">Family-Owned Since 2009</a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div class="fci-text">
+                  <p>Response Time</p>
+                  <a href="#">Within 1 Business Day</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer-copy">&copy; 2025 PeeKeeper LLC. All Rights Reserved. PeeKeeper is inspired by PeeKeeper&reg;
+            LLC.</p>
+          <div class="footer-payments">
+            <span
+              style="font-size:11px;color:rgba(255,255,255,0.25);margin-right:6px;letter-spacing:0.06em;text-transform:uppercase">Secure</span>
+            <span class="pay-chip">Visa</span>
+            <span class="pay-chip">MC</span>
+            <span class="pay-chip">Amex</span>
+            <span class="pay-chip">PayPal</span>
+            <span class="pay-chip">Discover</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART DRAWER -->
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-hdr">
+        <h3>Your Cart (<span id="cartItemCount">0</span>)</h3>
+        <button class="close-x" onclick="closeCart()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="cart-empty-state" id="cartEmpty">
+        <svg width="54" height="54" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+        <p style="font-size:14px">Your cart is empty.</p>
+        <a href="#shop" class="btn-primary" onclick="closeCart()" style="font-size:13px;padding:11px 24px">Start
+          Shopping</a>
+      </div>
+      <div id="cartItemsList" class="cart-items-list" style="display:none"></div>
+      <div class="cart-foot" id="cartFoot" style="display:none">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="checkout-btn">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+          </svg>
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+      /* ==========================================
+         HERO COLOR SWITCHER
+      ========================================== */
+      function changeHeroColor(dot, imgUrl) {
+        document.querySelectorAll('.c-dot').forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        const img = document.getElementById('heroImg');
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.96)';
+        img.style.transition = 'opacity 0.3s, transform 0.3s';
+        setTimeout(() => {
+          img.src = imgUrl;
+          img.onload = () => {
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+          };
+        }, 250);
+      }
+
+      /* ==========================================
+         AR SIZE TOOL
+      ========================================== */
+      let arStream = null;
+      let scanAnim = null;
+
+      function launchAR() {
+        const video = document.getElementById('ar-video');
+        const placeholder = document.getElementById('arPlaceholder');
+        const guideOverlay = document.getElementById('arGuideOverlay');
+        const camBtn = document.getElementById('arCamBtn');
+
+        if (arStream) {
+          // Camera already running, stop it
+          arStream.getTracks().forEach(t => t.stop());
+          arStream = null;
+          video.srcObject = null;
+          placeholder.style.display = 'flex';
+          guideOverlay.style.display = 'none';
+          clearInterval(scanAnim);
+          camBtn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg> Start Camera`;
+          return;
+        }
+
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          showToast('Camera not supported on this device. Use the Demo mode.');
+          simulateAR();
+          return;
+        }
+
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+          .then(stream => {
+            arStream = stream;
+            video.srcObject = stream;
+            video.play();
+            placeholder.style.display = 'none';
+            guideOverlay.style.display = 'block';
+            startScanLine();
+            camBtn.innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg> Stop Camera`;
+            showToast('Camera active — point at your dog to measure');
+          })
+          .catch(() => {
+            showToast('Camera access denied. Showing demo overlay.');
+            simulateAR();
+          });
+      }
+
+      function simulateAR() {
+        const placeholder = document.getElementById('arPlaceholder');
+        const guideOverlay = document.getElementById('arGuideOverlay');
+        placeholder.style.display = 'none';
+        guideOverlay.style.display = 'block';
+        // Show a gradient background to simulate camera
+        document.getElementById('arViewport').style.background = 'linear-gradient(135deg, #1a1a2e 0%, #2d1b32 50%, #1a2a1a 100%)';
+        startScanLine();
+        showToast('AR Demo Mode — showing measurement overlay');
+      }
+
+      function startScanLine() {
+        const line = document.getElementById('scanLine');
+        if (!line) return;
+        let y = 0;
+        let dir = 1;
+        clearInterval(scanAnim);
+        scanAnim = setInterval(() => {
+          y += 1.5 * dir;
+          if (y >= 300) dir = -1;
+          if (y <= 10) dir = 1;
+          line.setAttribute('y1', y);
+          line.setAttribute('y2', y);
+        }, 20);
+      }
+
+      /* ==========================================
+         SIZE CALCULATOR
+      ========================================== */
+      function calcSize() {
+        const waist = parseFloat(document.getElementById('waistInput').value);
+        const length = parseFloat(document.getElementById('lengthInput').value);
+        const result = document.getElementById('arResult');
+        const sizeEl = document.getElementById('arResultSize');
+        const lengthsEl = document.getElementById('arResultLengths');
+
+        if (!waist || waist < 5) { result.classList.remove('show'); return; }
+
+        let size, lengths, note;
+        if (waist >= 9 && waist <= 12) {
+          size = 'Extra Small (XS)'; lengths = '10" – 12"';
+        } else if (waist >= 13 && waist <= 16) {
+          size = 'Small (SM)'; lengths = '12" – 16"';
+        } else if (waist >= 17 && waist <= 21) {
+          size = 'Medium (MED)'; lengths = '14" – 18"';
+        } else if (waist < 9) {
+          size = 'Too Small'; lengths = 'Contact us';
+        } else {
+          size = 'Too Large'; lengths = 'Contact us';
+        }
+
+        sizeEl.textContent = size;
+        lengthsEl.textContent = lengths;
+        result.classList.add('show');
+      }
+
+      /* ==========================================
+         CART
+      ========================================== */
+      let cart = [];
+      function addToCart(btn, name, price) {
+        cart.push({ name, price });
+        updateCart();
+        openCart();
+        showToast('Added to cart: ' + name);
+
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Added!';
+        btn.style.background = 'var(--sage-dk)';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 2200);
+      }
+
+      function removeFromCart(i) {
+        cart.splice(i, 1);
+        updateCart();
+      }
+
+      function updateCart() {
+        const count = cart.length;
+        document.getElementById('cartCount').textContent = count;
+        document.getElementById('cartItemCount').textContent = count;
+        const total = cart.reduce((s, i) => s + i.price, 0);
+        document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+
+        const empty = document.getElementById('cartEmpty');
+        const list = document.getElementById('cartItemsList');
+        const foot = document.getElementById('cartFoot');
+
+        if (count === 0) {
+          empty.style.display = 'flex'; list.style.display = 'none'; foot.style.display = 'none';
+        } else {
+          empty.style.display = 'none'; list.style.display = 'block'; foot.style.display = 'block';
+          list.innerHTML = cart.map((item, i) => `
+      <div class="cart-item">
+        <div class="cart-item-img">
+          <img src="https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg" alt="${item.name}" onerror="this.style.display='none'">
+        </div>
+        <div style="flex:1">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-sub">Qty: 1</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+          <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+          <button onclick="removeFromCart(${i})" style="background:var(--cream);border:1px solid var(--cream-dark);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='#FFE0E8';this.style.color='var(--rose)'" onmouseout="this.style.background='var(--cream)';this.style.color='var(--muted)'">Remove</button>
+        </div>
+      </div>
+    `).join('');
+        }
+      }
+
+      function openCart() {
+        document.getElementById('overlay').classList.add('open');
+        document.getElementById('cartDrawer').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCart() {
+        document.getElementById('overlay').classList.remove('open');
+        document.getElementById('cartDrawer').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('cartToggle').addEventListener('click', () => {
+        if (document.getElementById('cartDrawer').classList.contains('open')) closeCart();
+        else openCart();
+      });
+
+      /* ==========================================
+         TOAST
+      ========================================== */
+      function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+      }
+
+      /* ==========================================
+         NEWSLETTER
+      ========================================== */
+      function nlSubmit(e) {
+        e.preventDefault();
+        showToast('Welcome to the PeeKeeper family! Check your inbox for 10% off.');
+        e.target.reset();
+      }
+
+      /* ==========================================
+         BACK TO TOP
+      ========================================== */
+      window.addEventListener('scroll', () => {
+        document.getElementById('backTop').classList.toggle('show', window.scrollY > 500);
+      });
+
+      /* ==========================================
+         WISHLIST TOGGLE
+      ========================================== */
+      document.querySelectorAll('.product-wishlist').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const isActive = this.style.color === 'var(--rose)' || this.getAttribute('data-active') === '1';
+          if (!isActive) {
+            this.style.color = 'var(--rose)';
+            this.setAttribute('data-active', '1');
+            showToast('Added to wishlist');
+          } else {
+            this.style.color = '';
+            this.setAttribute('data-active', '0');
+            showToast('Removed from wishlist');
+          }
+        });
+      });
+
+      /* ==========================================
+         TOPBAR AUTO-DISMISS
+      ========================================== */
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 200 && document.getElementById('topbar')) {
+          document.getElementById('topbar').style.maxHeight = '0';
+          document.getElementById('topbar').style.padding = '0';
+          document.getElementById('topbar').style.overflow = 'hidden';
+          document.getElementById('topbar').style.transition = 'all 0.4s';
+        }
+      });
+    </script>
+  </body>
+
+</html>

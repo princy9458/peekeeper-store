@@ -1,0 +1,630 @@
+{
+    "title":  {
+                  "en":  "Home"
+              },
+    "slug":  "home",
+    "metaTitle":  {
+                      "en":  "PeeKeeper - Escape-Proof Pet Care Solutions"
+                  },
+    "metaDescription":  {
+                            "en":  "Discover premium pet care products, dog diapers, and pet hygiene solutions."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "hero-1",
+                        "type":  "hero",
+                        "layout":  "full-width",
+                        "adminTitle":  "Hero",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "#1 Escape-Proof Dog Diaper"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Your Dog Deserves Comfort \u0026 Freedom"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "The only dog diaper that truly stays on. Made from premium cotton fabrics in Pennsylvania, USA. Trusted by thousands of dog families since 2009."
+                                                     },
+                                      "image":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg",
+                                      "cta":  {
+                                                  "label":  {
+                                                                "en":  "Shop Now"
+                                                            },
+                                                  "href":  "/shop"
+                                              },
+                                      "secondaryCta":  {
+                                                           "label":  {
+                                                                         "en":  "AR Size Tool"
+                                                                     },
+                                                           "href":  "#ar-tool"
+                                                       },
+                                      "stats":  [
+                                                    {
+                                                        "value":  {
+                                                                      "en":  "4.86"
+                                                                  },
+                                                        "label":  {
+                                                                      "en":  "Star Rating"
+                                                                  }
+                                                    },
+                                                    {
+                                                        "value":  {
+                                                                      "en":  "125+"
+                                                                  },
+                                                        "label":  {
+                                                                      "en":  "Reviews"
+                                                                  }
+                                                    },
+                                                    {
+                                                        "value":  {
+                                                                      "en":  "15+"
+                                                                  },
+                                                        "label":  {
+                                                                      "en":  "Years of Love"
+                                                                  }
+                                                    },
+                                                    {
+                                                        "value":  {
+                                                                      "en":  "USA"
+                                                                  },
+                                                        "label":  {
+                                                                      "en":  "Made \u0026 Patented"
+                                                                  }
+                                                    }
+                                                ],
+                                      "colors":  [
+                                                     {
+                                                         "name":  "Walnut",
+                                                         "hex":  "#8B6914",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Pink Begonia",
+                                                         "hex":  "#F0A0B8",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Peri",
+                                                         "hex":  "#8090C8",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/peri-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Lilac",
+                                                         "hex":  "#C8A0D0",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/lilac-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Hot Pink",
+                                                         "hex":  "#FF5070",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/hot-pink-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Fire Red",
+                                                         "hex":  "#C82020",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/fire-engine-red-600x450.jpg"
+                                                     },
+                                                     {
+                                                         "name":  "Denim",
+                                                         "hex":  "#4878A8",
+                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg"
+                                                     }
+                                                 ],
+                                      "badges":  [
+                                                     {
+                                                         "icon":  "shield",
+                                                         "title":  {
+                                                                       "en":  "Escape-Proof"
+                                                                   },
+                                                         "subtitle":  {
+                                                                          "en":  "Patented Design"
+                                                                      }
+                                                     },
+                                                     {
+                                                         "icon":  "map",
+                                                         "title":  {
+                                                                       "en":  "Made in USA"
+                                                                   },
+                                                         "subtitle":  {
+                                                                          "en":  ""
+                                                                      }
+                                                     }
+                                                 ]
+                                  }
+                    },
+                    {
+                        "id":  "trust-1",
+                        "type":  "trustBadges",
+                        "layout":  "full-width",
+                        "adminTitle":  "Trust Bar",
+                        "props":  {
+                                      "items":  [
+                                                    {
+                                                        "icon":  "card",
+                                                        "title":  {
+                                                                      "en":  "Free US Shipping"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "On every single order"
+                                                                        }
+                                                    },
+                                                    {
+                                                        "icon":  "shield",
+                                                        "title":  {
+                                                                      "en":  "30-Day Returns"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "Hassle-free guarantee"
+                                                                        }
+                                                    },
+                                                    {
+                                                        "icon":  "globe",
+                                                        "title":  {
+                                                                      "en":  "USA Patented"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "Patent #8302565 \u0026 #2771645"
+                                                                        }
+                                                    },
+                                                    {
+                                                        "icon":  "phone",
+                                                        "title":  {
+                                                                      "en":  "Expert Support"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "Family-owned, always here"
+                                                                        }
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "featured-products-1",
+                        "type":  "featuredProducts",
+                        "layout":  "container",
+                        "adminTitle":  "Featured Products",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "Our Collection"
+                                              },
+                                      "heading":  {
+                                                      "en":  "The PeeKeeper Diaper"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "One diaper. 7 stunning colors. 3 sizes. Premium cotton, made in Pennsylvania."
+                                                     },
+                                      "product":  {
+                                                      "name":  {
+                                                                   "en":  "PeeKeeper Escape-Proof Dog Diaper"
+                                                               },
+                                                      "slug":  "peekeeper-diaper",
+                                                      "price":  46.99,
+                                                      "rating":  4.86,
+                                                      "reviewCount":  125,
+                                                      "description":  {
+                                                                          "en":  "The original escape-proof dog diaper. Patented Velcro and strap system wraps around the torso â€” not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper. Made from premium cotton fabrics in Pennsylvania, USA."
+                                                                      },
+                                                      "category":  {
+                                                                       "en":  "Dog Diaper / Unisex"
+                                                                   },
+                                                      "images":  [
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Walnut",
+                                                                         "color":  "Walnut"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Pink Begonia",
+                                                                         "color":  "Pink Begonia"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/peri-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Peri",
+                                                                         "color":  "Peri"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/lilac-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Lilac",
+                                                                         "color":  "Lilac"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/hot-pink-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Hot Pink",
+                                                                         "color":  "Hot Pink"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/fire-engine-red-600x450.jpg",
+                                                                         "alt":  "PeeKeeper Fire Red",
+                                                                         "color":  "Fire Red"
+                                                                     },
+                                                                     {
+                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg",
+                                                                         "alt":  "PeeKeeper Denim",
+                                                                         "color":  "Denim"
+                                                                     }
+                                                                 ],
+                                                      "colors":  [
+                                                                     {
+                                                                         "hex":  "#8B6914",
+                                                                         "name":  "Walnut"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#F0A0B8",
+                                                                         "name":  "Pink Begonia"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#8090C8",
+                                                                         "name":  "Peri"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#C8A0D0",
+                                                                         "name":  "Lilac"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#FF5070",
+                                                                         "name":  "Hot Pink"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#C82020",
+                                                                         "name":  "Fire Red"
+                                                                     },
+                                                                     {
+                                                                         "hex":  "#4878A8",
+                                                                         "name":  "Denim"
+                                                                     }
+                                                                 ],
+                                                      "sizes":  [
+                                                                    {
+                                                                        "name":  "Extra Small",
+                                                                        "tag":  "XS",
+                                                                        "waist":  "9\" - 12\"",
+                                                                        "length":  "10\" - 12\"",
+                                                                        "weight":  "min. 5 lbs"
+                                                                    },
+                                                                    {
+                                                                        "name":  "Small",
+                                                                        "tag":  "SM",
+                                                                        "waist":  "13\" - 16\"",
+                                                                        "length":  "12\" - 16\"",
+                                                                        "weight":  "varies"
+                                                                    },
+                                                                    {
+                                                                        "name":  "Medium",
+                                                                        "tag":  "MED",
+                                                                        "waist":  "17\" - 21\"",
+                                                                        "length":  "14\" - 18\"",
+                                                                        "weight":  "max. 40 lbs"
+                                                                    }
+                                                                ]
+                                                  }
+                                  }
+                    },
+                    {
+                        "id":  "features-1",
+                        "type":  "features",
+                        "layout":  "container",
+                        "adminTitle":  "Features",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "Why PeeKeeper"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Engineered for Real Life"
+                                                  },
+                                      "items":  [
+                                                    {
+                                                        "icon":  "shield",
+                                                        "iconColor":  "rose",
+                                                        "title":  {
+                                                                      "en":  "Truly Escape-Proof"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "Our patented Velcro and strap system wraps around the torso â€” not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper."
+                                                                        },
+                                                        "image":  "https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg",
+                                                        "linkText":  {
+                                                                         "en":  "See How It Works"
+                                                                     },
+                                                        "linkHref":  "#",
+                                                        "layout":  "large"
+                                                    },
+                                                    {
+                                                        "icon":  "box",
+                                                        "iconColor":  "sage",
+                                                        "title":  {
+                                                                      "en":  "Premium Cotton Fabrics"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "From 100% cotton denim to pima cotton and flannel â€” soft, breathable, and gentle on your dog\u0027s skin. Machine washable for life."
+                                                                        },
+                                                        "layout":  "small"
+                                                    },
+                                                    {
+                                                        "icon":  "globe",
+                                                        "iconColor":  "lav",
+                                                        "title":  {
+                                                                      "en":  "Made in Pennsylvania, USA"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "A family-owned business since 2009 that supports American jobs and takes pride in every diaper we ship. Patented in both the USA and Canada."
+                                                                        },
+                                                        "layout":  "small"
+                                                    },
+                                                    {
+                                                        "icon":  "credit-card",
+                                                        "iconColor":  "rose",
+                                                        "title":  {
+                                                                      "en":  "Works with Any Pad"
+                                                                  },
+                                                        "description":  {
+                                                                            "en":  "Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad â€” no need to wash after every use."
+                                                                        },
+                                                        "layout":  "small"
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "ar-tool-1",
+                        "type":  "arTool",
+                        "layout":  "full-width",
+                        "adminTitle":  "AR Tool",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "Smart Sizing"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Find the Perfect Fit with AR Preview"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "Not sure which size fits your dog? Use our interactive AR Size Tool â€” point your camera at your dog and our guide overlays exactly where to measure."
+                                                     },
+                                      "steps":  [
+                                                    {
+                                                        "number":  1,
+                                                        "text":  {
+                                                                     "en":  "Allow camera access when prompted â€” your privacy is protected, no images are stored."
+                                                                 }
+                                                    },
+                                                    {
+                                                        "number":  2,
+                                                        "text":  {
+                                                                     "en":  "Point at your dog â€” the AR overlay shows exactly where to measure waist and length."
+                                                                 }
+                                                    },
+                                                    {
+                                                        "number":  3,
+                                                        "text":  {
+                                                                     "en":  "Enter your measurements and get an instant size recommendation with one click."
+                                                                 }
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "size-table-1",
+                        "type":  "sizeTable",
+                        "layout":  "container",
+                        "adminTitle":  "Size Table",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "Sizing Guide"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Find Your Dog\u0027s Perfect Size"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "Measure waist 1 inch in front of hind legs. Measure length from collar base to tail."
+                                                     },
+                                      "tip":  {
+                                                  "en":  "Use a soft flexible tape measure. If between sizes, choose the larger size for comfort."
+                                              },
+                                      "image":  "https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg",
+                                      "sizes":  [
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "Extra Small"
+                                                                 },
+                                                        "tag":  "XS",
+                                                        "waist":  {
+                                                                      "en":  "9\" to 12\""
+                                                                  },
+                                                        "lengths":  {
+                                                                        "en":  "10\" to 12\""
+                                                                    },
+                                                        "weight":  {
+                                                                       "en":  "min. 5 lbs"
+                                                                   }
+                                                    },
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "Small"
+                                                                 },
+                                                        "tag":  "SM",
+                                                        "waist":  {
+                                                                      "en":  "13\" to 16\""
+                                                                  },
+                                                        "lengths":  {
+                                                                        "en":  "12\" to 16\""
+                                                                    },
+                                                        "weight":  {
+                                                                       "en":  "varies"
+                                                                   }
+                                                    },
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "Medium"
+                                                                 },
+                                                        "tag":  "MED",
+                                                        "waist":  {
+                                                                      "en":  "17\" to 21\""
+                                                                  },
+                                                        "lengths":  {
+                                                                        "en":  "14\" to 18\""
+                                                                    },
+                                                        "weight":  {
+                                                                       "en":  "max. 40 lbs"
+                                                                   }
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "testimonials-1",
+                        "type":  "testimonials",
+                        "layout":  "container",
+                        "adminTitle":  "Testimonials",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "Happy Families"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Dogs (and Owners) Love PeeKeeper"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "Over 125 verified reviews and counting. Read what real customers are saying."
+                                                     },
+                                      "ctaText":  {
+                                                      "en":  "Read All 125 Reviews"
+                                                  },
+                                      "items":  [
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "Rimmie"
+                                                                 },
+                                                        "role":  {
+                                                                     "en":  "Dachshund Mom"
+                                                                 },
+                                                        "text":  {
+                                                                     "en":  "Amazing productâ€¦ changed my dog\u0027s life! Around here we call them magic pants. Nothing else has ever stayed on her."
+                                                                 },
+                                                        "rating":  5,
+                                                        "initials":  "R",
+                                                        "verified":  true
+                                                    },
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "C***** â€” Old Mini Doxie Dad"
+                                                                 },
+                                                        "role":  {
+                                                                     "en":  "14-yr Dachshund Owner"
+                                                                 },
+                                                        "text":  {
+                                                                     "en":  "Dog saver, carpet saver, wood floor saver, tile grout saver â€” most of all, marriage saver!!! Five years of daily use and still going strong."
+                                                                 },
+                                                        "rating":  5,
+                                                        "initials":  "C",
+                                                        "verified":  true
+                                                    },
+                                                    {
+                                                        "name":  {
+                                                                     "en":  "S******* L****** â€” Sweetie Wheatie"
+                                                                 },
+                                                        "role":  {
+                                                                     "en":  "Ectopic Ureter, 8 years of use"
+                                                                 },
+                                                        "text":  {
+                                                                     "en":  "This is truly a life-changing product. She\u0027s almost 8 years old now, and she\u0027s owned MANY of these over the years."
+                                                                 },
+                                                        "rating":  5,
+                                                        "avatar":  "https://peekeeper.com/wp-content/uploads/2019/04/20230724_134149-225x300.jpg",
+                                                        "verified":  true
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "press-1",
+                        "type":  "press",
+                        "layout":  "container",
+                        "adminTitle":  "Press",
+                        "props":  {
+                                      "tag":  {
+                                                  "en":  "As Featured In"
+                                              },
+                                      "heading":  {
+                                                      "en":  "Loved by the Pet Community"
+                                                  },
+                                      "logos":  [
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Cesars_Way_1_1.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Cesar\u0027s Way"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Modern_Dog.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Modern Dog"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/FIDO_FRIENDLY.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Fido Friendly"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/hamptons-pet-magazine.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Hamptons Pet"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Doxie_Digest_Fall_1.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Doxie Digest"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/dog-fancy-1.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Dog Fancy"
+                                                                }
+                                                    }
+                                                ]
+                                  }
+                    },
+                    {
+                        "id":  "newsletter-1",
+                        "type":  "newsletter",
+                        "layout":  "full-width",
+                        "adminTitle":  "Newsletter",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Join the PeeKeeper Family"
+                                                  },
+                                      "subheading":  {
+                                                         "en":  "Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you â€” delivered to your inbox."
+                                                     },
+                                      "perks":  [
+                                                    {
+                                                        "en":  "10% off first order"
+                                                    },
+                                                    {
+                                                        "en":  "New color drops"
+                                                    },
+                                                    {
+                                                        "en":  "Size guides \u0026 tips"
+                                                    }
+                                                ],
+                                      "placeholderName":  {
+                                                              "en":  "Your name"
+                                                          },
+                                      "placeholderDog":  {
+                                                             "en":  "Dog\u0027s name"
+                                                         },
+                                      "placeholderEmail":  {
+                                                               "en":  "Your email address"
+                                                           },
+                                      "buttonText":  {
+                                                         "en":  "Subscribe \u0026 Get 10% Off"
+                                                     },
+                                      "disclaimer":  {
+                                                         "en":  "No spam, ever. You can unsubscribe any time. We\u0027ll never share your data."
+                                                     }
+                                  }
+                    }
+                ]
+}

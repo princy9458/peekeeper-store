@@ -1,0 +1,143 @@
+{
+    "title":  {
+                  "en":  "Checkout"
+              },
+    "slug":  "checkout",
+    "metaTitle":  {
+                      "en":  "Checkout | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Complete your purchase"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "checkout-main",
+                        "type":  "checkout-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Checkout Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Checkout"
+                                                          },
+                                      "stepShippingLabel":  {
+                                                                "en":  "Shipping"
+                                                            },
+                                      "stepPaymentLabel":  {
+                                                               "en":  "Payment"
+                                                           },
+                                      "stepReviewLabel":  {
+                                                              "en":  "Review"
+                                                          },
+                                      "stepConfirmationLabel":  {
+                                                                    "en":  "Confirmation"
+                                                                },
+                                      "shippingHeading":  {
+                                                              "en":  "Shipping Information"
+                                                          },
+                                      "shippingFirstNameLabel":  {
+                                                                     "en":  "First Name"
+                                                                 },
+                                      "shippingLastNameLabel":  {
+                                                                    "en":  "Last Name"
+                                                                },
+                                      "shippingEmailLabel":  {
+                                                                 "en":  "Email"
+                                                             },
+                                      "shippingPhoneLabel":  {
+                                                                 "en":  "Phone"
+                                                             },
+                                      "shippingAddressLabel":  {
+                                                                   "en":  "Address"
+                                                               },
+                                      "shippingCityLabel":  {
+                                                                "en":  "City"
+                                                            },
+                                      "shippingStateLabel":  {
+                                                                 "en":  "State"
+                                                             },
+                                      "shippingZipLabel":  {
+                                                               "en":  "ZIP Code"
+                                                           },
+                                      "shippingCountryLabel":  {
+                                                                   "en":  "Country"
+                                                               },
+                                      "shipToDifferentLabel":  {
+                                                                   "en":  "Ship to a different address"
+                                                               },
+                                      "paymentHeading":  {
+                                                             "en":  "Payment Information"
+                                                         },
+                                      "paymentCardNumberLabel":  {
+                                                                     "en":  "Card Number"
+                                                                 },
+                                      "paymentExpiryLabel":  {
+                                                                 "en":  "Expiry Date"
+                                                             },
+                                      "paymentCvcLabel":  {
+                                                              "en":  "CVC"
+                                                          },
+                                      "paymentNameOnCardLabel":  {
+                                                                     "en":  "Name on Card"
+                                                                 },
+                                      "paymentBillingSameLabel":  {
+                                                                      "en":  "Billing address same as shipping"
+                                                                  },
+                                      "reviewHeading":  {
+                                                            "en":  "Review Your Order"
+                                                        },
+                                      "reviewItemsLabel":  {
+                                                               "en":  "Items"
+                                                           },
+                                      "reviewShippingLabel":  {
+                                                                  "en":  "Shipping To"
+                                                              },
+                                      "reviewPaymentLabel":  {
+                                                                 "en":  "Payment Method"
+                                                             },
+                                      "reviewEditButtonLabel":  {
+                                                                    "en":  "Edit"
+                                                                },
+                                      "orderSummaryTitle":  {
+                                                                "en":  "Order Summary"
+                                                            },
+                                      "orderSubtotalLabel":  {
+                                                                 "en":  "Subtotal"
+                                                             },
+                                      "orderShippingLabel":  {
+                                                                 "en":  "Shipping"
+                                                             },
+                                      "orderShippingFreeLabel":  {
+                                                                     "en":  "Free"
+                                                                 },
+                                      "orderTaxLabel":  {
+                                                            "en":  "Tax"
+                                                        },
+                                      "orderTotalLabel":  {
+                                                              "en":  "Total"
+                                                          },
+                                      "placeOrderButtonLabel":  {
+                                                                    "en":  "Place Order"
+                                                                },
+                                      "backButtonLabel":  {
+                                                              "en":  "Back"
+                                                          },
+                                      "continueButtonLabel":  {
+                                                                  "en":  "Continue"
+                                                              },
+                                      "confirmationHeading":  {
+                                                                  "en":  "Order Confirmed!"
+                                                              },
+                                      "confirmationMessage":  {
+                                                                  "en":  "Thank you for your order. You will receive a confirmation email shortly."
+                                                              },
+                                      "confirmationOrderNumberLabel":  {
+                                                                           "en":  "Order Number"
+                                                                       },
+                                      "confirmationContinueShoppingLabel":  {
+                                                                                "en":  "Continue Shopping"
+                                                                            }
+                                  }
+                    }
+                ]
+}

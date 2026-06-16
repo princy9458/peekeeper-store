@@ -1,0 +1,77 @@
+{
+    "title":  {
+                  "en":  "Shopping Cart"
+              },
+    "slug":  "cart",
+    "metaTitle":  {
+                      "en":  "Shopping Cart | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Review your shopping cart"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "cart-main",
+                        "type":  "cart-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Cart Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Cart"
+                                                          },
+                                      "emptyTitle":  {
+                                                         "en":  "Your cart is empty"
+                                                     },
+                                      "emptyDescription":  {
+                                                               "en":  "Looks like you haven\u0027t added anything to your cart yet."
+                                                           },
+                                      "emptyCtaLabel":  {
+                                                            "en":  "Start Shopping"
+                                                        },
+                                      "orderSummaryTitle":  {
+                                                                "en":  "Order Summary"
+                                                            },
+                                      "subtotalLabel":  {
+                                                            "en":  "Subtotal"
+                                                        },
+                                      "shippingLabel":  {
+                                                            "en":  "Shipping"
+                                                        },
+                                      "shippingFreeLabel":  {
+                                                                "en":  "Free"
+                                                            },
+                                      "shippingThresholdLabel":  {
+                                                                     "en":  "Add ${amount} more for free shipping"
+                                                                 },
+                                      "totalLabel":  {
+                                                         "en":  "Total"
+                                                     },
+                                      "checkoutButtonLabel":  {
+                                                                  "en":  "Proceed to Checkout"
+                                                              },
+                                      "continueShoppingLabel":  {
+                                                                    "en":  "Continue Shopping"
+                                                                },
+                                      "trustBadgeSecureLabel":  {
+                                                                    "en":  "Secure checkout"
+                                                                },
+                                      "trustBadgeReturnsLabel":  {
+                                                                     "en":  "Free returns within 30 days"
+                                                                 },
+                                      "removeLabel":  {
+                                                          "en":  "Remove item"
+                                                      },
+                                      "sizePrefix":  {
+                                                         "en":  "Size:"
+                                                     },
+                                      "colorPrefix":  {
+                                                          "en":  "Color:"
+                                                      },
+                                      "qtyLabel":  {
+                                                       "en":  "Qty:"
+                                                   }
+                                  }
+                    }
+                ]
+}

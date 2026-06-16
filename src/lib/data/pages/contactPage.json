@@ -1,0 +1,101 @@
+{
+    "title":  {
+                  "en":  "Contact Us"
+              },
+    "slug":  "contact",
+    "metaTitle":  {
+                      "en":  "Contact Us - PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Get in touch with PeeKeeper. We\u0027d love to hear from you."
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "contact-header-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Contact Header",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Get in Touch"
+                                                  },
+                                      "content":  {
+                                                      "en":  "Have a question? We\u0027d love to hear from you. Send us a message and we\u0027ll respond as soon as possible."
+                                                  },
+                                      "alignment":  "center"
+                                  }
+                    },
+                    {
+                        "id":  "contact-info-1",
+                        "type":  "text",
+                        "layout":  "container",
+                        "adminTitle":  "Contact Info",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Contact Information"
+                                                  },
+                                      "content":  {
+                                                      "en":  "Email: info@peekeeper.com\nAddress: Pennsylvania, USA\nPhone: Contact via website"
+                                                  },
+                                      "alignment":  "left"
+                                  }
+                    },
+                    {
+                        "id":  "contact-form-1",
+                        "type":  "contact-form",
+                        "layout":  "container",
+                        "adminTitle":  "Contact Form",
+                        "props":  {
+                                      "formHeading":  {
+                                                          "en":  "Send us a Message"
+                                                      },
+                                      "nameLabel":  {
+                                                        "en":  "Name"
+                                                    },
+                                      "namePlaceholder":  {
+                                                              "en":  "Your name"
+                                                          },
+                                      "emailLabel":  {
+                                                         "en":  "Email"
+                                                     },
+                                      "emailPlaceholder":  {
+                                                               "en":  "your@email.com"
+                                                           },
+                                      "messageLabel":  {
+                                                           "en":  "Message"
+                                                       },
+                                      "messagePlaceholder":  {
+                                                                 "en":  "How can we help?"
+                                                             },
+                                      "buttonText":  {
+                                                         "en":  "Send Message"
+                                                     },
+                                      "contactInfoHeading":  {
+                                                                 "en":  "Contact Information"
+                                                             },
+                                      "contactMethods":  [
+                                                             {
+                                                                 "iconPath":  "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z",
+                                                                 "label":  {
+                                                                               "en":  "Email"
+                                                                           },
+                                                                 "value":  {
+                                                                               "en":  "info@peekeeper.com"
+                                                                           },
+                                                                 "href":  "mailto:info@peekeeper.com"
+                                                             },
+                                                             {
+                                                                 "iconPath":  "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                                                                 "label":  {
+                                                                               "en":  "Location"
+                                                                           },
+                                                                 "value":  {
+                                                                               "en":  "Pennsylvania, USA"
+                                                                           }
+                                                             }
+                                                         ]
+                                  }
+                    }
+                ]
+}

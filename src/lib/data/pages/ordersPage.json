@@ -1,0 +1,71 @@
+{
+    "title":  {
+                  "en":  "My Orders"
+              },
+    "slug":  "account/orders",
+    "metaTitle":  {
+                      "en":  "My Orders | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "View your order history"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "orders-main",
+                        "type":  "orders-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Orders Section",
+                        "props":  {
+                                      "breadcrumbLabel":  {
+                                                              "en":  "Orders"
+                                                          },
+                                      "heading":  {
+                                                      "en":  "My Orders"
+                                                  },
+                                      "emptyTitle":  {
+                                                         "en":  "No orders yet"
+                                                     },
+                                      "emptyDescription":  {
+                                                               "en":  "You haven\u0027t placed any orders yet. Start shopping to see your orders here."
+                                                           },
+                                      "emptyCtaLabel":  {
+                                                            "en":  "Start Shopping"
+                                                        },
+                                      "orderNumberLabel":  {
+                                                               "en":  "Order"
+                                                           },
+                                      "orderDateLabel":  {
+                                                             "en":  "Date"
+                                                         },
+                                      "orderStatusLabel":  {
+                                                               "en":  "Status"
+                                                           },
+                                      "orderTotalLabel":  {
+                                                              "en":  "Total"
+                                                          },
+                                      "orderItemsLabel":  {
+                                                              "en":  "Items"
+                                                          },
+                                      "viewDetailsLabel":  {
+                                                               "en":  "View Details"
+                                                           },
+                                      "statusPending":  {
+                                                            "en":  "Pending"
+                                                        },
+                                      "statusProcessing":  {
+                                                               "en":  "Processing"
+                                                           },
+                                      "statusShipped":  {
+                                                            "en":  "Shipped"
+                                                        },
+                                      "statusDelivered":  {
+                                                              "en":  "Delivered"
+                                                          },
+                                      "statusCancelled":  {
+                                                              "en":  "Cancelled"
+                                                          }
+                                  }
+                    }
+                ]
+}

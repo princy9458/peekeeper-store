@@ -1,0 +1,44 @@
+{
+    "title":  {
+                  "en":  "Search"
+              },
+    "slug":  "search",
+    "metaTitle":  {
+                      "en":  "Search | PeeKeeper"
+                  },
+    "metaDescription":  {
+                            "en":  "Search our products"
+                        },
+    "isPublished":  true,
+    "content":  [
+                    {
+                        "id":  "search-main",
+                        "type":  "search-section",
+                        "layout":  "full-width",
+                        "adminTitle":  "Search Section",
+                        "props":  {
+                                      "heading":  {
+                                                      "en":  "Search Products"
+                                                  },
+                                      "searchPlaceholder":  {
+                                                                "en":  "Search for products..."
+                                                            },
+                                      "noResultsTitle":  {
+                                                             "en":  "No results found"
+                                                         },
+                                      "noResultsDescription":  {
+                                                                   "en":  "We couldn\u0027t find any products matching your search. Please try a different keyword."
+                                                               },
+                                      "noResultsCtaLabel":  {
+                                                                "en":  "Browse All Products"
+                                                            },
+                                      "resultsHeading":  {
+                                                             "en":  "Search Results"
+                                                         },
+                                      "resultsCountLabel":  {
+                                                                "en":  "{count} product(s) found"
+                                                            }
+                                  }
+                    }
+                ]
+}

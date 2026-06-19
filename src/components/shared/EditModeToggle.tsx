@@ -7,10 +7,6 @@ export default function EditModeToggle() {
   const dispatch = useAppDispatch();
   const isEditable = useAppSelector((state) => state.pages.editableMode);
 
-  if (process.env.NODE_ENV !== 'development') {
-    return null;
-  }
-
   return (
     <button
       onClick={() => dispatch(setEditableMode(!isEditable))}

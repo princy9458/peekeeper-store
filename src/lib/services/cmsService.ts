@@ -26,7 +26,7 @@ function normalizePageResponse(response: unknown): Page {
 }
 
 export async function fetchPage(slug: string): Promise<Page> {
-  const response = await fetchWithTenant(`/api/pages/${slug}`);
+  const response = await fetchWithTenant(`/api/cms/pages/${slug}`);
   return normalizePageResponse(response);
 }
 
@@ -61,7 +61,7 @@ function normalizeAllPagesResponse(response: unknown): Record<string, Page> {
 
 export async function fetchAllPages(): Promise<Record<string, Page>> {
   try {
-    const response = await fetchWithTenant('/api/pages');
+    const response = await fetchWithTenant('/api/cms/pages');
     return normalizeAllPagesResponse(response);
   } catch {
     const pages: Record<string, Page> = {};

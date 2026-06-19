@@ -40,7 +40,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
     if (!product.slug) return;
     dispatch(addItem({
       productId: product.slug,
-      name: product.name || '',
+      name: getLocalizedString(product.name, locale),
       price: product.price || 0,
       quantity,
       image: selectedImage || '',

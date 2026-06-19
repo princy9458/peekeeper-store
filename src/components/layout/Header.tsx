@@ -328,30 +328,30 @@ function NavItem({
           left: 0,
           background: 'var(--white)',
           border: '1px solid var(--cream-dark)',
-          borderRadius: '0 var(--radius-md) var(--radius-md) var(--radius-md)',
+          borderRadius: '0 0 var(--radius-2xl) var(--radius-2xl)',
           boxShadow: 'var(--shadow-lg)',
-          padding: '28px 32px',
+          padding: '36px 40px',
           display: 'grid',
           gridTemplateColumns: `repeat(${colCount}, 1fr)`,
-          gap: '6px 32px',
-          minWidth: isAbout ? 400 : 580,
+          gap: '0 48px',
+          minWidth: isAbout ? 500 : 660,
           opacity: isOpen ? 1 : 0,
           visibility: isOpen ? 'visible' : 'hidden',
-          transform: isOpen ? 'translateY(0)' : 'translateY(10px)',
-          transition: 'all 0.22s ease',
+          transform: isOpen ? 'translateY(0)' : 'translateY(12px)',
+          transition: 'opacity 0.25s ease, transform 0.25s ease, visibility 0.25s',
           pointerEvents: isOpen ? 'all' : 'none',
           zIndex: 100,
         }}>
           {item.megaColumns.map((col: any, idx: number) => (
             <div key={idx}>
               <div style={{
-                fontSize: 10,
+                fontSize: 11,
                 fontWeight: 800,
-                letterSpacing: '0.14em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color: 'var(--rose)',
-                marginBottom: 10,
-                paddingBottom: 8,
+                marginBottom: 14,
+                paddingBottom: 10,
                 borderBottom: '1px solid var(--cream-dark)',
               }}>
                 {col.title}
@@ -360,20 +360,20 @@ function NavItem({
                 <Link
                   key={si}
                   href={`${localePrefix}${subItem.href}`}
+                  className="mega-link"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 7,
-                    fontSize: 13,
+                    gap: 10,
+                    fontSize: 14,
                     fontWeight: 600,
                     color: 'var(--mid-brown)',
-                    padding: '5px 0',
-                    transition: 'color 0.28s, padding-left 0.28s',
+                    padding: '7px 0',
                     textDecoration: 'none',
                   }}
                 >
-                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ opacity: 0.35, flexShrink: 0 }}>
-                    <path d="M5 12h14" />
+                  <svg width="5" height="5" fill="currentColor" viewBox="0 0 5 5" style={{ opacity: 0.4, flexShrink: 0 }}>
+                    <circle cx="2.5" cy="2.5" r="2.5" />
                   </svg>
                   {subItem.label.en}
                 </Link>

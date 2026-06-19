@@ -98,18 +98,8 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                   className="text-xs bg-transparent border border-[var(--border)] rounded-full px-3 py-2 focus:outline-none focus:border-[var(--primary)]"
                 >
                   {sortOptions.map((opt: any, i: number) => (
-                      <option key={i} value={opt.value}>
-                      {onSave ? (
-                        <EditableText
-                          value={getLocalizedString(opt.label, locale) || ''}
-                          onSave={(val) => onSave(block.id, `props.sortOptions.${i}.label`, val)}
-                          isEditable={isEditable}
-                          tag="span"
-                          placeholder="Sort Option..."
-                        />
-                      ) : (
-                        getLocalizedString(opt.label, locale)
-                      )}
+                    <option key={i} value={opt.value}>
+                      {getLocalizedString(opt.label, locale)}
                     </option>
                   ))}
                 </select>

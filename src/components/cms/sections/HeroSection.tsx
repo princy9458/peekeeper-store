@@ -27,14 +27,25 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
   const currentImage = activeColor?.image || props.image;
 
   return (
-    <section className="hero-wrapper">
+    <section style={{
+      background: 'linear-gradient(135deg, var(--cream) 0%, var(--lav-lt) 100%)',
+      position: 'relative',
+      overflow: 'hidden',
+      minHeight: 600,
+      display: 'flex',
+      alignItems: 'center',
+    }}>
       <div style={{
         position: 'absolute',
         inset: 0,
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='rgba(242,184,198,0.18)' stroke-width='1'/%3E%3C/svg%3E")`,
         pointerEvents: 'none',
       }} />
-      <div className="hero-inner" style={{
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: 60,
+        alignItems: 'center',
         padding: '80px 28px',
         maxWidth: 'var(--container)',
         margin: '0 auto',
@@ -151,15 +162,15 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             </a>
           </div>
           {props.stats && (
-            <div className="hero-stats">
+            <div style={{ display: 'flex', gap: 28, marginTop: 36, flexWrap: 'wrap' }}>
               {props.stats.map((stat: any, i: number) => (
                 <div key={i}>
                   <strong style={{
+                    display: 'block',
                     fontFamily: 'var(--font-heading)',
                     fontSize: 32,
                     color: 'var(--rose)',
                     lineHeight: 1,
-                    display: 'block',
                   }}>{getLocalizedString(stat.value, locale)}</strong>
                   <span style={{
                     fontSize: 12,
@@ -186,7 +197,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             </div>
           )}
         </div>
-        <div className="hero-visual-order" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{
             width: '100%',
             maxWidth: 520,

@@ -14,11 +14,29 @@ export default function EditModeToggle() {
   return (
     <button
       onClick={() => dispatch(setEditableMode(!isEditable))}
-      className={`fixed bottom-4 right-4 z-50 px-4 py-2 rounded-full shadow-lg transition-colors ${
-        isEditable
-          ? 'bg-[var(--success)] text-white hover:bg-[var(--success)]/80'
-          : 'bg-[var(--primary)] text-white hover:bg-[var(--primary-hover)]'
-      }`}
+      style={{
+        position: 'fixed',
+        bottom: 16,
+        right: 16,
+        zIndex: 50,
+        padding: '8px 18px',
+        borderRadius: 9999,
+        boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+        fontWeight: 700,
+        fontSize: 13,
+        letterSpacing: '0.04em',
+        border: '1px solid rgba(255,255,255,0.3)',
+        cursor: 'pointer',
+        transition: 'all 0.2s ease',
+        background: isEditable ? '#16a34a' : 'var(--rose)',
+        color: '#fff',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = isEditable ? '#15803d' : 'var(--rose-dk)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = isEditable ? '#16a34a' : 'var(--rose)';
+      }}
     >
       {isEditable ? 'Edit Mode ON' : 'Edit Mode OFF'}
     </button>

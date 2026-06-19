@@ -84,8 +84,11 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-sm">{item.name}</h3>
-                  {item.variantName && (
-                    <p className="text-xs text-[var(--text-muted)] mt-1">{item.variantName}</p>
+                  {item.color && (
+                    <p className="text-xs text-[var(--text-muted)] mt-1">Color: {item.color}</p>
+                  )}
+                  {item.size && (
+                    <p className="text-xs text-[var(--text-muted)]">Size: {item.size}</p>
                   )}
                   <p className="text-sm font-bold text-[var(--primary)] mt-1">${item.price.toFixed(2)}</p>
                   <div className="flex items-center gap-3 mt-3">
@@ -93,7 +96,7 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
                       <button
                         className="w-8 h-8 flex items-center justify-center text-sm font-medium hover:bg-[var(--accent-soft)] rounded-l-full"
                         onClick={() => {
-                          if (item.quantity > 1) dispatch(updateQuantity({ productId: item.productId, quantity: item.quantity - 1 }));
+                          if (item.quantity > 1) dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
                         }}
                       >
                         -
@@ -102,7 +105,7 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
                       <button
                         className="w-8 h-8 flex items-center justify-center text-sm font-medium hover:bg-[var(--accent-soft)] rounded-r-full"
                         onClick={() => {
-                          if (item.quantity < item.maxQuantity) dispatch(updateQuantity({ productId: item.productId, quantity: item.quantity + 1 }));
+                          if (item.quantity < item.maxQuantity) dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
                         }}
                       >
                         +
@@ -110,7 +113,7 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
                     </div>
                     <button
                       className="text-xs text-[var(--text-muted)] hover:text-red-500 transition-colors"
-                      onClick={() => dispatch(removeItem(item.productId))}
+                      onClick={() => dispatch(removeItem(item.id))}
                     >
                       {onSave ? (
                         <EditableText value={getLocalizedString(props.removeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.removeLabel', val)} isEditable={isEditable} tag="span" placeholder="Remove..." />

@@ -11,6 +11,8 @@ export interface CartItem {
   variantId?: string;
   variantName?: string;
   maxQuantity: number;
+  size?: string;
+  color?: string;
 }
 
 export interface CartState {
@@ -21,8 +23,27 @@ export interface CartState {
   error: string | null;
 }
 
+const STORAGE_KEY = 'peekeeper_cart';
+
+function loadCart(): CartItem[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+function saveCart(items: CartItem[]) {
+  if (typeof window === 'undefined') return;
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch {}
+}
+
+function getVariantKey(productId: string, size?: string, color?: string): string {
+  return `${productId}__${size || ''}__${color || ''}`;
+}
+
 const initialState: CartState = {
-  items: [],
+  items: loadCart(),
   couponCode: null,
   discount: 0,
   loading: false,
@@ -113,33 +134,44 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<{ productId: string; name: string; price: number; quantity: number; image: string; slug?: string; size?: string; color?: string }>) => {
-      const { productId, name, price, quantity, image, slug, size, color } = action.payload;
-      const newId = `cart_${productId}_${Date.now()}`;
-      state.items.push({
-        id: newId,
-        productId,
-        name,
-        price,
-        quantity,
-        image,
-        variantName: size || color || undefined,
-        maxQuantity: 99
-      });
+      const { productId, name, price, quantity, image, size, color } = action.payload;
+      const key = getVariantKey(productId, size, color);
+      const existing = state.items.find(i => getVariantKey(i.productId, i.size, i.color) === key);
+      if (existing) {
+        existing.quantity = Math.min(existing.quantity + quantity, existing.maxQuantity);
+      } else {
+        state.items.push({
+          id: `cart_${key}`,
+          productId,
+          name,
+          price,
+          quantity,
+          image,
+          variantName: size || color || undefined,
+          size,
+          color,
+          maxQuantity: 99,
+        });
+      }
+      saveCart(state.items);
     },
     clearCart: (state) => {
       state.items = [];
       state.couponCode = null;
       state.discount = 0;
+      saveCart(state.items);
     },
-    updateQuantity: (state, action: PayloadAction<{ productId: string; quantity: number }>) => {
-      const { productId, quantity } = action.payload;
-      const item = state.items.find(i => i.productId === productId);
+    updateQuantity: (state, action: PayloadAction<{ id: string; quantity: number }>) => {
+      const { id, quantity } = action.payload;
+      const item = state.items.find(i => i.id === id);
       if (item && quantity <= item.maxQuantity && quantity > 0) {
         item.quantity = quantity;
       }
+      saveCart(state.items);
     },
     removeItem: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter(i => i.productId !== action.payload);
+      state.items = state.items.filter(i => i.id !== action.payload);
+      saveCart(state.items);
     },
   },
   extraReducers: (builder) => {

@@ -116,25 +116,45 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
           ) : (
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: 28 }}>{getLocalizedString(props.subheading, locale)}</p>
           )}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
-            {props.steps?.map((step: any, i: number) => (
-              <div key={i} style={{
-                display: 'flex', alignItems: 'flex-start', gap: 14,
-                background: 'rgba(255,255,255,0.06)', borderRadius: 'var(--radius-md)',
-                padding: '14px 18px', border: '1px solid rgba(255,255,255,0.08)',
-              }}>
-                <div style={{
-                  width: 28, height: 28, borderRadius: '50%', background: 'var(--rose)',
-                  color: 'white', fontSize: 12, fontWeight: 800,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>{getLocalizedString(step.number, locale)}</div>
-                {isEditable && onSave ? (
-                  <EditableText value={getLocalizedString(step.text, locale) || ''} onSave={(val) => onSave(block.id, `props.steps.${i}.text`, val)} isEditable={isEditable} tag="p" className="" />
-                ) : (
-                  <p style={{ fontSize: 13, margin: 0, lineHeight: 1.5, color: 'white' }}>{getLocalizedString(step.text, locale)}</p>
-                )}
-              </div>
-            ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 32 }}>
+            {props.steps?.map((step: any, i: number) => {
+              const stepTitle = getLocalizedString(step.title, locale) || '';
+              const stepText = getLocalizedString(step.text, locale) || '';
+              return (
+                <div key={i} style={{
+                  display: 'flex', alignItems: 'flex-start', gap: 16,
+                  background: 'rgba(255,255,255,0.06)', borderRadius: 'var(--radius-md)',
+                  padding: '20px 22px', border: '1px solid rgba(255,255,255,0.1)',
+                }}>
+                  <div style={{
+                    width: 32, height: 32, borderRadius: '50%', background: 'var(--rose)',
+                    color: 'white', fontSize: 13, fontWeight: 800,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    flexShrink: 0, marginTop: 2,
+                  }}>{step.number}</div>
+                  {isEditable && onSave ? (
+                    <EditableText value={stepText} onSave={(val) => onSave(block.id, `props.steps.${i}.text`, val)} isEditable={isEditable} tag="p" className="" />
+                  ) : (
+                    <p style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 15,
+                      margin: 0,
+                      lineHeight: 1.75,
+                      color: 'rgba(255,255,255,0.9)',
+                    }}>
+                      {stepTitle && (
+                        <strong style={{ fontWeight: 700, color: 'white', fontSize: 16 }}>
+                          {stepTitle}{' '}
+                        </strong>
+                      )}
+                      <span style={{ fontWeight: 400, color: 'rgba(255,255,255,0.78)' }}>
+                        {stepText}
+                      </span>
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
           <button onClick={toggleCamera} className="ar-launch-btn" style={{
             background: 'var(--rose)', color: 'white', fontSize: 15, fontWeight: 800,

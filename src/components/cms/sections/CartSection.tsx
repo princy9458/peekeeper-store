@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import type { PageBlock } from '@/redux/slices/pages/pageType';
 import { useAppSelector, useAppDispatch } from '@/redux/store/hooks';
 import { removeItem, updateQuantity } from '@/redux/slices/ecommerce/cartSlice';
@@ -19,6 +20,7 @@ interface CartSectionProps {
 export default function CartSection({ block, locale = 'en', localePrefix = '', isEditable, onSave }: CartSectionProps) {
   const props = block.props || {};
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const items = useAppSelector(s => s.cart.items);
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -30,22 +32,55 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
     return (
       <div className="section-padding">
         <div className="container-custom">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28, borderBottom: '1px solid var(--cream-dark)', paddingBottom: 16 }}>
+            <h1 className="sec-title" style={{ margin: 0, fontSize: 'clamp(24px, 3.5vw, 32px)', color: 'var(--warm-brown)' }}>Your Cart</h1>
+            <button 
+              onClick={() => {
+                if (window.history.length > 1) {
+                  router.back();
+                } else {
+                  router.push(`${localePrefix}/`);
+                }
+              }}
+              style={{
+                background: 'var(--cream-dark)',
+                border: 'none',
+                borderRadius: '50%',
+                width: 38,
+                height: 38,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'var(--warm-brown)',
+                transition: 'background 0.28s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = 'var(--blush)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'var(--cream-dark)'}
+              aria-label="Close"
+            >
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
           <div className="text-center py-20">
             <svg className="w-20 h-20 mx-auto text-[var(--border)] mb-6" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
               <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
-            {onSave ? (
+            {isEditable && onSave ? (
               <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="section-title" placeholder="Empty title..." />
             ) : (
               <h2 className="section-title">{getLocalizedString(props.emptyTitle, locale)}</h2>
             )}
-            {onSave ? (
+            {isEditable && onSave ? (
               <EditableText value={getLocalizedString(props.emptyDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto" placeholder="Empty description..." />
             ) : (
               <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">{getLocalizedString(props.emptyDescription, locale)}</p>
             )}
-            {onSave ? (
+            {isEditable && onSave ? (
               <EditableText value={getLocalizedString(props.emptyCtaLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyCtaLabel', val)} isEditable={isEditable} tag="span" className="btn-primary inline-flex items-center gap-2" placeholder="CTA..." />
             ) : (
               <Link href={`${localePrefix}/shop`} className="btn-primary inline-flex items-center gap-2">
@@ -75,6 +110,39 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
           )}
         </div>
 
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28, borderBottom: '1px solid var(--cream-dark)', paddingBottom: 16 }}>
+          <h1 className="sec-title" style={{ margin: 0, fontSize: 'clamp(24px, 3.5vw, 32px)', color: 'var(--warm-brown)' }}>Your Cart</h1>
+          <button 
+            onClick={() => {
+              if (window.history.length > 1) {
+                router.back();
+              } else {
+                router.push(`${localePrefix}/`);
+              }
+            }}
+            style={{
+              background: 'var(--cream-dark)',
+              border: 'none',
+              borderRadius: '50%',
+              width: 38,
+              height: 38,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              color: 'var(--warm-brown)',
+              transition: 'background 0.28s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = 'var(--blush)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'var(--cream-dark)'}
+            aria-label="Close"
+          >
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             {items.map((item) => (
@@ -96,7 +164,11 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
                       <button
                         className="w-8 h-8 flex items-center justify-center text-sm font-medium hover:bg-[var(--accent-soft)] rounded-l-full"
                         onClick={() => {
-                          if (item.quantity > 1) dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+                          if (item.quantity > 1) {
+                            dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+                          } else {
+                            dispatch(removeItem(item.id));
+                          }
                         }}
                       >
                         -

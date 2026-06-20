@@ -18,6 +18,8 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
   const [dogName, setDogName] = useState('');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +41,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
       }} />
       <div className="container-custom nl-inner">
         <div>
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -110,13 +112,26 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
               <input type="email" placeholder={getLocalizedString(props.placeholderEmail, locale)} value={email}
                 onChange={e => setEmail(e.target.value)} required
                 style={{ background: 'rgba(255,255,255,0.6)', border: '1.5px solid rgba(255,255,255,0.8)', borderRadius: 'var(--radius-full)', padding: '13px 20px', color: 'var(--warm-brown)', fontSize: 14, fontWeight: 600, outline: 'none', backdropFilter: 'blur(8px)' }} />
-              <button type="submit" style={{
-                background: 'var(--warm-brown)', color: 'white', fontSize: 14, fontWeight: 800,
-                letterSpacing: '0.07em', textTransform: 'uppercase', padding: '14px 28px',
-                borderRadius: 'var(--radius-full)', border: 'none', cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                transition: 'background 0.28s, transform 0.28s, box-shadow 0.28s',
-              }}>
+              <button
+                type="submit"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => {
+                  setIsHovered(false);
+                  setIsPressed(false);
+                }}
+                onMouseDown={() => setIsPressed(true)}
+                onMouseUp={() => setIsPressed(false)}
+                style={{
+                  background: isPressed 
+                    ? 'var(--rose-dk)' 
+                    : (isHovered ? 'var(--rose)' : 'var(--warm-brown)'),
+                  color: 'white', fontSize: 14, fontWeight: 800,
+                  letterSpacing: '0.07em', textTransform: 'uppercase', padding: '14px 28px',
+                  borderRadius: 'var(--radius-full)', border: 'none', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                  transition: 'background 0.28s, transform 0.28s, box-shadow 0.28s',
+                }}
+              >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M22 2L11 13" />
                   <path d="M22 2L15 22l-4-9-9-4z" />

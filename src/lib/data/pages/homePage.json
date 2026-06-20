@@ -188,10 +188,10 @@
                                                   "en":  "Our Collection"
                                               },
                                       "heading":  {
-                                                      "en":  "The PeeKeeper Diaper"
+                                                      "en":  "Choose Your Perfect <span>PeeKeeper</span>"
                                                   },
                                       "subheading":  {
-                                                         "en":  "One diaper. 7 stunning colors. 3 sizes. Premium cotton, made in Pennsylvania."
+                                                         "en":  "7 beautiful colors, 3 sizes, premium cotton fabrics — all made with love in Pennsylvania."
                                                      },
                                       "product":  {
                                                       "name":  {
@@ -202,7 +202,7 @@
                                                       "rating":  4.86,
                                                       "reviewCount":  125,
                                                       "description":  {
-                                                                          "en":  "The original escape-proof dog diaper. Patented Velcro and strap system wraps around the torso Ã¢â‚¬â€ not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper. Made from premium cotton fabrics in Pennsylvania, USA."
+                                                                          "en":  "The original escape-proof dog diaper. Patented Velcro and strap system wraps around the torso — not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper. Made from premium cotton fabrics in Pennsylvania, USA."
                                                                       },
                                                       "category":  {
                                                                        "en":  "Dog Diaper / Unisex"
@@ -310,7 +310,7 @@
                                                   "en":  "Why PeeKeeper"
                                               },
                                       "heading":  {
-                                                      "en":  "Engineered for Real Life"
+                                                      "en":  "Engineered for <span>Real Life</span>"
                                                   },
                                       "items":  [
                                                     {
@@ -320,7 +320,7 @@
                                                                       "en":  "Truly Escape-Proof"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "Our patented Velcro and strap system wraps around the torso Ã¢â‚¬â€ not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper."
+                                                                            "en":  "Our patented Velcro and strap system wraps around the torso — not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper."
                                                                         },
                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg",
                                                         "linkText":  {
@@ -336,7 +336,7 @@
                                                                       "en":  "Premium Cotton Fabrics"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "From 100% cotton denim to pima cotton and flannel Ã¢â‚¬â€ soft, breathable, and gentle on your dog\u0027s skin. Machine washable for life."
+                                                                            "en":  "From 100% cotton denim to pima cotton and flannel — soft, breathable, and gentle on your dog\u0027s skin. Machine washable for life."
                                                                         },
                                                         "layout":  "small"
                                                     },
@@ -358,7 +358,7 @@
                                                                       "en":  "Works with Any Pad"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad Ã¢â‚¬â€ no need to wash after every use."
+                                                                            "en":  "Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad — no need to wash after every use."
                                                                         },
                                                         "layout":  "small"
                                                     }
@@ -378,25 +378,28 @@
                                                       "en":  "Find the Perfect Fit with AR Preview"
                                                   },
                                       "subheading":  {
-                                                         "en":  "Not sure which size fits your dog? Use our interactive AR Size Tool Ã¢â‚¬â€ point your camera at your dog and our guide overlays exactly where to measure."
+                                                         "en":  "Not sure which size fits your dog? Use our interactive AR Size Tool — point your camera at your dog and our guide overlays exactly where to measure."
                                                      },
                                       "steps":  [
                                                     {
                                                         "number":  1,
+                                                        "title": { "en": "Allow camera access" },
                                                         "text":  {
-                                                                     "en":  "Allow camera access when prompted Ã¢â‚¬â€ your privacy is protected, no images are stored."
+                                                                     "en":  "when prompted — your privacy is protected, no images are stored."
                                                                  }
                                                     },
                                                     {
                                                         "number":  2,
+                                                        "title": { "en": "Point at your dog" },
                                                         "text":  {
-                                                                     "en":  "Point at your dog Ã¢â‚¬â€ the AR overlay shows exactly where to measure waist and length."
+                                                                     "en":  "— the AR overlay shows exactly where to measure waist and length."
                                                                  }
                                                     },
                                                     {
                                                         "number":  3,
+                                                        "title": { "en": "Enter your measurements" },
                                                         "text":  {
-                                                                     "en":  "Enter your measurements and get an instant size recommendation with one click."
+                                                                     "en":  "and get an instant size recommendation with one click."
                                                                  }
                                                     }
                                                 ]
@@ -412,7 +415,7 @@
                                                   "en":  "Sizing Guide"
                                               },
                                       "heading":  {
-                                                      "en":  "Find Your Dog\u0027s Perfect Size"
+                                                      "en":  "Find Your Dog\u0027s <span>Perfect Size</span>"
                                                   },
                                       "subheading":  {
                                                          "en":  "Measure waist 1 inch in front of hind legs. Measure length from collar base to tail."
@@ -480,7 +483,7 @@
                                                   "en":  "Happy Families"
                                               },
                                       "heading":  {
-                                                      "en":  "Dogs (and Owners) Love PeeKeeper"
+                                                      "en":  "Dogs (and Owners) <span>Love PeeKeeper</span>"
                                                   },
                                       "subheading":  {
                                                          "en":  "Over 125 verified reviews and counting. Read what real customers are saying."
@@ -497,7 +500,7 @@
                                                                      "en":  "Dachshund Mom"
                                                                  },
                                                         "text":  {
-                                                                     "en":  "Amazing productÃ¢â‚¬Â¦ changed my dog\u0027s life! Around here we call them magic pants. Nothing else has ever stayed on her."
+                                                                     "en":  "Amazing product… changed my dog\u0027s life! Around here we call them magic pants. Nothing else has ever stayed on her."
                                                                  },
                                                         "rating":  5,
                                                         "initials":  "R",
@@ -505,13 +508,13 @@
                                                     },
                                                     {
                                                         "name":  {
-                                                                     "en":  "C***** Ã¢â‚¬â€ Old Mini Doxie Dad"
+                                                                     "en":  "C***** — Old Mini Doxie Dad"
                                                                  },
                                                         "role":  {
                                                                      "en":  "14-yr Dachshund Owner"
                                                                  },
                                                         "text":  {
-                                                                     "en":  "Dog saver, carpet saver, wood floor saver, tile grout saver Ã¢â‚¬â€ most of all, marriage saver!!! Five years of daily use and still going strong."
+                                                                     "en":  "Dog saver, carpet saver, wood floor saver, tile grout saver — most of all, marriage saver!!! Five years of daily use and still going strong."
                                                                  },
                                                         "rating":  5,
                                                         "initials":  "C",
@@ -519,7 +522,7 @@
                                                     },
                                                     {
                                                         "name":  {
-                                                                     "en":  "S******* L****** Ã¢â‚¬â€ Sweetie Wheatie"
+                                                                     "en":  "S******* L****** — Sweetie Wheatie"
                                                                  },
                                                         "role":  {
                                                                      "en":  "Ectopic Ureter, 8 years of use"
@@ -544,41 +547,47 @@
                                                   "en":  "As Featured In"
                                               },
                                       "heading":  {
-                                                      "en":  "Loved by the Pet Community"
+                                                      "en":  "Loved by the <span>Pet Community</span>"
                                                   },
                                       "logos":  [
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Cesars_Way_1_1.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/Cesars_Way_1_1.jpg",
                                                         "alt":  {
-                                                                    "en":  "Cesar\u0027s Way"
+                                                                    "en":  "Cesar's Way"
                                                                 }
                                                     },
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Modern_Dog.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/Modern_Dog.jpg",
                                                         "alt":  {
                                                                     "en":  "Modern Dog"
                                                                 }
                                                     },
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/FIDO_FRIENDLY.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/FIDO_FRIENDLY.jpg",
                                                         "alt":  {
                                                                     "en":  "Fido Friendly"
                                                                 }
                                                     },
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/hamptons-pet-magazine.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/hamptons-pet-magazine.jpg",
                                                         "alt":  {
                                                                     "en":  "Hamptons Pet"
                                                                 }
                                                     },
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/Doxie_Digest_Fall_1.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/Doxie_Digest_Fall_1.jpg",
                                                         "alt":  {
-                                                                    "en":  "Doxie Digest"
+                                                                    "en":  "Doxie Digest Christmas"
                                                                 }
                                                     },
                                                     {
-                                                        "src":  "https://peekeeper.com/wp-content/uploads/2022/04/dog-fancy-1.jpg",
+                                                        "src":  "/images/premium-puppy-diapers/Doxie_Digest_Spring_2012-1.jpg",
+                                                        "alt":  {
+                                                                    "en":  "Doxie Digest Spring"
+                                                                }
+                                                    },
+                                                    {
+                                                        "src":  "/images/premium-puppy-diapers/dog-fancy-1.jpg",
                                                         "alt":  {
                                                                     "en":  "Dog Fancy"
                                                                 }
@@ -596,7 +605,7 @@
                                                       "en":  "Join the PeeKeeper Family"
                                                   },
                                       "subheading":  {
-                                                         "en":  "Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you Ã¢â‚¬â€ delivered to your inbox."
+                                                         "en":  "Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you — delivered to your inbox."
                                                      },
                                       "perks":  [
                                                     {

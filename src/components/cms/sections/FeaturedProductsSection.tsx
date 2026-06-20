@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import type { PageBlock } from '@/redux/slices/pages/pageType';
+import { useAppDispatch } from '@/redux/store/hooks';
+import { addItem } from '@/redux/slices/ecommerce/cartSlice';
 import EditableText from '@/components/cms/editable/EditableText';
 import { getLocalizedString } from '@/lib/i18n/locale';
 
@@ -15,6 +17,8 @@ interface FeaturedProductsSectionProps {
 
 export default function FeaturedProductsSection({ block, locale = 'en', localePrefix = '', isEditable = false, onSave }: FeaturedProductsSectionProps) {
   const props = block.props || {};
+  const dispatch = useAppDispatch();
+  const [addedToCart, setAddedToCart] = useState(false);
   const product = props.product;
   const allImages = product?.images || [];
   const allColors = product?.colors || [];
@@ -27,11 +31,27 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
 
   if (!product) return null;
 
+  const handleAddToCart = () => {
+    if (!product.slug) return;
+    dispatch(addItem({
+      productId: product.slug,
+      name: getLocalizedString(product.name, locale),
+      price: product.price || 0,
+      quantity: 1,
+      image: currentImage || '',
+      slug: product.slug,
+      size: selectedSize?.tag || selectedSize?.name || '',
+      color: selectedColor?.name || '',
+    }));
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
+  };
+
   return (
     <section style={{ padding: '80px 0' }} id="shop">
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -43,19 +63,19 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
-              className="section-title"
+              className="sec-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 className="section-title">{getLocalizedString(props.heading, locale)}</h2>
+            <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.subheading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
@@ -135,25 +155,27 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
               </div>
             </div>
 
-            <button className="single-product-add-btn" onClick={() => {
-              (window as any).__addToCart?.(`${getLocalizedString(product.name, locale)} - ${selectedColor?.name || ''} (${selectedSize?.tag || ''})`, product.price);
-            }}>
+            <button className="single-product-add-btn" onClick={handleAddToCart}>
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
-              {onSave ? (
-                <EditableText
-                  value={getLocalizedString(props.addToCartLabel, locale) || ''}
-                  onSave={(val) => onSave(block.id, 'props.addToCartLabel', val)}
-                  isEditable={isEditable}
-                  tag="span"
-                  className=""
-                  placeholder="Add to Cart..."
-                />
+              {addedToCart ? (
+                <span>Added!</span>
               ) : (
-                <>{getLocalizedString(props.addToCartLabel, locale) || 'Add to Cart'}</>
+                onSave ? (
+                  <EditableText
+                    value={getLocalizedString(props.addToCartLabel, locale) || ''}
+                    onSave={(val) => onSave(block.id, 'props.addToCartLabel', val)}
+                    isEditable={isEditable}
+                    tag="span"
+                    className=""
+                    placeholder="Add to Cart..."
+                  />
+                ) : (
+                  <>{getLocalizedString(props.addToCartLabel, locale) || 'Add to Cart'}</>
+                )
               )}
             </button>
           </div>

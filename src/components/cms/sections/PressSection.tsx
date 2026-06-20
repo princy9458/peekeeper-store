@@ -17,11 +17,44 @@ export default function PressSection({ block, locale = 'en', isEditable = false,
 
   if (!logos.length) return null;
 
+  const renderMagazineCard = (logo: any, idx: number) => (
+    <div key={idx} style={{
+      width: 240,
+      height: 340,
+      background: 'white',
+      border: '12px solid white',
+      boxShadow: '0 15px 35px rgba(217, 84, 122, 0.55)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: 'transform 0.28s, box-shadow 0.28s',
+      cursor: 'pointer',
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.transform = 'scale(1.03) translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 20px 40px rgba(217, 84, 122, 0.7)';
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.transform = 'none';
+      e.currentTarget.style.boxShadow = '0 15px 35px rgba(217, 84, 122, 0.55)';
+    }}>
+      <img 
+        src={logo.src} 
+        alt={getLocalizedString(logo.alt, locale)} 
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+        }} 
+      />
+    </div>
+  );
+
   return (
-    <section style={{ padding: '80px 0', background: 'var(--white)' }}>
+    <section style={{ padding: '80px 0', background: 'white' }}>
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -33,30 +66,51 @@ export default function PressSection({ block, locale = 'en', isEditable = false,
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
-              className="section-title"
+              className="sec-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 className="section-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
+            <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-          {logos.map((logo: any, i: number) => (
-            <div key={i} className="press-item-hover" style={{
-              borderRadius: 'var(--radius-md)', overflow: 'hidden',
-              border: '1px solid var(--cream-dark)', background: 'white',
-              padding: 14, transition: 'box-shadow 0.28s, transform 0.28s',
-              filter: 'grayscale(0.5) opacity(0.7)', cursor: 'pointer',
+        
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 48,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: 48,
+        }}>
+          {/* Row 1: 4 items */}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 48,
+            width: '100%',
+          }}>
+            {logos.slice(0, 4).map((logo: any, i: number) => renderMagazineCard(logo, i))}
+          </div>
+
+          {/* Row 2: 3 items */}
+          {logos.length > 4 && (
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 48,
+              width: '100%',
             }}>
-              <img src={logo.src} alt={getLocalizedString(logo.alt, locale)} className="press-img" />
+              {logos.slice(4, 7).map((logo: any, i: number) => renderMagazineCard(logo, i + 4))}
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

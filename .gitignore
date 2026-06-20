@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+dev_*.txt
+kalphelp/Screenshot.png
+kalphelp/e-commerce_updated*.md
+kalphelp/images/
+public/images/premium-puppy-diapers/Screenshot.png

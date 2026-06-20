@@ -38,7 +38,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
     <section style={{ padding: '80px 0', background: 'var(--white)' }}>
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -50,7 +50,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}

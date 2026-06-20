@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useParams } from 'next/navigation';
 import { useAppSelector } from '@/redux/store/hooks';
 import { selectPublicNavigation } from '@/redux/slices/blueprint';
@@ -53,8 +54,8 @@ export default function Header() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 72,
-          padding: '0 28px',
+          height: 78,
+          padding: '0 32px',
           maxWidth: 'var(--container)',
           margin: '0 auto',
         }}>
@@ -62,39 +63,35 @@ export default function Header() {
           <Link href={`${localePrefix}`} style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 10,
+            minWidth: 0,
             flexShrink: 0,
             textDecoration: 'none',
           }}>
-            <div style={{
-              width: 40,
-              height: 40,
-              background: 'var(--rose)',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}>
-              <svg width="22" height="22" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-              <strong className="logo-text">
-                PeeKeeper
-              </strong>
-              <span className="logo-tagline">
-                Escape-Proof Diapers
-              </span>
-            </div>
+            <Image
+              src="/images/premium-puppy-diapers/peekeeper-logo-new-1.png"
+              alt="PeeKeeper logo"
+              width={500}
+              height={167}
+              priority
+              sizes="(max-width: 640px) 180px, 260px"
+              style={{
+                width: 'auto',
+                height: 'clamp(48px, 5vw, 66px)',
+                maxWidth: '100%',
+                flexShrink: 0,
+                objectFit: 'contain',
+              objectPosition: 'left center',
+              }}
+            />
           </Link>
 
           {/* Actions */}
           <div style={{
             marginLeft: 'auto',
+            paddingLeft: 12,
             display: 'flex',
             alignItems: 'center',
+            minWidth: 0,
             gap: 4,
             flexShrink: 0,
           }}>
@@ -127,6 +124,7 @@ export default function Header() {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
+            minWidth: 0,
                   justifyContent: 'center',
                 }}>{cartCount}</span>
               )}
@@ -164,7 +162,7 @@ export default function Header() {
           alignItems: 'stretch',
           maxWidth: 'var(--container)',
           margin: '0 auto',
-          padding: '0 28px',
+          padding: '0 32px',
         }}>
           <ul style={{ display: 'flex', alignItems: 'stretch', width: '100%', listStyle: 'none', margin: 0, padding: 0 }}>
             {navigationItems.map((item, index) => (
@@ -347,6 +345,7 @@ function NavItem({
                   style={{
                     display: 'flex',
                     alignItems: 'center',
+            minWidth: 0,
                     gap: 10,
                     padding: '7px 0',
                     textDecoration: 'none',

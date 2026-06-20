@@ -44,7 +44,7 @@ export default function TrustBarSection({ block, locale = 'en', isEditable = fal
               {icons[item.icon] || icons.card}
             </div>
             <div>
-              {onSave ? (
+              {isEditable && onSave ? (
                 <EditableText
                   value={getLocalizedString(item.title, locale) || ''}
                   onSave={(val) => onSave(block.id, `props.items.${i}.title`, val)}
@@ -55,7 +55,7 @@ export default function TrustBarSection({ block, locale = 'en', isEditable = fal
               ) : (
                 <h4 style={{ fontSize: 14, fontWeight: 800, color: 'var(--warm-brown)', marginBottom: 2 }}>{getLocalizedString(item.title, locale)}</h4>
               )}
-              {onSave ? (
+              {isEditable && onSave ? (
                 <EditableText
                   value={getLocalizedString(item.description, locale) || ''}
                   onSave={(val) => onSave(block.id, `props.items.${i}.description`, val)}

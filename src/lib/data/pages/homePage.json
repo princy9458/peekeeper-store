@@ -21,7 +21,7 @@
                                                   "en":  "#1 Escape-Proof Dog Diaper"
                                               },
                                       "heading":  {
-                                                      "en":  "Your Dog Deserves Comfort \u0026 Freedom"
+                                                      "en":  "Your Dog Deserves \nComfort \u0026 Freedom"
                                                   },
                                       "subheading":  {
                                                          "en":  "The only dog diaper that truly stays on. Made from premium cotton fabrics in Pennsylvania, USA. Trusted by thousands of dog families since 2009."
@@ -202,7 +202,7 @@
                                                       "rating":  4.86,
                                                       "reviewCount":  125,
                                                       "description":  {
-                                                                          "en":  "The original escape-proof dog diaper. Patented Velcro and strap system wraps around the torso â€” not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper. Made from premium cotton fabrics in Pennsylvania, USA."
+                                                                          "en":  "The original escape-proof dog diaper. Patented Velcro and strap system wraps around the torso Ã¢â‚¬â€ not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper. Made from premium cotton fabrics in Pennsylvania, USA."
                                                                       },
                                                       "category":  {
                                                                        "en":  "Dog Diaper / Unisex"
@@ -320,7 +320,7 @@
                                                                       "en":  "Truly Escape-Proof"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "Our patented Velcro and strap system wraps around the torso â€” not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper."
+                                                                            "en":  "Our patented Velcro and strap system wraps around the torso Ã¢â‚¬â€ not just the belly. Dogs that have escaped every other diaper can\u0027t get out of PeeKeeper."
                                                                         },
                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/04/dog2-1_new.jpg",
                                                         "linkText":  {
@@ -336,7 +336,7 @@
                                                                       "en":  "Premium Cotton Fabrics"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "From 100% cotton denim to pima cotton and flannel â€” soft, breathable, and gentle on your dog\u0027s skin. Machine washable for life."
+                                                                            "en":  "From 100% cotton denim to pima cotton and flannel Ã¢â‚¬â€ soft, breathable, and gentle on your dog\u0027s skin. Machine washable for life."
                                                                         },
                                                         "layout":  "small"
                                                     },
@@ -358,7 +358,7 @@
                                                                       "en":  "Works with Any Pad"
                                                                   },
                                                         "description":  {
-                                                                            "en":  "Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad â€” no need to wash after every use."
+                                                                            "en":  "Insert any feminine pad, adult incontinence pad, or disposable dog diaper. Simply swap the pad Ã¢â‚¬â€ no need to wash after every use."
                                                                         },
                                                         "layout":  "small"
                                                     }
@@ -378,19 +378,19 @@
                                                       "en":  "Find the Perfect Fit with AR Preview"
                                                   },
                                       "subheading":  {
-                                                         "en":  "Not sure which size fits your dog? Use our interactive AR Size Tool â€” point your camera at your dog and our guide overlays exactly where to measure."
+                                                         "en":  "Not sure which size fits your dog? Use our interactive AR Size Tool Ã¢â‚¬â€ point your camera at your dog and our guide overlays exactly where to measure."
                                                      },
                                       "steps":  [
                                                     {
                                                         "number":  1,
                                                         "text":  {
-                                                                     "en":  "Allow camera access when prompted â€” your privacy is protected, no images are stored."
+                                                                     "en":  "Allow camera access when prompted Ã¢â‚¬â€ your privacy is protected, no images are stored."
                                                                  }
                                                     },
                                                     {
                                                         "number":  2,
                                                         "text":  {
-                                                                     "en":  "Point at your dog â€” the AR overlay shows exactly where to measure waist and length."
+                                                                     "en":  "Point at your dog Ã¢â‚¬â€ the AR overlay shows exactly where to measure waist and length."
                                                                  }
                                                     },
                                                     {
@@ -497,7 +497,7 @@
                                                                      "en":  "Dachshund Mom"
                                                                  },
                                                         "text":  {
-                                                                     "en":  "Amazing productâ€¦ changed my dog\u0027s life! Around here we call them magic pants. Nothing else has ever stayed on her."
+                                                                     "en":  "Amazing productÃ¢â‚¬Â¦ changed my dog\u0027s life! Around here we call them magic pants. Nothing else has ever stayed on her."
                                                                  },
                                                         "rating":  5,
                                                         "initials":  "R",
@@ -505,13 +505,13 @@
                                                     },
                                                     {
                                                         "name":  {
-                                                                     "en":  "C***** â€” Old Mini Doxie Dad"
+                                                                     "en":  "C***** Ã¢â‚¬â€ Old Mini Doxie Dad"
                                                                  },
                                                         "role":  {
                                                                      "en":  "14-yr Dachshund Owner"
                                                                  },
                                                         "text":  {
-                                                                     "en":  "Dog saver, carpet saver, wood floor saver, tile grout saver â€” most of all, marriage saver!!! Five years of daily use and still going strong."
+                                                                     "en":  "Dog saver, carpet saver, wood floor saver, tile grout saver Ã¢â‚¬â€ most of all, marriage saver!!! Five years of daily use and still going strong."
                                                                  },
                                                         "rating":  5,
                                                         "initials":  "C",
@@ -519,7 +519,7 @@
                                                     },
                                                     {
                                                         "name":  {
-                                                                     "en":  "S******* L****** â€” Sweetie Wheatie"
+                                                                     "en":  "S******* L****** Ã¢â‚¬â€ Sweetie Wheatie"
                                                                  },
                                                         "role":  {
                                                                      "en":  "Ectopic Ureter, 8 years of use"
@@ -596,7 +596,7 @@
                                                       "en":  "Join the PeeKeeper Family"
                                                   },
                                       "subheading":  {
-                                                         "en":  "Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you â€” delivered to your inbox."
+                                                         "en":  "Get size tips, new color alerts, exclusive discounts, and heartwarming stories from dog owners like you Ã¢â‚¬â€ delivered to your inbox."
                                                      },
                                       "perks":  [
                                                     {
@@ -628,3 +628,5 @@
                     }
                 ]
 }
+
+

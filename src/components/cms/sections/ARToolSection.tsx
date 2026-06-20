@@ -101,7 +101,7 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
         <div>
           <div className="sec-tag" style={{ color: 'var(--blush)', marginBottom: 16 }}>
             <span style={{ background: 'rgba(242,184,198,0.4)' }} />
-            {onSave ? (
+            {isEditable && onSave ? (
               <EditableText value={getLocalizedString(props.tag, locale) || ''} onSave={(val) => onSave(block.id, 'props.tag', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <span>{getLocalizedString(props.tag, locale)}</span>
@@ -111,7 +111,7 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(30px, 4vw, 50px)', color: 'white', lineHeight: 1.1, marginBottom: 18 }}>
             Find the Perfect Fit with <em style={{ color: 'var(--blush)', fontStyle: 'italic' }}>AR Preview</em>
           </h2>
-          {onSave ? (
+          {isEditable && onSave ? (
             <EditableText value={getLocalizedString(props.subheading, locale) || ''} onSave={(val) => onSave(block.id, 'props.subheading', val)} isEditable={isEditable} tag="p" className="" />
           ) : (
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: 28 }}>{getLocalizedString(props.subheading, locale)}</p>
@@ -128,10 +128,10 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
                   color: 'white', fontSize: 12, fontWeight: 800,
                   display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                 }}>{getLocalizedString(step.number, locale)}</div>
-                {onSave ? (
+                {isEditable && onSave ? (
                   <EditableText value={getLocalizedString(step.text, locale) || ''} onSave={(val) => onSave(block.id, `props.steps.${i}.text`, val)} isEditable={isEditable} tag="p" className="" />
                 ) : (
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)', margin: 0, lineHeight: 1.5 }}>{getLocalizedString(step.text, locale)}</p>
+                  <p style={{ fontSize: 13, margin: 0, lineHeight: 1.5, color: 'white' }}>{getLocalizedString(step.text, locale)}</p>
                 )}
               </div>
             ))}

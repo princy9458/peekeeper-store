@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import footerData from '@/lib/data/pages/footerData.json';
 import { getLocalizedString } from '@/lib/i18n/locale';
@@ -33,27 +34,23 @@ export default function Footer() {
             <Link href={`${localePrefix}`} className="footer-brand-logo" style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 10,
               marginBottom: 18,
               textDecoration: 'none',
             }}>
-              <div style={{
-                width: 36,
-                height: 36,
-                background: 'var(--rose)',
-                borderRadius: 'var(--radius-sm)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <svg width="18" height="18" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </div>
-              <div className="footer-brand-text">
-                <strong style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'white', display: 'block' }}>PeeKeeper</strong>
-                <span className="footer-tagline">Escape-Proof Diapers</span>
-              </div>
+              <Image
+                src="/images/premium-puppy-diapers/peekeeper-logo-new-1.png"
+                alt="PeeKeeper logo"
+                width={500}
+                height={167}
+                priority={false}
+                sizes="(max-width: 640px) 220px, 320px"
+                style={{
+                  width: 'auto',
+                  height: '72px',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                }}
+              />
             </Link>
             <p className="footer-brand-desc footer-link" style={{ lineHeight: 1.75, marginBottom: 20 }}>
               {getLocalizedString(footerData.brand.description, locale)}

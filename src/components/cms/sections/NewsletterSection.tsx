@@ -45,10 +45,11 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
+              className="section-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(28px, 4vw, 44px)', color: 'var(--warm-brown)', lineHeight: 1.1, marginBottom: 14 }}>
+            <h2 className="section-title">
               {getLocalizedString(props.heading, locale)}
             </h2>
           )}
@@ -58,16 +59,17 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
               isEditable={isEditable}
               tag="p"
+              className="body-text"
               placeholder="Subheading..."
             />
           ) : (
-            <p style={{ fontSize: 15, color: 'rgba(61,46,46,0.7)', lineHeight: 1.7, marginBottom: 20 }}>
+            <p className="body-text" style={{ marginBottom: 20 }}>
               {getLocalizedString(props.subheading, locale)}
             </p>
           )}
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             {props.perks?.map((perk: string, i: number) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 700, color: 'rgba(61,46,46,0.65)' }}>
+              <div key={i} className="small-text" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <svg width="13" height="13" fill="none" stroke="var(--rose)" strokeWidth="2.5" viewBox="0 0 24 24">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
@@ -92,8 +94,8 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
               <svg width="40" height="40" fill="none" stroke="var(--rose)" strokeWidth="2" viewBox="0 0 24 24">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: 'var(--warm-brown)', marginTop: 14 }}>Welcome to the Family!</h3>
-              <p style={{ color: 'rgba(61,46,46,0.7)', fontSize: 14 }}>Check your inbox for 10% off your first order.</p>
+              <h3 className="card-title" style={{ marginTop: 14 }}>Welcome to the Family!</h3>
+              <p className="body-text">Check your inbox for 10% off your first order.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -138,7 +140,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
                   placeholder="Disclaimer..."
                 />
               ) : (
-                <p style={{ fontSize: 11, color: 'rgba(61,46,46,0.5)', lineHeight: 1.6 }}>
+                <p className="small-text">
                   {getLocalizedString(props.disclaimer, locale)}
                 </p>
               )}

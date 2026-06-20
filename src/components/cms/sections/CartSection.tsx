@@ -36,9 +36,9 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
             {onSave ? (
-              <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="text-2xl font-bold mb-3" placeholder="Empty title..." />
+              <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="section-title" placeholder="Empty title..." />
             ) : (
-              <h2 className="text-2xl font-bold mb-3">{getLocalizedString(props.emptyTitle, locale)}</h2>
+              <h2 className="section-title">{getLocalizedString(props.emptyTitle, locale)}</h2>
             )}
             {onSave ? (
               <EditableText value={getLocalizedString(props.emptyDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto" placeholder="Empty description..." />
@@ -79,18 +79,18 @@ export default function CartSection({ block, locale = 'en', localePrefix = '', i
           <div className="lg:col-span-2">
             {items.map((item) => (
               <div key={item.id} className="flex gap-4 p-4 border border-[var(--border)] rounded-[var(--radius-lg)] mb-4">
-                <div className="relative w-24 h-24 rounded-[var(--radius-md)] overflow-hidden bg-[var(--border)] flex-shrink-0">
-                  <Image src={item.image} alt={item.name} fill className="object-cover" sizes="96px" />
+                <div className="relative w-24 h-24 rounded-[var(--radius-md)] overflow-hidden bg-[var(--cream)] flex-shrink-0">
+                  <Image src={item.image} alt={item.name} fill className="object-contain object-center" sizes="96px" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-sm">{item.name}</h3>
+                  <h3 className="card-title">{item.name}</h3>
                   {item.color && (
-                    <p className="text-xs text-[var(--text-muted)] mt-1">Color: {item.color}</p>
+                    <p className="small-text mt-1">Color: {item.color}</p>
                   )}
                   {item.size && (
-                    <p className="text-xs text-[var(--text-muted)]">Size: {item.size}</p>
+                    <p className="small-text">Size: {item.size}</p>
                   )}
-                  <p className="text-sm font-bold text-[var(--primary)] mt-1">${item.price.toFixed(2)}</p>
+                  <p className="price-sm mt-1">${item.price.toFixed(2)}</p>
                   <div className="flex items-center gap-3 mt-3">
                     <div className="flex items-center border border-[var(--border)] rounded-full">
                       <button

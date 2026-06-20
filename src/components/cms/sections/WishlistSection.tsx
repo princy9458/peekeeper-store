@@ -31,9 +31,9 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
             {onSave ? (
-              <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="text-2xl font-bold mb-3" placeholder="Empty title..." />
+              <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="section-title" placeholder="Empty title..." />
             ) : (
-              <h2 className="text-2xl font-bold mb-3">{getLocalizedString(props.emptyTitle, locale)}</h2>
+              <h2 className="section-title">{getLocalizedString(props.emptyTitle, locale)}</h2>
             )}
             {onSave ? (
               <EditableText value={getLocalizedString(props.emptyDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto" placeholder="Empty description..." />
@@ -73,22 +73,22 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
         </div>
 
         {onSave ? (
-          <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h1" className="text-3xl font-bold mb-8" placeholder="Heading..." />
+          <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h1" className="section-title" placeholder="Heading..." />
         ) : (
-          <h1 className="text-3xl font-bold mb-8">{getLocalizedString(props.heading, locale)}</h1>
+          <h1 className="section-title">{getLocalizedString(props.heading, locale)}</h1>
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {items.map(item => (
             <div key={item.id} className="border border-[var(--border)] rounded-[var(--radius-lg)] overflow-hidden group">
-              <Link href={`${localePrefix}/shop/${item.slug}`} className="block relative aspect-[4/5] bg-[var(--border)] overflow-hidden">
-                <Image src={item.image} alt={item.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+              <Link href={`${localePrefix}/shop/${item.slug}`} className="block relative aspect-[4/5] bg-[var(--cream)] overflow-hidden">
+                <Image src={item.image} alt={item.name} fill className="object-contain object-center transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
               </Link>
               <div className="p-4">
                 <Link href={`${localePrefix}/shop/${item.slug}`}>
-                  <h3 className="font-semibold text-sm hover:text-[var(--primary)] transition-colors">{item.name}</h3>
+                  <h3 className="card-title hover:text-[var(--primary)] transition-colors">{item.name}</h3>
                 </Link>
-                <p className="font-bold text-[var(--primary)] mt-1">{getLocalizedString(props.priceLabel, locale)}: ${item.price.toFixed(2)}</p>
+                <p className="price-sm mt-1">{getLocalizedString(props.priceLabel, locale)}: ${item.price.toFixed(2)}</p>
                 <div className="flex gap-2 mt-3">
                   <button
                     className="btn-primary flex-1 text-xs py-2"

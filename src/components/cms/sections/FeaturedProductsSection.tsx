@@ -49,11 +49,11 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
-              className="sec-title"
+              className="section-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 className="sec-title">{getLocalizedString(props.heading, locale)}</h2>
+            <h2 className="section-title">{getLocalizedString(props.heading, locale)}</h2>
           )}
           {onSave ? (
             <EditableText

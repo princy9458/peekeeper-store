@@ -26,8 +26,10 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
   const wishlistItems = useAppSelector(s => s.wishlist.items);
   const isInWishlist = product ? wishlistItems.some(i => i.productId === product.slug) : false;
 
-  const productImages = (product?.images || []) as string[];
-  const [selectedImage, setSelectedImage] = useState(productImages[0] || '');
+  const productImages = (product?.colors?.map((c: any) => c.image).filter(Boolean) as string[]).length > 0
+    ? (product?.colors?.map((c: any) => c.image).filter(Boolean) as string[])
+    : (product?.images || []) as string[];
+  const [selectedImage, setSelectedImage] = useState(product?.colors?.[0]?.image || productImages[0] || '');
   const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] || null);
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
@@ -94,8 +96,8 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           <div>
-            <div className="relative aspect-[4/5] bg-[var(--border)] rounded-[var(--radius-lg)] overflow-hidden mb-4">
-              <Image src={selectedImage || ''} alt={getLocalizedString(product.name, locale) || ''} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" priority />
+            <div className="relative aspect-[5/4] bg-[var(--cream)] rounded-[var(--radius-lg)] overflow-hidden mb-4">
+              <Image src={selectedImage || ''} alt={getLocalizedString(product.name, locale) || ''} fill className="object-contain object-center" sizes="(max-width: 768px) 100vw, 50vw" priority />
               {product.compareAtPrice && (
                 <span className="absolute top-4 left-4 bg-[var(--primary)] text-white text-xs font-bold px-3 py-1 rounded-full">
                   {onSave ? (
@@ -113,15 +115,15 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                   onClick={() => setSelectedImage(img)}
                   className={`relative w-20 h-20 rounded-[var(--radius-md)] overflow-hidden flex-shrink-0 border-2 transition-colors ${selectedImage === img ? 'border-[var(--primary)]' : 'border-transparent'}`}
                 >
-                  <Image src={img} alt={`${getLocalizedString(product.name, locale)} ${i + 1}`} fill className="object-cover" sizes="80px" />
+                  <Image src={img} alt={`${getLocalizedString(product.name, locale)} ${i + 1}`} fill className="object-contain object-center" sizes="80px" />
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">{getLocalizedString(product.category, locale)}</p>
-            <h1 className="text-3xl font-bold mb-3">{getLocalizedString(product.name, locale)}</h1>
+            <p className="product-category">{getLocalizedString(product.category, locale)}</p>
+            <h1 className="product-title-lg">{getLocalizedString(product.name, locale)}</h1>
 
             <div className="flex items-center gap-2 mb-4">
               <div className="flex">
@@ -131,25 +133,25 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                   </svg>
                 ))}
               </div>
-              <span className="text-sm text-[var(--text-muted)]">{product.rating} ({product.reviewCount || 0} {onSave ? <EditableText value={getLocalizedString(props.reviewsLabel, locale) || 'reviews'} onSave={(val) => onSave(block.id, 'props.reviewsLabel', val)} isEditable={isEditable} tag="span" placeholder="Reviews label..." /> : (getLocalizedString(props.reviewsLabel, locale) || 'reviews')})</span>
+              <span className="small-text">{product.rating} ({product.reviewCount || 0} {onSave ? <EditableText value={getLocalizedString(props.reviewsLabel, locale) || 'reviews'} onSave={(val) => onSave(block.id, 'props.reviewsLabel', val)} isEditable={isEditable} tag="span" placeholder="Reviews label..." /> : (getLocalizedString(props.reviewsLabel, locale) || 'reviews')})</span>
             </div>
 
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-2xl font-bold text-[var(--primary)]">${(product.price || 0).toFixed(2)}</span>
+              <span className="price-lg" style={{ fontSize: 30, marginBottom: 0 }}>${(product.price || 0).toFixed(2)}</span>
               {product.compareAtPrice && (
-                <span className="text-lg text-[var(--text-muted)] line-through">${product.compareAtPrice.toFixed(2)}</span>
+                <span className="small-text" style={{ textDecoration: 'line-through', fontSize: 16 }}>${product.compareAtPrice.toFixed(2)}</span>
               )}
             </div>
 
-            <p className="text-[var(--text-secondary)] leading-relaxed mb-6">{getLocalizedString(product.description, locale)}</p>
+            <p className="body-text mb-6">{getLocalizedString(product.description, locale)}</p>
 
             <div className="mb-6">
-              <p className="text-sm font-medium mb-2">{onSave ? <EditableText value={getLocalizedString(props.colorLabel, locale) || 'Color'} onSave={(val) => onSave(block.id, 'props.colorLabel', val)} isEditable={isEditable} tag="span" placeholder="Color..." /> : (getLocalizedString(props.colorLabel, locale) || 'Color')}: <strong>{selectedColor?.label || ''}</strong></p>
+              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave ? <EditableText value={getLocalizedString(props.colorLabel, locale) || 'Color'} onSave={(val) => onSave(block.id, 'props.colorLabel', val)} isEditable={isEditable} tag="span" placeholder="Color..." /> : (getLocalizedString(props.colorLabel, locale) || 'Color')}: <strong>{selectedColor?.label || ''}</strong></p>
               <div className="flex gap-2">
                 {(product.colors || []).map((c: any, i: number) => (
                   <button
                     key={i}
-                    onClick={() => { setSelectedColor(c); setSelectedImage((product.images || [])[i] || selectedImage); }}
+                    onClick={() => { setSelectedColor(c); setSelectedImage(c.image || selectedImage); }}
                     title={c.label}
                     className={`w-9 h-9 rounded-full border-2 transition-all ${selectedColor?.label === c.label ? 'border-[var(--primary)] scale-110' : 'border-transparent'} ${c.inStock ? 'cursor-pointer' : 'opacity-30 cursor-not-allowed'}`}
                     style={{ background: c.hex }}
@@ -160,7 +162,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
             </div>
 
             <div className="mb-6">
-              <p className="text-sm font-medium mb-2">{onSave ? <EditableText value={getLocalizedString(props.sizeLabel, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeLabel', val)} isEditable={isEditable} tag="span" placeholder="Size..." /> : (getLocalizedString(props.sizeLabel, locale) || 'Size')}: <strong>{selectedSize?.label || ''}</strong></p>
+              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave ? <EditableText value={getLocalizedString(props.sizeLabel, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeLabel', val)} isEditable={isEditable} tag="span" placeholder="Size..." /> : (getLocalizedString(props.sizeLabel, locale) || 'Size')}: <strong>{selectedSize?.label || ''}</strong></p>
               <div className="flex flex-wrap gap-2">
                 {(product.sizes || []).map((s: any, i: number) => (
                   <button

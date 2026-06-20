@@ -28,9 +28,10 @@ export default function AnnouncementBar() {
       id="announcement-bar"
       className="announcement-bar"
       style={{
-        background: 'var(--rose)',
+        background: 'var(--primary)',
         textAlign: 'center',
         padding: '9px 20px',
+        fontFamily: 'var(--font-body)',
         fontSize: 13,
         fontWeight: 700,
         letterSpacing: '0.05em',

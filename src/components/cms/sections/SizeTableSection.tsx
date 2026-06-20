@@ -50,24 +50,24 @@ export default function SizeTableSection({ block, locale = 'en', localePrefix = 
               <thead>
                 <tr>
                   {onSave ? (
-                    <EditableText value={getLocalizedString(props.sizeHeader, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeHeader', val)} isEditable={isEditable} tag="th" className="" />
+                    <EditableText value={getLocalizedString(props.sizeHeader, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeHeader', val)} isEditable={isEditable} tag="th" className="product-category" />
                   ) : (
-                    <th style={{ background: 'var(--rose)', color: 'white', fontSize: 12, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '14px 18px', textAlign: 'left', borderRadius: 'var(--radius-sm) 0 0 0' }}>Size</th>
+                    <th className="product-category" style={{ background: 'var(--rose)', color: 'white', padding: '14px 18px', textAlign: 'left', borderRadius: 'var(--radius-sm) 0 0 0' }}>Size</th>
                   )}
                   {onSave ? (
-                    <EditableText value={getLocalizedString(props.waistHeader, locale) || 'Waist'} onSave={(val) => onSave(block.id, 'props.waistHeader', val)} isEditable={isEditable} tag="th" className="" />
+                    <EditableText value={getLocalizedString(props.waistHeader, locale) || 'Waist'} onSave={(val) => onSave(block.id, 'props.waistHeader', val)} isEditable={isEditable} tag="th" className="product-category" />
                   ) : (
-                    <th style={{ background: 'var(--rose)', color: 'white', fontSize: 12, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '14px 18px', textAlign: 'left' }}>Waist</th>
+                    <th className="product-category" style={{ background: 'var(--rose)', color: 'white', padding: '14px 18px', textAlign: 'left' }}>Waist</th>
                   )}
                   {onSave ? (
-                    <EditableText value={getLocalizedString(props.lengthHeader, locale) || 'Available Lengths'} onSave={(val) => onSave(block.id, 'props.lengthHeader', val)} isEditable={isEditable} tag="th" className="" />
+                    <EditableText value={getLocalizedString(props.lengthHeader, locale) || 'Available Lengths'} onSave={(val) => onSave(block.id, 'props.lengthHeader', val)} isEditable={isEditable} tag="th" className="product-category" />
                   ) : (
-                    <th style={{ background: 'var(--rose)', color: 'white', fontSize: 12, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '14px 18px', textAlign: 'left' }}>Available Lengths</th>
+                    <th className="product-category" style={{ background: 'var(--rose)', color: 'white', padding: '14px 18px', textAlign: 'left' }}>Available Lengths</th>
                   )}
                   {onSave ? (
-                    <EditableText value={getLocalizedString(props.weightHeader, locale) || 'Weight'} onSave={(val) => onSave(block.id, 'props.weightHeader', val)} isEditable={isEditable} tag="th" className="" />
+                    <EditableText value={getLocalizedString(props.weightHeader, locale) || 'Weight'} onSave={(val) => onSave(block.id, 'props.weightHeader', val)} isEditable={isEditable} tag="th" className="product-category" />
                   ) : (
-                    <th style={{ background: 'var(--rose)', color: 'white', fontSize: 12, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '14px 18px', textAlign: 'left', borderRadius: '0 var(--radius-sm) 0 0' }}>Weight</th>
+                    <th className="product-category" style={{ background: 'var(--rose)', color: 'white', padding: '14px 18px', textAlign: 'left', borderRadius: '0 var(--radius-sm) 0 0' }}>Weight</th>
                   )}
                 </tr>
               </thead>
@@ -76,18 +76,18 @@ export default function SizeTableSection({ block, locale = 'en', localePrefix = 
                   const tagStyle = sizeTagStyles[s.tag] || sizeTagStyles.XS;
                   return (
                     <tr key={i}>
-                      <td style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)', color: 'var(--mid-brown)', fontWeight: 600 }}>
-                        <span style={{ display: 'inline-block', padding: '4px 12px', borderRadius: 'var(--radius-full)', fontSize: 11, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', background: tagStyle.bg, color: tagStyle.color }}>{getLocalizedString(s.name, locale)}</span>
+                      <td className="small-text" style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)' }}>
+                        <span className="product-category" style={{ display: 'inline-block', padding: '4px 12px', borderRadius: 'var(--radius-full)', background: tagStyle.bg, color: tagStyle.color }}>{getLocalizedString(s.name, locale)}</span>
                       </td>
-                      <td style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)', color: 'var(--mid-brown)', fontWeight: 600 }}>{getLocalizedString(s.waist, locale)}</td>
-                      <td style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)', color: 'var(--mid-brown)', fontWeight: 600 }}>{getLocalizedString(s.lengths, locale)}</td>
-                      <td style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)', color: 'var(--mid-brown)', fontWeight: 600 }}>{getLocalizedString(s.weight, locale)}</td>
+                      <td className="small-text" style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)' }}>{getLocalizedString(s.waist, locale)}</td>
+                      <td className="small-text" style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)' }}>{getLocalizedString(s.lengths, locale)}</td>
+                      <td className="small-text" style={{ padding: '14px 18px', borderBottom: '1px solid var(--cream-dark)' }}>{getLocalizedString(s.weight, locale)}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
-            <div style={{ marginTop: 14, padding: 14, background: 'var(--lav-lt)', borderRadius: 'var(--radius-sm)', fontSize: 13, color: 'var(--mid-brown)' }}>
+            <div className="small-text" style={{ marginTop: 14, padding: 14, background: 'var(--lav-lt)', borderRadius: 'var(--radius-sm)' }}>
               {onSave ? (
                 <EditableText value={getLocalizedString(props.tipPrefix, locale) || 'Tip:'} onSave={(val) => onSave(block.id, 'props.tipPrefix', val)} isEditable={isEditable} tag="strong" className="" />
               ) : (

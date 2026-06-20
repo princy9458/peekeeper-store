@@ -58,8 +58,9 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             display: 'inline-flex',
             alignItems: 'center',
             gap: 8,
-            background: 'var(--rose)',
+            background: 'var(--primary)',
             color: 'white',
+            fontFamily: 'var(--font-body)',
             fontSize: 11,
             fontWeight: 800,
             letterSpacing: '0.12em',
@@ -94,13 +95,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
               placeholder="Heading..."
             />
           ) : (
-            <h1 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(38px, 5vw, 68px)',
-              lineHeight: 1.05,
-              color: 'var(--warm-brown)',
-              marginBottom: 22,
-            }}>
+            <h1 className="hero-title">
               {getLocalizedString(props.heading, locale)}
             </h1>
           )}
@@ -114,13 +109,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
               placeholder="Subheading..."
             />
           ) : (
-            <p style={{
-              fontSize: 16,
-              lineHeight: 1.75,
-              color: 'var(--mid-brown)',
-              maxWidth: 440,
-              marginBottom: 36,
-            }}>
+            <p className="hero-desc">
               {getLocalizedString(props.subheading, locale)}
             </p>
           )}
@@ -142,7 +131,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-            <a href={props.secondaryCta?.href || '#ar-tool'} className="btn-outline" style={{ fontSize: 14, padding: '13px 28px' }}>
+            <a href={props.secondaryCta?.href || '#ar-tool'} className="btn-ghost">
               <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <rect x="2" y="7" width="20" height="14" rx="2" />
                 <path d="M16 3l-4 4-4-4M8 21v-2M16 21v-2" />
@@ -165,19 +154,20 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             <div style={{ display: 'flex', gap: 28, marginTop: 36, flexWrap: 'wrap' }}>
               {props.stats.map((stat: any, i: number) => (
                 <div key={i}>
-                  <strong style={{
+                  <strong className="hero-stat strong" style={{
                     display: 'block',
                     fontFamily: 'var(--font-heading)',
                     fontSize: 32,
-                    color: 'var(--rose)',
+                    color: 'var(--primary)',
                     lineHeight: 1,
                   }}>{getLocalizedString(stat.value, locale)}</strong>
                   <span style={{
+                    fontFamily: 'var(--font-body)',
                     fontSize: 12,
                     fontWeight: 700,
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
-                    color: 'var(--muted)',
+                    color: 'var(--text-muted)',
                   }}>
                     {onSave ? (
                       <EditableText
@@ -205,6 +195,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             boxShadow: 'var(--shadow-lg)',
             overflow: 'hidden',
             position: 'relative',
+            background: 'var(--cream)',
           }}>
             <img
               src={currentImage}
@@ -212,7 +203,8 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
               style={{
                 width: '100%',
                 height: 480,
-                objectFit: 'cover',
+                objectFit: 'contain',
+                objectPosition: 'center',
                 display: 'block',
                 opacity: imgLoaded ? 1 : 0,
                 transition: 'opacity 0.3s, transform 0.3s',
@@ -247,7 +239,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                       placeholder="Badge Title..."
                     />
                   ) : (
-                    <strong style={{ fontFamily: 'var(--font-heading)', fontSize: 18, color: 'var(--warm-brown)', display: 'block' }}>{getLocalizedString(props.badges[0].title, locale)}</strong>
+                    <strong style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'var(--warm-brown)', display: 'block' }}>{getLocalizedString(props.badges[0].title, locale)}</strong>
                   )}
                   {onSave ? (
                     <EditableText
@@ -259,7 +251,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                       placeholder="Badge Subtitle..."
                     />
                   ) : (
-                    <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{getLocalizedString(props.badges[0].subtitle, locale)}</span>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{getLocalizedString(props.badges[0].subtitle, locale)}</span>
                   )}
                 </div>
               </div>
@@ -269,11 +261,12 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                 position: 'absolute',
                 bottom: 20,
                 right: 20,
-                background: 'var(--rose)',
+                background: 'var(--primary)',
                 borderRadius: 'var(--radius-md)',
                 padding: '12px 18px',
                 boxShadow: 'var(--shadow-md)',
                 color: 'white',
+                fontFamily: 'var(--font-body)',
                 fontWeight: 800,
                 fontSize: 13,
                 display: 'flex',

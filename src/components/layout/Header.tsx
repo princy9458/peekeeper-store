@@ -81,10 +81,10 @@ export default function Header() {
               </svg>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-              <strong style={{ fontFamily: 'var(--font-heading)', fontSize: 22, fontWeight: 400, color: 'var(--warm-brown)', letterSpacing: '-0.01em' }}>
+              <strong className="logo-text">
                 PeeKeeper
               </strong>
-              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--rose)' }}>
+              <span className="logo-tagline">
                 Escape-Proof Diapers
               </span>
             </div>
@@ -209,16 +209,13 @@ export default function Header() {
               <div key={index}>
                 <Link
                   href={`${localePrefix}${item.href === '/' ? '' : item.href}`}
+                  className="nav-link"
                   style={{
                     display: 'block',
                     padding: '14px 10px',
-                    fontSize: 15,
-                    fontWeight: 700,
-                    color: 'var(--mid-brown)',
+                    color: 'var(--text-secondary)',
                     textDecoration: 'none',
                     borderBottom: '1px solid var(--cream-dark)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
                   }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -226,12 +223,7 @@ export default function Header() {
                 </Link>
                 {item.megaColumns?.map((col: any, ci: number) => (
                   <div key={ci} style={{ paddingLeft: 20 }}>
-                    <div style={{
-                      fontSize: 10,
-                      fontWeight: 800,
-                      letterSpacing: '0.14em',
-                      textTransform: 'uppercase',
-                      color: 'var(--rose)',
+                    <div className="mobile-mega-title" style={{
                       padding: '8px 10px 4px',
                     }}>
                       {col.title}
@@ -240,12 +232,10 @@ export default function Header() {
                       <Link
                         key={si}
                         href={`${localePrefix}${subItem.href}`}
+                        className="mega-item"
                         style={{
                           display: 'block',
                           padding: '8px 10px',
-                          fontSize: 13,
-                          fontWeight: 600,
-                          color: 'var(--mid-brown)',
                           textDecoration: 'none',
                         }}
                         onClick={() => setIsMobileMenuOpen(false)}
@@ -283,18 +273,15 @@ function NavItem({
     >
       <Link
         href={`${localePrefix}${item.href === '/' ? '' : item.href}`}
+        className="nav-link"
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: 5,
           padding: '0 18px',
           height: 46,
-          fontSize: 13,
-          fontWeight: 700,
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-          color: isOpen ? 'var(--rose)' : 'var(--mid-brown)',
-          borderBottom: isOpen ? '2px solid var(--rose)' : '2px solid transparent',
+          color: isOpen ? 'var(--primary)' : 'var(--text-secondary)',
+          borderBottom: isOpen ? '2px solid var(--primary)' : '2px solid transparent',
           transition: 'color 0.28s, border-color 0.28s',
           whiteSpace: 'nowrap',
           textDecoration: 'none',
@@ -305,6 +292,7 @@ function NavItem({
           <span style={{
             background: 'var(--sage)',
             color: 'white',
+            fontFamily: 'var(--font-body)',
             fontSize: 9,
             fontWeight: 800,
             padding: '2px 7px',
@@ -344,12 +332,7 @@ function NavItem({
         }}>
           {item.megaColumns.map((col: any, idx: number) => (
             <div key={idx}>
-              <div style={{
-                fontSize: 11,
-                fontWeight: 800,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--rose)',
+              <div className="mega-title" style={{
                 marginBottom: 14,
                 paddingBottom: 10,
                 borderBottom: '1px solid var(--cream-dark)',
@@ -360,14 +343,11 @@ function NavItem({
                 <Link
                   key={si}
                   href={`${localePrefix}${subItem.href}`}
-                  className="mega-link"
+                  className="mega-item mega-link"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: 10,
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: 'var(--mid-brown)',
                     padding: '7px 0',
                     textDecoration: 'none',
                   }}

@@ -54,11 +54,11 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
             onSave={(val) => onSave(block.id, 'props.heading', val)}
             isEditable={isEditable}
             tag="h2"
-            className="text-2xl font-bold mb-6"
+            className="section-title"
             placeholder="Heading..."
           />
         ) : (
-          <h2 className="text-2xl font-bold mb-6">{getLocalizedString(heading, locale)}</h2>
+          <h2 className="section-title">{getLocalizedString(heading, locale)}</h2>
         ))}
 
         {/* Filter Bar */}
@@ -148,12 +148,12 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                 href={`${localePrefix}/shop/${product.slug}`}
                 className="card-product group"
               >
-                <div className="relative aspect-[4/5] bg-[var(--border)] overflow-hidden">
+                <div className="relative aspect-[4/5] bg-[var(--cream)] overflow-hidden">
                   <Image
                     src={product.image}
                     alt={getLocalizedString(product.name, locale)}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-contain object-center transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   {product.hoverImage && (
@@ -161,7 +161,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                       src={product.hoverImage}
                       alt=""
                       fill
-                      className="object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      className="object-contain object-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
                   )}
@@ -216,16 +216,16 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                   </div>
                 </div>
                 <div className="p-3 sm:p-4">
-                  <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider capitalize">{getLocalizedString(product.category, locale)?.replace('-', ' ')}</span>
-                  <h3 className="text-sm font-semibold mt-1 mb-1 leading-tight">{getLocalizedString(product.name, locale)}</h3>
+                  <span className="product-category capitalize">{getLocalizedString(product.category, locale)?.replace('-', ' ')}</span>
+                  <h3 className="card-title">{getLocalizedString(product.name, locale)}</h3>
                   <div className="flex items-center gap-1.5 mb-2">
                     {renderStars(product.rating)}
                     <span className="text-[10px] text-[var(--text-muted)]">({product.reviewCount})</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-bold text-[var(--primary)]">${product.price.toFixed(2)}</span>
+                    <span className="price-sm">${product.price.toFixed(2)}</span>
                     {product.compareAtPrice && (
-                      <span className="text-xs text-[var(--text-muted)] line-through">${product.compareAtPrice.toFixed(2)}</span>
+                      <span className="small-text line-through">${product.compareAtPrice.toFixed(2)}</span>
                     )}
                   </div>
                 </div>

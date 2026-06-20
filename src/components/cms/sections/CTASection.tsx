@@ -30,11 +30,11 @@ export default function CTASection({ block, locale = 'en', localePrefix = '', is
             onSave={(val) => onSave(block.id, 'props.title', val)}
             isEditable={isEditable}
             tag="h2"
-            className="text-3xl font-bold"
+            className="section-title"
             placeholder="Title..."
           />
         ) : (
-          <h2 className="text-3xl font-bold">{getLocalizedString(title, locale)}</h2>
+          <h2 className="section-title">{getLocalizedString(title, locale)}</h2>
         ))}
         {subtitle && (onSave ? (
           <EditableText

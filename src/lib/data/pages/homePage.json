@@ -26,7 +26,7 @@
                                       "subheading":  {
                                                          "en":  "The only dog diaper that truly stays on. Made from premium cotton fabrics in Pennsylvania, USA. Trusted by thousands of dog families since 2009."
                                                      },
-                                      "image":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg",
+                                      "image":  "/images/premium-puppy-diapers/dachshund-walnut-front.webp.png",
                                       "cta":  {
                                                   "label":  {
                                                                 "en":  "Shop Now"
@@ -74,41 +74,41 @@
                                                     }
                                                 ],
                                       "colors":  [
-                                                     {
-                                                         "name":  "Walnut",
-                                                         "hex":  "#8B6914",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Pink Begonia",
-                                                         "hex":  "#F0A0B8",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Peri",
-                                                         "hex":  "#8090C8",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/peri-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Lilac",
-                                                         "hex":  "#C8A0D0",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/lilac-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Hot Pink",
-                                                         "hex":  "#FF5070",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/hot-pink-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Fire Red",
-                                                         "hex":  "#C82020",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/fire-engine-red-600x450.jpg"
-                                                     },
-                                                     {
-                                                         "name":  "Denim",
-                                                         "hex":  "#4878A8",
-                                                         "image":  "https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg"
-                                                     }
+                                                      {
+                                                          "name":  "Walnut",
+                                                          "hex":  "#8B6914",
+                                                          "image":  "/images/premium-puppy-diapers/dachshund-walnut-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Pink Begonia",
+                                                          "hex":  "#F0A0B8",
+                                                          "image":  "/images/premium-puppy-diapers/shih-tzu-pink-begonia-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Peri",
+                                                          "hex":  "#8090C8",
+                                                          "image":  "/images/premium-puppy-diapers/dachshund-peri-blue-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Lilac",
+                                                          "hex":  "#C8A0D0",
+                                                          "image":  "/images/premium-puppy-diapers/maltese-peri-blue-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Hot Pink",
+                                                          "hex":  "#FF5070",
+                                                          "image":  "/images/premium-puppy-diapers/pekingese-hot-pink-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Fire Red",
+                                                          "hex":  "#C82020",
+                                                          "image":  "/images/premium-puppy-diapers/dachshund-fire-red-front.webp.png"
+                                                      },
+                                                      {
+                                                          "name":  "Denim",
+                                                          "hex":  "#4878A8",
+                                                          "image":  "/images/premium-puppy-diapers/yorkie-denim-front.webp.png"
+                                                      }
                                                  ],
                                       "badges":  [
                                                      {
@@ -208,42 +208,42 @@
                                                                        "en":  "Dog Diaper / Unisex"
                                                                    },
                                                       "images":  [
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/walnut-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Walnut",
-                                                                         "color":  "Walnut"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/pink-begonia-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Pink Begonia",
-                                                                         "color":  "Pink Begonia"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/peri-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Peri",
-                                                                         "color":  "Peri"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/lilac-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Lilac",
-                                                                         "color":  "Lilac"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/hot-pink-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Hot Pink",
-                                                                         "color":  "Hot Pink"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/fire-engine-red-600x450.jpg",
-                                                                         "alt":  "PeeKeeper Fire Red",
-                                                                         "color":  "Fire Red"
-                                                                     },
-                                                                     {
-                                                                         "src":  "https://peekeeper.com/wp-content/uploads/2022/03/denim.jpg",
-                                                                         "alt":  "PeeKeeper Denim",
-                                                                         "color":  "Denim"
-                                                                     }
-                                                                 ],
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/dachshund-walnut-front.webp.png",
+                                                                          "alt":  "PeeKeeper Walnut",
+                                                                          "color":  "Walnut"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/shih-tzu-pink-begonia-front.webp.png",
+                                                                          "alt":  "PeeKeeper Pink Begonia",
+                                                                          "color":  "Pink Begonia"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/dachshund-peri-blue-front.webp.png",
+                                                                          "alt":  "PeeKeeper Peri",
+                                                                          "color":  "Peri"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/maltese-peri-blue-front.webp.png",
+                                                                          "alt":  "PeeKeeper Lilac",
+                                                                          "color":  "Lilac"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/pekingese-hot-pink-front.webp.png",
+                                                                          "alt":  "PeeKeeper Hot Pink",
+                                                                          "color":  "Hot Pink"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/dachshund-fire-red-front.webp.png",
+                                                                          "alt":  "PeeKeeper Fire Red",
+                                                                          "color":  "Fire Red"
+                                                                      },
+                                                                      {
+                                                                          "src":  "/images/premium-puppy-diapers/yorkie-denim-front.webp.png",
+                                                                          "alt":  "PeeKeeper Denim",
+                                                                          "color":  "Denim"
+                                                                      }
+                                                                  ],
                                                       "colors":  [
                                                                      {
                                                                          "hex":  "#8B6914",

@@ -39,11 +39,11 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
-              className="sec-title"
+              className="section-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
+            <h2 className="section-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
           {onSave ? (
             <EditableText
@@ -85,11 +85,11 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
                   onSave={(val) => onSave(block.id, `props.items.${i}.text`, val)}
                   isEditable={isEditable}
                   tag="p"
-                  className=""
+                  className="review-text"
                   placeholder="Testimonial Text..."
                 />
               ) : (
-                <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--mid-brown)', marginBottom: 20, fontStyle: 'italic' }}>
+                <p className="review-text" style={{ marginBottom: 20, fontStyle: 'italic' }}>
                   &ldquo;{getLocalizedString(item.text, locale)}&rdquo;
                 </p>
               )}

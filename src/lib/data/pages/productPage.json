@@ -70,7 +70,7 @@
                                                            },
                                       "productData":  {
                                                           "name":  {
-                                                                       "en":  "Premium Puppy Diapers â€” 20 Pack"
+                                                                       "en":  "Premium Puppy Diapers \u2014 20 Pack"
                                                                    },
                                                           "slug":  "premium-puppy-diapers",
                                                           "category":  {
@@ -104,10 +104,12 @@
                                                                            }
                                                                        ],
                                                           "images":  [
-                                                                         "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600\u0026q=90",
-                                                                         "https://images.unsplash.com/photo-1544568100-7cf1b7f9a1d5?w=600\u0026q=90",
-                                                                         "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600\u0026q=90",
-                                                                         "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600\u0026q=90"
+                                                                         "/images/premium-puppy-diapers/dachshund-walnut-front.webp.png",
+                                                                         "/images/premium-puppy-diapers/shih-tzu-pink-begonia-front.webp.png",
+                                                                         "/images/premium-puppy-diapers/dachshund-peri-blue-front.webp.png",
+                                                                         "/images/premium-puppy-diapers/pekingese-hot-pink-front.webp.png",
+                                                                         "/images/premium-puppy-diapers/dachshund-fire-red-front.webp.png",
+                                                                         "/images/premium-puppy-diapers/yorkie-denim-front.webp.png"
                                                                      ],
                                                           "sizes":  [
                                                                         {
@@ -124,7 +126,7 @@
                                                                         },
                                                                         {
                                                                             "label":  "L",
-                                                                            "inStock":  true
+                                                                            "inStock":  false
                                                                         },
                                                                         {
                                                                             "label":  "XL",
@@ -133,19 +135,40 @@
                                                                     ],
                                                           "colors":  [
                                                                          {
-                                                                             "label":  "White",
-                                                                             "hex":  "#FFFFFF",
-                                                                             "inStock":  true
+                                                                             "label":  "Walnut",
+                                                                             "hex":  "#8B6914",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/dachshund-walnut-front.webp.png"
                                                                          },
                                                                          {
-                                                                             "label":  "Blue",
-                                                                             "hex":  "#3B82F6",
-                                                                             "inStock":  true
+                                                                             "label":  "Pink Begonia",
+                                                                             "hex":  "#F0A0B8",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/shih-tzu-pink-begonia-front.webp.png"
                                                                          },
                                                                          {
-                                                                             "label":  "Pink",
-                                                                             "hex":  "#EC7A98",
-                                                                             "inStock":  true
+                                                                             "label":  "Peri-Blue",
+                                                                             "hex":  "#8090C8",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/dachshund-peri-blue-front.webp.png"
+                                                                         },
+                                                                         {
+                                                                             "label":  "Hot-Pink",
+                                                                             "hex":  "#FF5070",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/pekingese-hot-pink-front.webp.png"
+                                                                         },
+                                                                         {
+                                                                             "label":  "Fire Red",
+                                                                             "hex":  "#C82020",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/dachshund-fire-red-front.webp.png"
+                                                                         },
+                                                                         {
+                                                                             "label":  "Denim",
+                                                                             "hex":  "#4878A8",
+                                                                             "inStock":  true,
+                                                                             "image":  "/images/premium-puppy-diapers/yorkie-denim-front.webp.png"
                                                                          }
                                                                      ],
                                                           "reviews":  [
@@ -154,13 +177,13 @@
                                                                               "author":  {
                                                                                              "en":  "Sarah M."
                                                                                          },
-                                                                              "avatar":  "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=60\u0026q=80",
+                                                                              "avatar":  "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=60&q=80",
                                                                               "rating":  5,
                                                                               "title":  {
                                                                                             "en":  "Perfect for my golden retriever puppy!"
                                                                                         },
                                                                               "text":  {
-                                                                                           "en":  "These diapers saved our floors! Our 10-week-old goldie is fully house-trained now. The fit is perfect and they\u0027re so easy to wash."
+                                                                                           "en":  "These diapers saved our floors! Our 10-week-old goldie is fully house-trained now. The fit is perfect and they're so easy to wash."
                                                                                        },
                                                                               "date":  "2025-12-15",
                                                                               "verified":  true
@@ -170,13 +193,13 @@
                                                                               "author":  {
                                                                                              "en":  "James R."
                                                                                          },
-                                                                              "avatar":  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60\u0026q=80",
+                                                                              "avatar":  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80",
                                                                               "rating":  5,
                                                                               "title":  {
                                                                                             "en":  "Great quality, worth every penny"
                                                                                         },
                                                                               "text":  {
-                                                                                           "en":  "We\u0027ve tried 5 different brands and nothing comes close to PeeKeeper. The leak protection is incredible."
+                                                                                           "en":  "We've tried 5 different brands and nothing comes close to PeeKeeper. The leak protection is incredible."
                                                                                        },
                                                                               "date":  "2025-11-28",
                                                                               "verified":  true
@@ -186,7 +209,7 @@
                                                                               "author":  {
                                                                                              "en":  "Emily K."
                                                                                          },
-                                                                              "avatar":  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=60\u0026q=80",
+                                                                              "avatar":  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=60&q=80",
                                                                               "rating":  4,
                                                                               "title":  {
                                                                                             "en":  "Great for senior dogs"

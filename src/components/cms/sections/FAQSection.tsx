@@ -56,13 +56,13 @@ export default function FAQSection({ block, locale = 'en', isEditable = false, o
                       onSave={(val) => onSave(block.id, `content.${idx}.props.answer`, val)}
                       isEditable={isEditable}
                       tag="p"
-                      className="text-[var(--text-secondary)] leading-relaxed"
+                      className="body-text"
                       placeholder="Answer..."
                       multiline
                       rows={3}
                     />
                   ) : (
-                    <p className="text-[var(--text-secondary)] leading-relaxed">{getLocalizedString(item.props?.answer, locale)}</p>
+                    <p className="body-text">{getLocalizedString(item.props?.answer, locale)}</p>
                   )}
                 </div>
               )}

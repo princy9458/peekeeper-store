@@ -39,11 +39,11 @@ export default function PressSection({ block, locale = 'en', isEditable = false,
               onSave={(val) => onSave(block.id, 'props.heading', val)}
               isEditable={isEditable}
               tag="h2"
-              className="sec-title"
+              className="section-title"
               placeholder="Heading..."
             />
           ) : (
-            <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
+            <h2 className="section-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 16 }}>

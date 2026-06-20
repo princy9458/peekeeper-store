@@ -51,11 +51,11 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="footer-brand-text">
-                <strong style={{ fontFamily: 'var(--font-heading)', fontSize: 18, color: 'white', display: 'block' }}>PeeKeeper</strong>
-                <span style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--blush)' }}>Escape-Proof Diapers</span>
+                <strong style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'white', display: 'block' }}>PeeKeeper</strong>
+                <span className="footer-tagline">Escape-Proof Diapers</span>
               </div>
             </Link>
-            <p className="footer-brand-desc" style={{ fontSize: 13, lineHeight: 1.75, marginBottom: 20 }}>
+            <p className="footer-brand-desc footer-link" style={{ lineHeight: 1.75, marginBottom: 20 }}>
               {getLocalizedString(footerData.brand.description, locale)}
             </p>
             <div className="footer-socials" style={{ display: 'flex', gap: 8 }}>
@@ -86,16 +86,11 @@ export default function Footer() {
           {/* Columns */}
           {footerData.quickLinksColumns.map((column, i) => (
             <div key={i}>
-              <div className="footer-col-title" style={{
-                fontSize: 12,
-                fontWeight: 800,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                color: 'var(--blush)',
-                marginBottom: 20,
-              }}>
-                {getLocalizedString(column.title, locale)}
-              </div>
+            <div className="footer-heading" style={{
+              marginBottom: 20,
+            }}>
+              {getLocalizedString(column.title, locale)}
+            </div>
               <ul style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -108,9 +103,8 @@ export default function Footer() {
                   <li key={idx}>
                     <Link
                       href={`${localePrefix}${item.href}`}
+                      className="footer-link"
                       style={{
-                        fontSize: 13,
-                        color: 'rgba(255,255,255,0.5)',
                         display: 'flex',
                         alignItems: 'center',
                         gap: 6,
@@ -136,12 +130,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="footer-col-title" style={{
-              fontSize: 12,
-              fontWeight: 800,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'var(--blush)',
+            <div className="footer-heading" style={{
               marginBottom: 20,
             }}>
               Get in Touch
@@ -166,8 +155,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', margin: 0 }}>Email Us</p>
-                  <a href={`mailto:${footerData.contact.email}`} style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, transition: 'color 0.28s', textDecoration: 'none' }}>{footerData.contact.email}</a>
+                  <p className="footer-link" style={{ margin: 0 }}>Email Us</p>
+                  <a href={`mailto:${footerData.contact.email}`} className="footer-link" style={{ color: 'rgba(255,255,255,0.7)', transition: 'color 0.28s', textDecoration: 'none' }}>{footerData.contact.email}</a>
                 </div>
               </div>
               <div className="footer-contact-item" style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
@@ -188,8 +177,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', margin: 0 }}>Made in Pennsylvania, USA</p>
-                  <a href="#" style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, transition: 'color 0.28s', textDecoration: 'none' }}>Family-Owned Since 2009</a>
+                  <p className="footer-link" style={{ margin: 0 }}>Made in Pennsylvania, USA</p>
+                  <a href="#" className="footer-link" style={{ color: 'rgba(255,255,255,0.7)', transition: 'color 0.28s', textDecoration: 'none' }}>Family-Owned Since 2009</a>
                 </div>
               </div>
               <div className="footer-contact-item" style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
@@ -211,8 +200,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', margin: 0 }}>Response Time</p>
-                  <a href="#" style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, transition: 'color 0.28s', textDecoration: 'none' }}>Within 1 Business Day</a>
+                  <p className="footer-link" style={{ margin: 0 }}>Response Time</p>
+                  <a href="#" className="footer-link" style={{ color: 'rgba(255,255,255,0.7)', transition: 'color 0.28s', textDecoration: 'none' }}>Within 1 Business Day</a>
                 </div>
               </div>
             </div>
@@ -227,19 +216,19 @@ export default function Footer() {
           gap: 20,
           flexWrap: 'wrap',
         }}>
-          <p className="footer-copy" style={{ fontSize: 12, margin: 0 }}>
+          <p className="small-text" style={{ margin: 0, color: 'rgba(255,255,255,0.5)' }}>
             &copy; {new Date().getFullYear()} PeeKeeper LLC. All Rights Reserved.
           </p>
           <div className="footer-payments" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', marginRight: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Secure</span>
-            <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Visa</span>
-            <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>MC</span>
-            <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Amex</span>
-            <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>PayPal</span>
-            <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Discover</span>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: 11, color: 'rgba(255,255,255,0.25)', marginRight: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Secure</span>
+            <span style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Visa</span>
+            <span style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>MC</span>
+            <span style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Amex</span>
+            <span style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>PayPal</span>
+            <span style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4, padding: '4px 8px', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.04em' }}>Discover</span>
           </div>
         </div>
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', marginTop: 0, paddingBottom: 20 }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 11, color: 'rgba(255,255,255,0.25)', marginTop: 0, paddingBottom: 20 }}>
           US Patent # 8302565 &bull; Canada Patent #2771645
         </p>
       </div>

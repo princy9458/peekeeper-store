@@ -634,6 +634,18 @@
                                                          "en":  "No spam, ever. You can unsubscribe any time. We\u0027ll never share your data."
                                                      }
                                   }
+                    },
+                    {
+                        "id":  "cta-001",
+                        "type":  "cta",
+                        "layout":  "container",
+                        "adminTitle":  "Final CTA",
+                        "props":  {
+                            "title":  { "en": "Give Your Dog Freedom. Give Yourself Peace of Mind." },
+                            "subtitle":  { "en": "Join thousands of pet parents who trust PeeKeeper." },
+                            "buttonText":  { "en": "Shop Now" },
+                            "buttonLink":  "/shop"
+                        }
                     }
                 ]
 }

@@ -1,0 +1,72 @@
+{
+    "title":  { "en": "How to Measure" },
+    "slug":  "how-to-measure",
+    "metaTitle":  { "en": "How to Measure Your Dog - PeeKeeper Size Guide" },
+    "metaDescription":  { "en": "Learn how to measure your dog for the perfect PeeKeeper diaper fit. Waist and length measuring guide with size chart." },
+    "isPublished":  true,
+    "content":  [
+        {
+            "id":  "measure-hero-001",
+            "type":  "text",
+            "layout":  "container",
+            "adminTitle":  "How to Measure Hero",
+            "props":  {
+                "heading":  { "en": "Find Your Dog's Perfect Fit" },
+                "content":  { "en": "Two simple measurements — waist and length — will get you the right size every time." },
+                "alignment":  "center"
+            }
+        },
+        {
+            "id":  "measure-instructions-001",
+            "type":  "measure-guide",
+            "layout":  "container",
+            "adminTitle":  "Measuring Instructions",
+            "props":  {
+                "sectionTitle":  { "en": "How to Measure Your Dog" },
+                "tools":  [
+                    { "label":  { "en": "Recommended" }, "tool":  { "en": "Flexible measuring tape" }, "note":  { "en": "A cloth or vinyl tape measure gives the most accurate results." } },
+                    { "label":  { "en": "Alternative" }, "tool":  { "en": "String + ruler" }, "note":  { "en": "Wrap a piece of string around your dog, mark the spot, then measure with a ruler." } }
+                ],
+                "steps":  [
+                    { "title":  { "en": "Measure the Waist" }, "description":  { "en": "Measure around the narrowest part of your dog's waist — just in front of the hind legs. The tape should be snug but not tight — you should be able to fit two fingers between the tape and your dog." }, "image":  "/images/premium-puppy-diapers/measure-waist.jpg", "alt":  { "en": "Measuring dog's waist" } },
+                    { "title":  { "en": "Measure the Length" }, "description":  { "en": "Measure from the base of the tail (where it meets the body) along the spine to the waist line. This ensures the diaper covers the right area." }, "image":  "/images/premium-puppy-diapers/measure-length.jpg", "alt":  { "en": "Measuring dog's length" } },
+                    { "title":  { "en": "Match to Size Chart" }, "description":  { "en": "Use the table below to find your dog's size. If your dog is between sizes or has a longer body, consider sizing up for comfort." }, "image":  "", "alt":  { "en": "" } }
+                ]
+            }
+        },
+        {
+            "id":  "size-chart-001",
+            "type":  "sizeTable",
+            "layout":  "container",
+            "adminTitle":  "Size Chart",
+            "props":  {
+                "tag":  { "en": "Sizing Guide" },
+                "heading":  { "en": "PeeKeeper Size Chart" },
+                "subheading":  { "en": "All measurements are in inches. The XS size offers three length options for a more customized fit." },
+                "tip":  { "en": "If your dog's measurements are close to the boundary between sizes, size up. A slightly larger diaper is more comfortable than one that's too tight." },
+                "image":  "",
+                "sizes":  [
+                    { "name":  { "en": "Extra Small" }, "tag":  "XS", "waist":  { "en": "9\" to 12\"" }, "lengths":  { "en": "10\", 11\", or 12\"" }, "weight":  { "en": "min. 5 lbs" } },
+                    { "name":  { "en": "Small" }, "tag":  "SM", "waist":  { "en": "13\" to 16\"" }, "lengths":  { "en": "12\" – 16\"" }, "weight":  { "en": "varies" } },
+                    { "name":  { "en": "Medium" }, "tag":  "MED", "waist":  { "en": "17\" to 21\"" }, "lengths":  { "en": "14\" – 18\"" }, "weight":  { "en": "max. 40 lbs" } }
+                ]
+            }
+        },
+        {
+            "id":  "measure-tips-001",
+            "type":  "tips-section",
+            "layout":  "container",
+            "adminTitle":  "Sizing Tips",
+            "props":  {
+                "sectionTitle":  { "en": "Sizing Tips" },
+                "tips":  [
+                    { "icon":  "Ruler", "text":  { "en": "Measure your dog while standing — not sitting or lying down — for the most accurate fit." } },
+                    { "icon":  "ArrowUpDown", "text":  { "en": "If your dog's measurements are close to the boundary between sizes, size up. A slightly larger diaper is more comfortable than one that's too tight." } },
+                    { "icon":  "RefreshCw", "text":  { "en": "Not sure? We offer hassle-free exchanges. Our customer service team is happy to help you find the right fit." } }
+                ],
+                "ctaText":  { "en": "Shop by Size" },
+                "ctaHref":  "/shop"
+            }
+        }
+    ]
+}

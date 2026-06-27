@@ -23,3 +23,6 @@ export { default as AccountSection } from './AccountSection';
 export { default as ProfileSection } from './ProfileSection';
 export { default as OrdersSection } from './OrdersSection';
 export { default as ProductDetailSection } from './ProductDetailSection';
+export { default as MeasureGuideSection } from './MeasureGuideSection';
+export { default as TipsSection } from './TipsSection';
+export { default as ReviewsStatsSection } from './ReviewsStatsSection';

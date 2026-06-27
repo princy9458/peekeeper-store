@@ -1,0 +1,68 @@
+{
+    "title":  { "en": "Customer Reviews" },
+    "slug":  "customer-reviews",
+    "metaTitle":  { "en": "Customer Reviews - PeeKeeper Dog Diapers" },
+    "metaDescription":  { "en": "Read verified customer reviews of PeeKeeper escape-proof dog diapers. Join thousands of happy pet parents." },
+    "isPublished":  true,
+    "content":  [
+        {
+            "id":  "reviews-hero-001",
+            "type":  "text",
+            "layout":  "container",
+            "adminTitle":  "Reviews Hero",
+            "props":  {
+                "heading":  { "en": "Hear From Our Happy Customers" },
+                "content":  { "en": "Join thousands of pet parents who found freedom with PeeKeeper." },
+                "alignment":  "center"
+            }
+        },
+        {
+            "id":  "reviews-stats-001",
+            "type":  "reviews-stats",
+            "layout":  "container",
+            "adminTitle":  "Review Statistics",
+            "props":  {
+                "rating":  4.86,
+                "maxRating":  5,
+                "totalRatings":  113,
+                "totalReviews":  125,
+                "ratingBreakdown":  [
+                    { "stars":  5, "percentage":  88, "count":  99 },
+                    { "stars":  4, "percentage":  8, "count":  9 },
+                    { "stars":  3, "percentage":  3, "count":  3 },
+                    { "stars":  2, "percentage":  1, "count":  1 },
+                    { "stars":  1, "percentage":  0, "count":  0 }
+                ]
+            }
+        },
+        {
+            "id":  "reviews-full-001",
+            "type":  "testimonials",
+            "layout":  "container",
+            "adminTitle":  "All Customer Reviews",
+            "props":  {
+                "tag":  { "en": "Verified Reviews" },
+                "heading":  { "en": "What Our Customers Say" },
+                "items":  [
+                    { "name":  { "en": "Sarah M." }, "role":  { "en": "Verified Purchase" }, "text":  { "en": "Finally, a diaper that stays on our senior lab! We tried everything — adhesive diapers, belly bands, you name it. The PeeKeeper is the only one that works. Our dog is comfortable, and we're not constantly cleaning up. Worth every penny." }, "rating":  5, "initials":  "S", "verified":  true },
+                    { "name":  { "en": "James K." }, "role":  { "en": "Verified Purchase" }, "text":  { "en": "Our dachshund has incontinence issues and we were cleaning floors multiple times a day. PeeKeeper gave us our sanity back. The harness design really works — no escapes, no leaks." }, "rating":  5, "initials":  "J", "verified":  true },
+                    { "name":  { "en": "Maria R." }, "role":  { "en": "Verified Purchase" }, "text":  { "en": "Got the Lilac color for our rescue pup and it's so cute! The fit is perfect — true to size. Washes beautifully and comes out looking like new. So glad we found this." }, "rating":  5, "initials":  "M", "verified":  true },
+                    { "name":  { "en": "David L." }, "role":  { "en": "Verified Purchase" }, "text":  { "en": "Very well made and truly escape-proof. I'd suggest sizing down if your dog is between sizes. Our medium-sized dog fits perfectly in the Small. Customer service was helpful with the exchange." }, "rating":  4, "initials":  "D", "verified":  true },
+                    { "name":  { "en": "Emily T." }, "role":  { "en": "Verified Purchase" }, "text":  { "en": "My 14-year-old dog started having accidents in the house. The PeeKeeper has been a game changer. She doesn't seem bothered by it at all, and our floors are clean!" }, "rating":  5, "initials":  "E", "verified":  true }
+                ]
+            }
+        },
+        {
+            "id":  "reviews-cta-001",
+            "type":  "cta",
+            "layout":  "container",
+            "adminTitle":  "Reviews CTA",
+            "props":  {
+                "heading":  { "en": "Ready to join our happy customers?" },
+                "buttonText":  { "en": "Shop PeeKeeper" },
+                "buttonHref":  "/shop",
+                "background":  "#F5F0E8"
+            }
+        }
+    ]
+}

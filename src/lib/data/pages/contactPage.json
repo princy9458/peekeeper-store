@@ -1,101 +1,64 @@
 {
-    "title":  {
-                  "en":  "Contact Us"
-              },
+    "title":  { "en": "Contact Us" },
     "slug":  "contact",
-    "metaTitle":  {
-                      "en":  "Contact Us - PeeKeeper"
-                  },
-    "metaDescription":  {
-                            "en":  "Get in touch with PeeKeeper. We\u0027d love to hear from you."
-                        },
+    "metaTitle":  { "en": "Contact Us - PeeKeeper Dog Diapers" },
+    "metaDescription":  { "en": "Get in touch with PeeKeeper. Contact form, FAQs, and customer support information." },
     "isPublished":  true,
     "content":  [
-                    {
-                        "id":  "contact-header-1",
-                        "type":  "text",
-                        "layout":  "container",
-                        "adminTitle":  "Contact Header",
-                        "props":  {
-                                      "heading":  {
-                                                      "en":  "Get in Touch"
-                                                  },
-                                      "content":  {
-                                                      "en":  "Have a question? We\u0027d love to hear from you. Send us a message and we\u0027ll respond as soon as possible."
-                                                  },
-                                      "alignment":  "center"
-                                  }
-                    },
-                    {
-                        "id":  "contact-info-1",
-                        "type":  "text",
-                        "layout":  "container",
-                        "adminTitle":  "Contact Info",
-                        "props":  {
-                                      "heading":  {
-                                                      "en":  "Contact Information"
-                                                  },
-                                      "content":  {
-                                                      "en":  "Email: info@peekeeper.com\nAddress: Pennsylvania, USA\nPhone: Contact via website"
-                                                  },
-                                      "alignment":  "left"
-                                  }
-                    },
-                    {
-                        "id":  "contact-form-1",
-                        "type":  "contact-form",
-                        "layout":  "container",
-                        "adminTitle":  "Contact Form",
-                        "props":  {
-                                      "formHeading":  {
-                                                          "en":  "Send us a Message"
-                                                      },
-                                      "nameLabel":  {
-                                                        "en":  "Name"
-                                                    },
-                                      "namePlaceholder":  {
-                                                              "en":  "Your name"
-                                                          },
-                                      "emailLabel":  {
-                                                         "en":  "Email"
-                                                     },
-                                      "emailPlaceholder":  {
-                                                               "en":  "your@email.com"
-                                                           },
-                                      "messageLabel":  {
-                                                           "en":  "Message"
-                                                       },
-                                      "messagePlaceholder":  {
-                                                                 "en":  "How can we help?"
-                                                             },
-                                      "buttonText":  {
-                                                         "en":  "Send Message"
-                                                     },
-                                      "contactInfoHeading":  {
-                                                                 "en":  "Contact Information"
-                                                             },
-                                      "contactMethods":  [
-                                                             {
-                                                                 "iconPath":  "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z",
-                                                                 "label":  {
-                                                                               "en":  "Email"
-                                                                           },
-                                                                 "value":  {
-                                                                               "en":  "info@peekeeper.com"
-                                                                           },
-                                                                 "href":  "mailto:info@peekeeper.com"
-                                                             },
-                                                             {
-                                                                 "iconPath":  "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
-                                                                 "label":  {
-                                                                               "en":  "Location"
-                                                                           },
-                                                                 "value":  {
-                                                                               "en":  "Pennsylvania, USA"
-                                                                           }
-                                                             }
-                                                         ]
-                                  }
-                    }
+        {
+            "id":  "contact-hero-001",
+            "type":  "text",
+            "layout":  "container",
+            "adminTitle":  "Contact Hero",
+            "props":  {
+                "heading":  { "en": "We're Here to Help" },
+                "content":  { "en": "Have a question about sizing, shipping, or our products? We'd love to hear from you." },
+                "alignment":  "center"
+            }
+        },
+        {
+            "id":  "contact-form-001",
+            "type":  "contact-form",
+            "layout":  "two_column",
+            "adminTitle":  "Contact Form",
+            "props":  {
+                "formHeading":  { "en": "Send us a message" },
+                "formDescription":  { "en": "We typically respond within 24 hours." },
+                "successHeading":  { "en": "Thank you for reaching out!" },
+                "successDescription":  { "en": "We've received your message and will get back to you within 24 hours." },
+                "successButtonText":  { "en": "Back to Home" },
+                "nameLabel":  { "en": "Name" },
+                "namePlaceholder":  { "en": "Your full name" },
+                "emailLabel":  { "en": "Email" },
+                "emailPlaceholder":  { "en": "your@email.com" },
+                "messageLabel":  { "en": "Message" },
+                "messagePlaceholder":  { "en": "How can we help you?" },
+                "buttonText":  { "en": "Send Message" },
+                "contactInfoHeading":  { "en": "Contact Information" },
+                "contactMethods":  [
+                    { "iconPath":  "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z", "label":  { "en":  "Email" }, "value":  { "en":  "info@peekeeper.com" }, "href":  "mailto:info@peekeeper.com" },
+                    { "iconPath":  "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", "label":  { "en":  "Location" }, "value":  { "en":  "Pennsylvania, USA" } }
                 ]
+            }
+        },
+        {
+            "id":  "faq-accordion-001",
+            "type":  "faq-accordion",
+            "layout":  "container",
+            "adminTitle":  "FAQ Section",
+            "props":  {
+                "sectionTitle":  { "en": "Frequently Asked Questions" }
+            },
+            "content":  [
+                { "id":  "faq-size", "type":  "faq-item", "props":  { "question":  { "en":  "How do I choose the right size?" }, "answer":  { "en":  "Measure your dog's waist (narrowest part just in front of hind legs) and length (from tail base to waist). Compare to our size chart. If between sizes, size up. See our full measuring guide at /how-to-measure." } } },
+                { "id":  "faq-reusable", "type":  "faq-item", "props":  { "question":  { "en":  "Are these diapers reusable?" }, "answer":  { "en":  "Yes! PeeKeeper diapers are machine washable and reusable. With proper care, each diaper lasts for months of daily use. We recommend washing in a mesh net bag (sold separately)." } } },
+                { "id":  "faq-stay-on", "type":  "faq-item", "props":  { "question":  { "en":  "How do they stay on?" }, "answer":  { "en":  "Our patented harness-style design wraps around your dog's waist and tail — no adhesive, no straps, no clips. The secure wrap fit prevents slipping and escaping." } } },
+                { "id":  "faq-gender", "type":  "faq-item", "props":  { "question":  { "en":  "Do they work for male and female dogs?" }, "answer":  { "en":  "Yes! PeeKeeper diapers work for both male and female dogs. The harness design provides coverage and security regardless of gender." } } },
+                { "id":  "faq-returns", "type":  "faq-item", "props":  { "question":  { "en":  "What's the return policy?" }, "answer":  { "en":  "We offer a 30-day satisfaction guarantee. If you're not happy with your purchase, return it for a full refund." } } },
+                { "id":  "faq-shipping", "type":  "faq-item", "props":  { "question":  { "en":  "How long does shipping take?" }, "answer":  { "en":  "Orders ship within 1-2 business days via USPS or UPS. Standard shipping typically takes 3-7 business days." } } },
+                { "id":  "faq-international", "type":  "faq-item", "props":  { "question":  { "en":  "Do you ship internationally?" }, "answer":  { "en":  "Yes, we ship to select international destinations. Shipping costs and times vary by location." } } },
+                { "id":  "faq-heat", "type":  "faq-item", "props":  { "question":  { "en":  "Can I use these for female dogs in heat?" }, "answer":  { "en":  "Yes, PeeKeeper diapers work well for females in heat. They provide reliable coverage and are comfortable enough for extended wear." } } }
+            ]
+        }
+    ]
 }

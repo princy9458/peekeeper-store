@@ -17,6 +17,8 @@ const pageModules: Record<string, () => Page> = {
   profile: () => require('@/lib/data/pages/profilePage.json') as Page,
   orders: () => require('@/lib/data/pages/ordersPage.json') as Page,
   product: () => require('@/lib/data/pages/productPage.json') as Page,
+  'how-to-measure': () => require('@/lib/data/pages/howToMeasurePage.json') as Page,
+  'customer-reviews': () => require('@/lib/data/pages/customerReviewsPage.json') as Page,
 };
 
 export const PAGE_SLUGS = Object.keys(pageModules);

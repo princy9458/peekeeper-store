@@ -1,95 +1,57 @@
 {
-    "title":  {
-                  "en":  "About PeeKeeper"
-              },
+    "title":  { "en": "About PeeKeeper" },
     "slug":  "about",
-    "metaTitle":  {
-                      "en":  "About Us - PeeKeeper Pet Care"
-                  },
-    "metaDescription":  {
-                            "en":  "Learn about PeeKeeper\u0027s story, mission, and commitment to pet care excellence."
-                        },
+    "metaTitle":  { "en": "About Us - PeeKeeper Escape-Proof Dog Diapers" },
+    "metaDescription":  { "en": "Learn the PeeKeeper story — how a senior dog named Dash inspired the world's first escape-proof dog diaper." },
     "isPublished":  true,
     "content":  [
-                    {
-                        "id":  "about-hero-1",
-                        "type":  "text",
-                        "layout":  "container",
-                        "adminTitle":  "About Hero",
-                        "props":  {
-                                      "heading":  {
-                                                      "en":  "Our Story"
-                                                  },
-                                      "content":  {
-                                                      "en":  "Founded in 2009, PeeKeeper has been dedicated to creating escape-proof, comfortable, and reliable pet care solutions. Handmade in Pennsylvania, USA, every product is crafted with love and attention to detail."
-                                                  },
-                                      "alignment":  "center"
-                                  }
-                    },
-                    {
-                        "id":  "about-mission-1",
-                        "type":  "text",
-                        "layout":  "container",
-                        "adminTitle":  "Mission",
-                        "props":  {
-                                      "heading":  {
-                                                      "en":  "Our Mission"
-                                                  },
-                                      "content":  {
-                                                      "en":  "To provide pet parents with products that give their beloved companions the freedom, comfort, and dignity they deserve. We believe every dog deserves to live life fully, without limitations."
-                                                  },
-                                      "alignment":  "left"
-                                  }
-                    },
-                    {
-                        "id":  "about-values-1",
-                        "type":  "featured-collections",
-                        "layout":  "container",
-                        "adminTitle":  "Values",
-                        "props":  {
-                                      "sectionTitle":  {
-                                                           "en":  "What We Stand For"
-                                                       },
-                                      "columns":  "3"
-                                  },
-                        "content":  [
-                                        {
-                                            "id":  "val-1",
-                                            "type":  "card",
-                                            "props":  {
-                                                          "title":  {
-                                                                        "en":  "Quality"
-                                                                    },
-                                                          "description":  {
-                                                                              "en":  "Premium materials and meticulous craftsmanship in every product."
-                                                                          }
-                                                      }
-                                        },
-                                        {
-                                            "id":  "val-2",
-                                            "type":  "card",
-                                            "props":  {
-                                                          "title":  {
-                                                                        "en":  "Innovation"
-                                                                    },
-                                                          "description":  {
-                                                                              "en":  "Patented escape-proof design that truly works."
-                                                                          }
-                                                      }
-                                        },
-                                        {
-                                            "id":  "val-3",
-                                            "type":  "card",
-                                            "props":  {
-                                                          "title":  {
-                                                                        "en":  "Community"
-                                                                    },
-                                                          "description":  {
-                                                                              "en":  "Family-owned and committed to our customers and their pets."
-                                                                          }
-                                                      }
-                                        }
-                                    ]
-                    }
-                ]
+        {
+            "id":  "about-hero-001",
+            "type":  "text",
+            "layout":  "container",
+            "adminTitle":  "About Hero",
+            "props":  {
+                "heading":  { "en": "A diaper made by a dog mom, for dog moms." },
+                "content":  { "en": "The PeeKeeper story starts with a senior dog named Dash and a simple frustration." },
+                "alignment":  "center"
+            }
+        },
+        {
+            "id":  "story-001",
+            "type":  "text",
+            "layout":  "container",
+            "adminTitle":  "The Story",
+            "props":  {
+                "heading":  { "en": "From frustration to solution" },
+                "content":  { "en": "When Lisa adopted Dash, a senior dog with incontinence issues, she quickly discovered that existing diaper products just didn't work. They slipped off, leaked, and left both Dash and Lisa frustrated.\n\nDetermined to find a solution, Lisa designed a harness-style diaper that wraps securely around the waist and tail. The design was different from anything on the market — and it worked.\n\nWhat started as a single product listed on eBay quickly grew into a brand trusted by thousands of pet parents. Today, PeeKeeper offers escape-proof diapers in multiple sizes and colors, with the same commitment to quality and compassion that inspired the original design." },
+                "alignment":  "left"
+            }
+        },
+        {
+            "id":  "values-full-001",
+            "type":  "featured-collections",
+            "layout":  "container",
+            "adminTitle":  "Our Values",
+            "props":  {
+                "sectionTitle":  { "en": "What We Stand For" },
+                "columns":  "3"
+            },
+            "content":  [
+                { "id":  "val-1", "type":  "card", "props":  { "title":  { "en":  "Dog-First Design" }, "description":  { "en":  "Every product starts with the question: 'Will this make a dog's life better?' Comfort, fit, and freedom are non-negotiable." } } },
+                { "id":  "val-2", "type":  "card", "props":  { "title":  { "en":  "Reusable & Sustainable" }, "description":  { "en":  "Our washable diapers reduce waste compared to disposables. We believe better pet care shouldn't cost the earth." } } },
+                { "id":  "val-3", "type":  "card", "props":  { "title":  { "en":  "Community of Pet Parents" }, "description":  { "en":  "We're pet parents too. We understand the struggle, the love, and the need for products that truly work. Our customers are our family." } } }
+            ]
+        },
+        {
+            "id":  "about-cta-001",
+            "type":  "cta",
+            "layout":  "container",
+            "adminTitle":  "About CTA",
+            "props":  {
+                "title":  { "en": "Ready to try the diaper that started it all?" },
+                "buttonText":  { "en": "Shop PeeKeeper" },
+                "buttonLink":  "/shop"
+            }
+        }
+    ]
 }

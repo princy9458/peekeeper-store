@@ -26,6 +26,9 @@ import AccountSection from '@/components/cms/sections/AccountSection';
 import ProfileSection from '@/components/cms/sections/ProfileSection';
 import OrdersSection from '@/components/cms/sections/OrdersSection';
 import ProductDetailSection from '@/components/cms/sections/ProductDetailSection';
+import MeasureGuideSection from '@/components/cms/sections/MeasureGuideSection';
+import TipsSection from '@/components/cms/sections/TipsSection';
+import ReviewsStatsSection from '@/components/cms/sections/ReviewsStatsSection';
 
 const BLOCK_COMPONENTS: Record<string, React.ComponentType<any>> = {
   hero: HeroSection,
@@ -55,6 +58,9 @@ const BLOCK_COMPONENTS: Record<string, React.ComponentType<any>> = {
   'orders-section': OrdersSection,
   'product-detail-section': ProductDetailSection,
   'product-section': ProductDetailSection,
+  'measure-guide': MeasureGuideSection,
+  'tips-section': TipsSection,
+  'reviews-stats': ReviewsStatsSection,
 };
 
 interface SectionRendererProps {

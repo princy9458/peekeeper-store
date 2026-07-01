@@ -1,12 +1,10 @@
-'use client';
+import PeekeeperProductPage from '@/components/peekeeper/PeekeeperProductPage';
 
-import { useParams } from 'next/navigation';
-import CmsPage from '@/components/cms/CmsPage';
-
-export default function ProductDetailPage() {
-  const params = useParams();
-  const locale = (params?.locale as string) || 'en';
-  const localePrefix = locale === 'en' ? '' : `/${locale}`;
-
-  return <CmsPage slug="product" locale={locale} localePrefix={localePrefix} />;
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ locale?: string; slug: string }>;
+}) {
+  const { locale = 'en', slug } = await params;
+  return <PeekeeperProductPage locale={locale} slug={slug} />;
 }

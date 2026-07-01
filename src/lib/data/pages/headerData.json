@@ -56,14 +56,14 @@
           "title": "Resources",
           "items": [
             { "label": { "en": "How to Measure" }, "href": "/faq" },
-            { "label": { "en": "Customer Reviews" }, "href": "#" },
+            { "label": { "en": "Customer Reviews" }, "href": "/#reviews" },
             { "label": { "en": "FAQs" }, "href": "/faq" }
           ]
         }
       ]
     },
     { "label": { "en": "Size Finder" }, "href": "/#ar-tool" },
-    { "label": { "en": "Reviews" }, "href": "#" },
+    { "label": { "en": "Reviews" }, "href": "/#reviews" },
     { "label": { "en": "Contact" }, "href": "/contact" }
   ]
 }

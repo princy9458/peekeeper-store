@@ -38,6 +38,12 @@ function saveCart(items: CartItem[]) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch {}
 }
 
+function clearPersistedCart() {
+  if (typeof window === 'undefined') return;
+  try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
+}
+
 function getVariantKey(productId: string, size?: string, color?: string): string {
   return `${productId}__${size || ''}__${color || ''}`;
 }
@@ -159,7 +165,9 @@ const cartSlice = createSlice({
       state.items = [];
       state.couponCode = null;
       state.discount = 0;
-      saveCart(state.items);
+      state.loading = false;
+      state.error = null;
+      clearPersistedCart();
     },
     updateQuantity: (state, action: PayloadAction<{ id: string; quantity: number }>) => {
       const { id, quantity } = action.payload;
@@ -206,3 +214,4 @@ export const selectCartLoading = (state: RootState) => state.cart.loading;
 
 export const { addItem, clearCart, updateQuantity, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;
+

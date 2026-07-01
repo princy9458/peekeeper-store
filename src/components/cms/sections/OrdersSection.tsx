@@ -90,7 +90,7 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
         <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
             <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbHomeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Home</>
@@ -98,14 +98,14 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
           </Link>
           <span>/</span>
           <Link href={`${localePrefix}/account`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbAccountLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbAccountLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Account</>
             )}
           </Link>
           <span>/</span>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.breadcrumbLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbLabel', val)} isEditable={isEditable} tag="span" className="text-[var(--text)]" />
           ) : (
             <span className="text-[var(--text)]">{getLocalizedString(props.breadcrumbLabel, locale)}</span>
@@ -116,18 +116,18 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
           <svg className="w-20 h-20 mx-auto text-[var(--border)] mb-6" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="text-2xl font-bold mb-3" placeholder="Empty title..." />
           ) : (
             <h2 className="text-2xl font-bold mb-3">{getLocalizedString(props.emptyTitle, locale)}</h2>
           )}
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.emptyDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto" placeholder="Empty description..." />
           ) : (
             <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">{getLocalizedString(props.emptyDescription, locale)}</p>
           )}
           <Link href={`${localePrefix}/shop`} className="btn-primary inline-flex items-center gap-2">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.emptyCtaLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyCtaLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>{getLocalizedString(props.emptyCtaLabel, locale)}</>
@@ -144,7 +144,7 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
       <div className="container-custom">
         <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
           <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbHomeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Home</>
@@ -152,21 +152,21 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
           </Link>
           <span>/</span>
           <Link href={`${localePrefix}/account`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbAccountLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbAccountLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Account</>
             )}
           </Link>
           <span>/</span>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.breadcrumbLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbLabel', val)} isEditable={isEditable} tag="span" className="text-[var(--text)]" />
           ) : (
             <span className="text-[var(--text)]">{getLocalizedString(props.breadcrumbLabel, locale)}</span>
           )}
         </div>
 
-        {onSave ? (
+        {onSave && isEditable ? (
           <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h1" className="text-3xl font-bold mb-8" placeholder="Heading..." />
         ) : (
           <h1 className="text-3xl font-bold mb-8">{getLocalizedString(props.heading, locale)}</h1>
@@ -176,27 +176,27 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-[var(--border)] text-left">
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.orderNumberLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.orderNumberLabel', val)} isEditable={isEditable} tag="th" className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]" />
                 ) : (
                   <th className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{getLocalizedString(props.orderNumberLabel, locale)}</th>
                 )}
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.orderDateLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.orderDateLabel', val)} isEditable={isEditable} tag="th" className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]" />
                 ) : (
                   <th className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{getLocalizedString(props.orderDateLabel, locale)}</th>
                 )}
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.orderStatusLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.orderStatusLabel', val)} isEditable={isEditable} tag="th" className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]" />
                 ) : (
                   <th className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{getLocalizedString(props.orderStatusLabel, locale)}</th>
                 )}
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.orderTotalLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.orderTotalLabel', val)} isEditable={isEditable} tag="th" className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]" />
                 ) : (
                   <th className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{getLocalizedString(props.orderTotalLabel, locale)}</th>
                 )}
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.orderItemsLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.orderItemsLabel', val)} isEditable={isEditable} tag="th" className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]" />
                 ) : (
                   <th className="pb-3 text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">{getLocalizedString(props.orderItemsLabel, locale)}</th>
@@ -211,7 +211,7 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
                   <td className="py-4 text-sm text-[var(--text-secondary)]">{order.date}</td>
                   <td className="py-4">
                     <span className={`inline-block px-2.5 py-1 text-xs font-medium rounded-full border ${getStatusColor(order.status)}`}>
-                      {onSave ? (
+                      {onSave && isEditable ? (
                         <EditableText value={getStatusLabel(order.status)} onSave={(val) => onSave(block.id, `props.${STATUS_MAP[order.status] || 'statusPending'}`, val)} isEditable={isEditable} tag="span" className="" />
                       ) : (
                         <>{getStatusLabel(order.status)}</>
@@ -225,7 +225,7 @@ export default function OrdersSection({ block, locale = 'en', localePrefix = '',
                       href={`${localePrefix}/account/orders/${order.id}`}
                       className="text-xs font-medium text-[var(--primary)] hover:underline"
                     >
-                      {onSave ? (
+                      {onSave && isEditable ? (
                         <EditableText value={getLocalizedString(props.viewDetailsLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.viewDetailsLabel', val)} isEditable={isEditable} tag="span" className="" />
                       ) : (
                         <>{getLocalizedString(props.viewDetailsLabel, locale)}</>

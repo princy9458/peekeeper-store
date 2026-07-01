@@ -41,7 +41,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
       }} />
       <div className="container-custom nl-inner">
         <div>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -55,7 +55,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
               {getLocalizedString(props.heading, locale)}
             </h2>
           )}
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.subheading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
@@ -75,7 +75,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
                 <svg width="13" height="13" fill="none" stroke="var(--rose)" strokeWidth="2.5" viewBox="0 0 24 24">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(perk, locale) || ''}
                     onSave={(val) => onSave(block.id, `props.perks.${i}`, val)}
@@ -136,7 +136,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
                   <path d="M22 2L11 13" />
                   <path d="M22 2L15 22l-4-9-9-4z" />
                 </svg>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.buttonText, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.buttonText', val)}
@@ -146,7 +146,7 @@ export default function NewsletterSection({ block, locale = 'en', isEditable = f
                   />
                 ) : getLocalizedString(props.buttonText, locale)}
               </button>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(props.disclaimer, locale) || ''}
                   onSave={(val) => onSave(block.id, 'props.disclaimer', val)}

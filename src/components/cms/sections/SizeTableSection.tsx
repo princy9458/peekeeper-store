@@ -31,17 +31,17 @@ export default function SizeTableSection({ block, locale = 'en', isEditable = fa
 
         {/* ── Section header ── */}
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.tag, locale) || ''} onSave={(val) => onSave(block.id, 'props.tag', val)} isEditable={isEditable} tag="div" className="sec-tag" />
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h2" className="sec-title" placeholder="Heading..." />
           ) : (
             <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.subheading, locale) || ''} onSave={(val) => onSave(block.id, 'props.subheading', val)} isEditable={isEditable} tag="p" className="sec-sub" />
           ) : (
             <p className="sec-sub">{getLocalizedString(props.subheading, locale)}</p>
@@ -162,7 +162,7 @@ export default function SizeTableSection({ block, locale = 'en', isEditable = fa
               lineHeight: 1.6,
             }}>
               <strong style={{ fontWeight: 700, color: 'var(--warm-brown)' }}>Tip:</strong>{' '}
-              {isEditable && onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.tip, locale) || ''} onSave={(val) => onSave(block.id, 'props.tip', val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>{getLocalizedString(props.tip, locale)}</>

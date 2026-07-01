@@ -18,11 +18,11 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
   if (!items.length) return null;
 
   return (
-    <section style={{ padding: '80px 0', background: 'var(--cream-dark)' }}>
+    <section id="reviews" style={{ padding: '80px 0', background: 'var(--cream-dark)' }}>
       <div className="container-custom">
         {/* Section header */}
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -34,7 +34,7 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -46,7 +46,7 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
           ) : (
             <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.subheading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
@@ -98,7 +98,7 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
               </div>
 
               {/* Review text */}
-              {isEditable && onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(item.text, locale) || ''}
                   onSave={(val) => onSave(block.id, `props.items.${i}.text`, val)}
@@ -148,7 +148,7 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
                     : item.initials}
                 </div>
                 <div>
-                  {isEditable && onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(item.name, locale) || ''}
                       onSave={(val) => onSave(block.id, `props.items.${i}.name`, val)}
@@ -168,7 +168,7 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
                       {getLocalizedString(item.name, locale)}
                     </div>
                   )}
-                  {isEditable && onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(item.role, locale) || ''}
                       onSave={(val) => onSave(block.id, `props.items.${i}.role`, val)}
@@ -197,8 +197,8 @@ export default function TestimonialsSection({ block, locale = 'en', isEditable =
         {/* CTA */}
         {props.ctaText && (
           <div style={{ textAlign: 'center', marginTop: 44 }}>
-            <a href="#" className="btn-outline" style={{ display: 'inline-flex' }}>
-              {isEditable && onSave ? (
+            <a href="/#reviews" className="btn-outline" style={{ display: 'inline-flex' }}>
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(props.ctaText, locale) || ''}
                   onSave={(val) => onSave(block.id, 'props.ctaText', val)}

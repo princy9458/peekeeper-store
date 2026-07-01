@@ -30,18 +30,18 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
             <svg className="w-20 h-20 mx-auto text-[var(--border)] mb-6" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.emptyTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyTitle', val)} isEditable={isEditable} tag="h2" className="section-title" placeholder="Empty title..." />
             ) : (
               <h2 className="section-title">{getLocalizedString(props.emptyTitle, locale)}</h2>
             )}
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.emptyDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto" placeholder="Empty description..." />
             ) : (
               <p className="text-[var(--text-secondary)] mb-8 max-w-md mx-auto">{getLocalizedString(props.emptyDescription, locale)}</p>
             )}
             <Link href={`${localePrefix}/shop`} className="btn-primary inline-flex items-center gap-2">
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.emptyCtaLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.emptyCtaLabel', val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>{getLocalizedString(props.emptyCtaLabel, locale)}</>
@@ -58,21 +58,21 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
       <div className="container-custom">
         <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
           <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbHomeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Home</>
             )}
           </Link>
           <span>/</span>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.breadcrumbLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbLabel', val)} isEditable={isEditable} tag="span" className="text-[var(--text)]" />
           ) : (
             <span className="text-[var(--text)]">{getLocalizedString(props.breadcrumbLabel, locale)}</span>
           )}
         </div>
 
-        {onSave ? (
+        {onSave && isEditable ? (
           <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h1" className="section-title" placeholder="Heading..." />
         ) : (
           <h1 className="section-title">{getLocalizedString(props.heading, locale)}</h1>
@@ -96,7 +96,7 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
                       dispatch(addItem({ productId: item.productId, name: item.name, price: item.price, quantity: 1, image: item.image, slug: item.slug }));
                     }}
                   >
-                    {onSave ? (
+                    {onSave && isEditable ? (
                       <EditableText value={getLocalizedString(props.addToCartButtonLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.addToCartButtonLabel', val)} isEditable={isEditable} tag="span" className="" />
                     ) : (
                       <>{getLocalizedString(props.addToCartButtonLabel, locale)}</>
@@ -106,7 +106,7 @@ export default function WishlistSection({ block, locale = 'en', localePrefix = '
                     className="btn-outline text-xs py-2 px-3"
                     onClick={() => dispatch(removeItem(item.productId))}
                   >
-                    {onSave ? (
+                    {onSave && isEditable ? (
                       <EditableText value={getLocalizedString(props.removeButtonLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.removeButtonLabel', val)} isEditable={isEditable} tag="span" className="" />
                     ) : (
                       <>{getLocalizedString(props.removeButtonLabel, locale)}</>

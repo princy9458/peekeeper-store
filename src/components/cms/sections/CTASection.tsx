@@ -24,7 +24,7 @@ export default function CTASection({ block, locale = 'en', localePrefix = '', is
   return (
     <div className="section-padding">
       <div className="container-custom text-center">
-        {title && (onSave ? (
+        {title && (onSave && isEditable ? (
           <EditableText
             value={getLocalizedString(title, locale)}
             onSave={(val) => onSave(block.id, 'props.title', val)}
@@ -36,7 +36,7 @@ export default function CTASection({ block, locale = 'en', localePrefix = '', is
         ) : (
           <h2 className="section-title">{getLocalizedString(title, locale)}</h2>
         ))}
-        {subtitle && (onSave ? (
+        {subtitle && (onSave && isEditable ? (
           <EditableText
             value={getLocalizedString(subtitle, locale)}
             onSave={(val) => onSave(block.id, 'props.subtitle', val)}
@@ -50,7 +50,7 @@ export default function CTASection({ block, locale = 'en', localePrefix = '', is
         ))}
         {buttonText && buttonLink && (
           <Link href={`${localePrefix}${buttonLink}`} className="btn-primary mt-6 inline-block">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(buttonText, locale)}
                 onSave={(val) => onSave(block.id, 'props.buttonText', val)}

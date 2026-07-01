@@ -1,9 +1,32 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useParams, usePathname } from 'next/navigation';
+
+function buildLocalizedHref(localePrefix: string, href: string) {
+  if (href.startsWith('/#')) {
+    return localePrefix ? `${localePrefix}${href.slice(1)}` : href;
+  }
+
+  if (href.startsWith('#')) {
+    return href;
+  }
+
+  if (href === '/') {
+    return localePrefix || '/';
+  }
+
+  return `${localePrefix}${href}`;
+}
 
 export default function AnnouncementBar() {
   const [isVisible, setIsVisible] = useState(true);
+  const pathname = usePathname();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
+  const localePrefix = locale === 'en' ? '' : `/${locale}`;
+  const isLegacyProductPage = pathname.includes('/shop/') && pathname.split('/').filter(Boolean).length >= 3;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +43,8 @@ export default function AnnouncementBar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (isLegacyProductPage) return null;
 
   if (!isVisible) return null;
 
@@ -39,7 +64,7 @@ export default function AnnouncementBar() {
         position: 'relative',
       }}
     >
-      Free shipping on all USA orders &mdash; <a href="#" style={{ color: 'white', textDecoration: 'underline', textUnderlineOffset: 3 }}>Shop Now</a>
+      Free shipping on all USA orders &mdash; <Link href={buildLocalizedHref(localePrefix, '/shop')} style={{ color: 'white', textDecoration: 'underline', textUnderlineOffset: 3 }}>Shop Now</Link>
       <button
         onClick={() => setIsVisible(false)}
         style={{

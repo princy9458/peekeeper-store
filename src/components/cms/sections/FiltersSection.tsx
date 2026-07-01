@@ -48,7 +48,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
   return (
     <div className="section-padding bg-[var(--background)]">
       <div className="container-custom">
-        {heading && (onSave ? (
+        {heading && (onSave && isEditable ? (
           <EditableText
             value={getLocalizedString(heading, locale) || ''}
             onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -76,7 +76,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                         : 'bg-[var(--background)] text-[var(--text-secondary)] hover:bg-[var(--accent-soft)]'
                     }`}
                   >
-                    {onSave ? (
+                    {onSave && isEditable ? (
                       <EditableText
                         value={getLocalizedString(cat.label, locale) || ''}
                         onSave={(val) => onSave(block.id, `props.categories.${i}.label`, val)}
@@ -114,7 +114,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
             <svg className="w-16 h-16 mx-auto text-[var(--border)] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
               <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
             </svg>
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value="No products found in this category."
                 onSave={(val) => onSave(block.id, 'props.noResultsMessage', val)}
@@ -127,7 +127,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
               <p className="text-[var(--text-muted)]">No products found in this category.</p>
             )}
             <button onClick={() => setActiveCategory('all')} className="btn-ghost text-sm mt-4">
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value="View all products"
                   onSave={(val) => onSave(block.id, 'props.viewAllLabel', val)}
@@ -171,7 +171,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                     )}
                     {product.isNew && (
                       <>
-                        {onSave ? (
+                        {onSave && isEditable ? (
                           <EditableText
                             value="New"
                             onSave={(val) => onSave(block.id, 'props.newBadgeLabel', val)}
@@ -201,7 +201,7 @@ export default function FiltersSection({ block, locale = 'en', localePrefix = ''
                       className="block w-full py-2.5 bg-[var(--primary)] text-white text-xs font-semibold text-center rounded-full hover:bg-[var(--primary-hover)] transition-colors shadow-md"
                       onClick={(e) => e.preventDefault()}
                     >
-                      {onSave ? (
+                      {onSave && isEditable ? (
                         <EditableText
                           value="Quick Add"
                           onSave={(val) => onSave(block.id, 'props.quickAddLabel', val)}

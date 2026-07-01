@@ -74,7 +74,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
             <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
             </svg>
-            {isEditable && onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(props.tag, locale) || ''}
                 onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -87,7 +87,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
               <>{getLocalizedString(props.tag, locale)}</>
             )}
           </div>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={heroHeading}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -117,7 +117,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
               ))}
             </h1>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.subheading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
@@ -136,7 +136,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
           )}
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
             <Link href={`${localePrefix}${props.cta?.href || '/shop'}`} className="btn-primary" style={{ fontSize: 15, padding: '14px 32px' }}>
-              {isEditable && onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(props.cta?.label, locale) || ''}
                   onSave={(val) => onSave(block.id, 'props.cta.label', val)}
@@ -157,7 +157,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                 <rect x="2" y="7" width="20" height="14" rx="2" />
                 <path d="M16 3l-4 4-4-4M8 21v-2M16 21v-2" />
               </svg>
-              {isEditable && onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(props.secondaryCta?.label, locale) || ''}
                   onSave={(val) => onSave(block.id, 'props.secondaryCta.label', val)}
@@ -190,7 +190,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                     textTransform: 'uppercase',
                     color: 'var(--text-muted)',
                   }}>
-                    {isEditable && onSave ? (
+                    {onSave && isEditable ? (
                       <EditableText
                         value={getLocalizedString(stat.label, locale) || ''}
                         onSave={(val) => onSave(block.id, `props.stats.${i}.label`, val)}
@@ -250,7 +250,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
                 <div>
-                  {isEditable && onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(props.badges[0]?.title, locale) || ''}
                       onSave={(val) => onSave(block.id, 'props.badges.0.title', val)}
@@ -262,7 +262,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                   ) : (
                     <strong style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'var(--warm-brown)', display: 'block' }}>{getLocalizedString(props.badges[0].title, locale)}</strong>
                   )}
-                  {isEditable && onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(props.badges[0]?.subtitle, locale) || ''}
                       onSave={(val) => onSave(block.id, 'props.badges.0.subtitle', val)}
@@ -297,7 +297,7 @@ export default function HeroSection({ block, locale = 'en', localePrefix = '', i
                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.657 6.343a8 8 0 1 0 0 11.314 8 8 0 0 0 0-11.314zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
                 </svg>
-                {isEditable && onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.badges[1]?.title, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.badges.1.title', val)}

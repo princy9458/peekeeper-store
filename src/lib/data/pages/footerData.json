@@ -4,10 +4,10 @@
     "description": { "en": "The original escape-proof dog diaper. Family-owned, USA-made, and trusted by thousands of dog families since 2009. Patented in the USA and Canada." }
   },
   "socialLinks": [
-    { "platform": "pinterest", "url": "#" },
-    { "platform": "facebook", "url": "#" },
-    { "platform": "instagram", "url": "#" },
-    { "platform": "tiktok", "url": "#" }
+    { "platform": "pinterest", "url": "https://www.pinterest.com" },
+    { "platform": "facebook", "url": "https://www.facebook.com" },
+    { "platform": "instagram", "url": "https://www.instagram.com" },
+    { "platform": "tiktok", "url": "https://www.tiktok.com" }
   ],
   "quickLinksColumns": [
     {
@@ -29,9 +29,9 @@
         { "label": { "en": "About PeeKeeper" }, "href": "/about" },
         { "label": { "en": "How to Measure" }, "href": "/faq" },
         { "label": { "en": "AR Size Tool" }, "href": "/#ar-tool" },
-        { "label": { "en": "Customer Reviews" }, "href": "#" },
+        { "label": { "en": "Customer Reviews" }, "href": "/#reviews" },
         { "label": { "en": "FAQs" }, "href": "/faq" },
-        { "label": { "en": "Blog & Gallery" }, "href": "#" },
+        { "label": { "en": "Blog & Gallery" }, "href": "/shop" },
         { "label": { "en": "Privacy Policy" }, "href": "/privacy" },
         { "label": { "en": "Return Policy" }, "href": "/returns" }
       ]

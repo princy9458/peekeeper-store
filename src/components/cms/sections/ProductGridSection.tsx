@@ -33,7 +33,7 @@ export default function ProductGridSection({ block, locale = 'en', localePrefix 
   return (
     <div className="section-padding">
       <div className="container-custom">
-        {heading && (onSave ? (
+        {heading && (onSave && isEditable ? (
           <EditableText
             value={getLocalizedString(heading, locale) || ''}
             onSave={(val) => onSave(block.id, 'props.heading', val)}

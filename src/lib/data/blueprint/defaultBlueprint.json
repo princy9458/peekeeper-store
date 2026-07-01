@@ -201,7 +201,7 @@
             "title": "Resources",
             "items": [
               { "label": { "en": "How to Measure" }, "href": "/faq" },
-              { "label": { "en": "Customer Reviews" }, "href": "#" },
+              { "label": { "en": "Customer Reviews" }, "href": "/#reviews" },
               { "label": { "en": "FAQs" }, "href": "/faq" }
             ]
           }

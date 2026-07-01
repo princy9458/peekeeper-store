@@ -38,7 +38,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
     <section style={{ padding: '80px 0', background: 'var(--white)' }}>
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -50,7 +50,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -91,7 +91,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
                   }}>
                     {iconMap[item.icon] || iconMap.shield}
                   </div>
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(item.title, locale) || ''}
                       onSave={(val) => onSave(block.id, `props.items.${i}.title`, val)}
@@ -103,7 +103,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
                   ) : (
                     <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: 'var(--warm-brown)', marginBottom: 10 }}>{getLocalizedString(item.title, locale)}</h3>
                   )}
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(item.description, locale) || ''}
                       onSave={(val) => onSave(block.id, `props.items.${i}.description`, val)}
@@ -120,7 +120,7 @@ export default function FeaturesBentoSection({ block, locale = 'en', isEditable 
                       display: 'inline-flex', alignItems: 'center', gap: 6,
                       fontSize: 13, fontWeight: 800, color: 'var(--rose)', marginTop: 14,
                     }}>
-                      {onSave ? (
+                      {onSave && isEditable ? (
                         <EditableText
                           value={getLocalizedString(item.linkText, locale) || ''}
                           onSave={(val) => onSave(block.id, `props.items.${i}.linkText`, val)}

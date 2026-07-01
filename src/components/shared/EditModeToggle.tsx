@@ -2,10 +2,15 @@
 
 import { useAppSelector, useAppDispatch } from '@/redux/store/hooks';
 import { setEditableMode } from '@/redux/slices/pages/pagesSlice';
+import { usePathname } from 'next/navigation';
 
 export default function EditModeToggle() {
   const dispatch = useAppDispatch();
+  const pathname = usePathname();
   const isEditable = useAppSelector((state) => state.pages.editableMode);
+  const isLegacyProductPage = pathname.includes('/shop/') && pathname.split('/').filter(Boolean).length >= 3;
+
+  if (isLegacyProductPage) return null;
 
   return (
     <button

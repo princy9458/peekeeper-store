@@ -101,7 +101,7 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
         <div>
           <div className="sec-tag" style={{ color: 'var(--blush)', marginBottom: 16 }}>
             <span style={{ background: 'rgba(242,184,198,0.4)' }} />
-            {isEditable && onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.tag, locale) || ''} onSave={(val) => onSave(block.id, 'props.tag', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <span>{getLocalizedString(props.tag, locale)}</span>
@@ -111,7 +111,7 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(30px, 4vw, 50px)', color: 'white', lineHeight: 1.1, marginBottom: 18 }}>
             Find the Perfect Fit with <em style={{ color: 'var(--blush)', fontStyle: 'italic' }}>AR Preview</em>
           </h2>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.subheading, locale) || ''} onSave={(val) => onSave(block.id, 'props.subheading', val)} isEditable={isEditable} tag="p" className="" />
           ) : (
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, marginBottom: 28 }}>{getLocalizedString(props.subheading, locale)}</p>
@@ -132,7 +132,7 @@ export default function ARToolSection({ block, locale = 'en', localePrefix = '',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0, marginTop: 2,
                   }}>{step.number}</div>
-                  {isEditable && onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText value={stepText} onSave={(val) => onSave(block.id, `props.steps.${i}.text`, val)} isEditable={isEditable} tag="p" className="" />
                   ) : (
                     <p style={{

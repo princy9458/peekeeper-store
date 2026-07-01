@@ -23,7 +23,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
       <div className="container-custom max-w-4xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-8">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(props.formHeading, locale) || ''}
                 onSave={(val) => onSave(block.id, 'props.formHeading', val)}
@@ -37,7 +37,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
             )}
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.nameLabel, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.nameLabel', val)}
@@ -58,7 +58,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                 />
               </div>
               <div>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.emailLabel, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.emailLabel', val)}
@@ -79,7 +79,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                 />
               </div>
               <div>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.messageLabel, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.messageLabel', val)}
@@ -100,7 +100,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                 />
               </div>
               <button type="submit" className="btn-primary w-full">
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.buttonText, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.buttonText', val)}
@@ -113,7 +113,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
             </form>
           </div>
           <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-8">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(props.contactInfoHeading, locale) || ''}
                 onSave={(val) => onSave(block.id, 'props.contactInfoHeading', val)}
@@ -132,7 +132,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                     <path d={method.iconPath} />
                   </svg>
                   <div>
-                    {onSave ? (
+                    {onSave && isEditable ? (
                       <EditableText
                         value={getLocalizedString(method.label, locale) || ''}
                         onSave={(val) => onSave(block.id, `props.contactMethods.${i}.label`, val)}
@@ -146,7 +146,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                     )}
                     {method.href ? (
                       <a href={method.href} className="text-[var(--primary)]">
-                        {onSave ? (
+                        {onSave && isEditable ? (
                           <EditableText
                             value={getLocalizedString(method.value, locale) || ''}
                             onSave={(val) => onSave(block.id, `props.contactMethods.${i}.value`, val)}
@@ -160,7 +160,7 @@ export default function ContactFormSection({ block, locale = 'en', isEditable = 
                       </a>
                     ) : (
                       <p className="text-[var(--text-secondary)]">
-                        {onSave ? (
+                        {onSave && isEditable ? (
                           <EditableText
                             value={getLocalizedString(method.value, locale) || ''}
                             onSave={(val) => onSave(block.id, `props.contactMethods.${i}.value`, val)}

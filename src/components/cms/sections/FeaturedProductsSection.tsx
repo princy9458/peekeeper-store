@@ -51,7 +51,7 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
     <section style={{ padding: '80px 0' }} id="shop">
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -63,7 +63,7 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -75,7 +75,7 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
           ) : (
             <h2 className="sec-title" dangerouslySetInnerHTML={{ __html: getLocalizedString(props.heading, locale) }} />
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.subheading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.subheading', val)}
@@ -164,7 +164,7 @@ export default function FeaturedProductsSection({ block, locale = 'en', localePr
               {addedToCart ? (
                 <span>Added!</span>
               ) : (
-                onSave ? (
+                onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(props.addToCartLabel, locale) || ''}
                     onSave={(val) => onSave(block.id, 'props.addToCartLabel', val)}

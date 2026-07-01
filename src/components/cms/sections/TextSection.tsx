@@ -23,7 +23,7 @@ export default function TextSection({ block, locale = 'en', isEditable = false, 
       <div className="container-custom max-w-3xl">
         {heading && (
           <div className={`text-center mb-8`} style={{ textAlign: alignment === 'center' ? 'center' : 'left' }}>
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(heading, locale)}
                 onSave={(val) => onSave(block.id, 'props.heading', val)}
@@ -37,7 +37,7 @@ export default function TextSection({ block, locale = 'en', isEditable = false, 
             )}
             {content && (
               <>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(content, locale)}
                     onSave={(val) => onSave(block.id, 'props.content', val)}

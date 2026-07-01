@@ -23,7 +23,7 @@ export default function FeaturedCollectionsSection({ block, locale = 'en', isEdi
   return (
     <div className="section-padding">
       <div className="container-custom">
-        {sectionTitle && (onSave ? (
+        {sectionTitle && (onSave && isEditable ? (
           <EditableText
             value={getLocalizedString(sectionTitle, locale)}
             onSave={(val) => onSave(block.id, 'props.sectionTitle', val)}
@@ -39,7 +39,7 @@ export default function FeaturedCollectionsSection({ block, locale = 'en', isEdi
           {items.map((item: any, idx: number) => (
             <div key={item.id} className="card-theme p-6 text-center">
               {item.props?.icon && <div className="text-3xl mb-3">{item.props.icon}</div>}
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(item.props?.title, locale)}
                   onSave={(val) => onSave(block.id, `content.${idx}.props.title`, val)}
@@ -51,7 +51,7 @@ export default function FeaturedCollectionsSection({ block, locale = 'en', isEdi
               ) : (
                 <h3 className="text-xl font-semibold mb-2">{getLocalizedString(item.props?.title, locale)}</h3>
               )}
-              {item.props?.description && (onSave ? (
+              {item.props?.description && (onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(item.props?.description, locale)}
                   onSave={(val) => onSave(block.id, `content.${idx}.props.description`, val)}

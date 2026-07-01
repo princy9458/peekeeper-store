@@ -79,13 +79,13 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
     <div className="section-padding">
       <div className="container-custom">
         <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value="Home" onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="hover:text-[var(--primary)]" placeholder="Home..." />
           ) : (
             <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">Home</Link>
           )}
           <span>/</span>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value="Shop" onSave={(val) => onSave(block.id, 'props.breadcrumbShopLabel', val)} isEditable={isEditable} tag="span" className="hover:text-[var(--primary)]" placeholder="Shop..." />
           ) : (
             <Link href={`${localePrefix}/shop`} className="hover:text-[var(--primary)]">Shop</Link>
@@ -100,7 +100,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
               <Image src={selectedImage || ''} alt={getLocalizedString(product.name, locale) || ''} fill className="object-contain object-center" sizes="(max-width: 768px) 100vw, 50vw" priority />
               {product.compareAtPrice && (
                 <span className="absolute top-4 left-4 bg-[var(--primary)] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.saleBadgeLabel, locale) || 'Sale'} onSave={(val) => onSave(block.id, 'props.saleBadgeLabel', val)} isEditable={isEditable} tag="span" placeholder="Sale badge..." />
                   ) : (
                     getLocalizedString(props.saleBadgeLabel, locale) || 'Sale'
@@ -133,7 +133,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                   </svg>
                 ))}
               </div>
-              <span className="small-text">{product.rating} ({product.reviewCount || 0} {onSave ? <EditableText value={getLocalizedString(props.reviewsLabel, locale) || 'reviews'} onSave={(val) => onSave(block.id, 'props.reviewsLabel', val)} isEditable={isEditable} tag="span" placeholder="Reviews label..." /> : (getLocalizedString(props.reviewsLabel, locale) || 'reviews')})</span>
+              <span className="small-text">{product.rating} ({product.reviewCount || 0} {onSave && isEditable ? <EditableText value={getLocalizedString(props.reviewsLabel, locale) || 'reviews'} onSave={(val) => onSave(block.id, 'props.reviewsLabel', val)} isEditable={isEditable} tag="span" placeholder="Reviews label..." /> : (getLocalizedString(props.reviewsLabel, locale) || 'reviews')})</span>
             </div>
 
             <div className="flex items-center gap-3 mb-6">
@@ -146,7 +146,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
             <p className="body-text mb-6">{getLocalizedString(product.description, locale)}</p>
 
             <div className="mb-6">
-              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave ? <EditableText value={getLocalizedString(props.colorLabel, locale) || 'Color'} onSave={(val) => onSave(block.id, 'props.colorLabel', val)} isEditable={isEditable} tag="span" placeholder="Color..." /> : (getLocalizedString(props.colorLabel, locale) || 'Color')}: <strong>{selectedColor?.label || ''}</strong></p>
+              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave && isEditable ? <EditableText value={getLocalizedString(props.colorLabel, locale) || 'Color'} onSave={(val) => onSave(block.id, 'props.colorLabel', val)} isEditable={isEditable} tag="span" placeholder="Color..." /> : (getLocalizedString(props.colorLabel, locale) || 'Color')}: <strong>{selectedColor?.label || ''}</strong></p>
               <div className="flex gap-2">
                 {(product.colors || []).map((c: any, i: number) => (
                   <button
@@ -162,7 +162,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
             </div>
 
             <div className="mb-6">
-              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave ? <EditableText value={getLocalizedString(props.sizeLabel, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeLabel', val)} isEditable={isEditable} tag="span" placeholder="Size..." /> : (getLocalizedString(props.sizeLabel, locale) || 'Size')}: <strong>{selectedSize?.label || ''}</strong></p>
+              <p className="small-text" style={{ marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{onSave && isEditable ? <EditableText value={getLocalizedString(props.sizeLabel, locale) || 'Size'} onSave={(val) => onSave(block.id, 'props.sizeLabel', val)} isEditable={isEditable} tag="span" placeholder="Size..." /> : (getLocalizedString(props.sizeLabel, locale) || 'Size')}: <strong>{selectedSize?.label || ''}</strong></p>
               <div className="flex flex-wrap gap-2">
                 {(product.sizes || []).map((s: any, i: number) => (
                   <button
@@ -194,7 +194,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                 </button>
               </div>
 
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.qtyLabel, locale) || 'Qty'} onSave={(val) => onSave(block.id, 'props.qtyLabel', val)} isEditable={isEditable} tag="span" className="text-xs text-[var(--text-muted)]" placeholder="Qty..." />
               ) : (
                 <span className="text-xs text-[var(--text-muted)]">{getLocalizedString(props.qtyLabel, locale) || 'Qty'}</span>
@@ -210,13 +210,13 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                   <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" />
                 </svg>
                 {addedToCart ? (
-                  onSave ? (
+                  onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.addedToCartLabel, locale) || 'Added!'} onSave={(val) => onSave(block.id, 'props.addedToCartLabel', val)} isEditable={isEditable} tag="span" placeholder="Added label..." />
                   ) : (
                     getLocalizedString(props.addedToCartLabel, locale) || 'Added!'
                   )
                 ) : (
-                  onSave ? (
+                  onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.addToCartLabel, locale) || 'Add to Cart'} onSave={(val) => onSave(block.id, 'props.addToCartLabel', val)} isEditable={isEditable} tag="span" placeholder="Add to cart..." />
                   ) : (
                     getLocalizedString(props.addToCartLabel, locale) || 'Add to Cart'
@@ -236,7 +236,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
             <div className="flex items-center gap-4 mt-6 text-xs text-[var(--text-muted)]">
               <div className="flex items-center gap-1.5">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.inStockLabel, locale) || 'In Stock'} onSave={(val) => onSave(block.id, 'props.inStockLabel', val)} isEditable={isEditable} tag="span" placeholder="In stock..." />
                 ) : (
                   getLocalizedString(props.inStockLabel, locale) || 'In Stock'
@@ -244,7 +244,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
               </div>
               <div className="flex items-center gap-1.5">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(props.secureCheckoutLabel, locale) || 'Secure Checkout'} onSave={(val) => onSave(block.id, 'props.secureCheckoutLabel', val)} isEditable={isEditable} tag="span" placeholder="Secure checkout..." />
                 ) : (
                   getLocalizedString(props.secureCheckoutLabel, locale) || 'Secure Checkout'
@@ -262,7 +262,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                 onClick={() => setActiveTab(tab.key)}
                 className={`pb-3 text-sm font-medium transition-colors cursor-pointer bg-transparent border-none ${activeTab === tab.key ? 'text-[var(--primary)] border-b-2 border-[var(--primary)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]'}`}
               >
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText value={getLocalizedString(tab.label, locale)} onSave={(val) => onSave(block.id, tab.fieldPath, val)} isEditable={isEditable} tag="span" className="pb-3 text-sm font-medium transition-colors" placeholder="Tab label..." />
                 ) : (
                   getLocalizedString(tab.label, locale)
@@ -308,7 +308,7 @@ export default function ProductDetailSection({ block, locale = 'en', localePrefi
                         </div>
                         {review.verified && (
                           <>
-                            {onSave ? (
+                            {onSave && isEditable ? (
                               <EditableText value={getLocalizedString(props.verifiedLabel, locale) || 'Verified Purchase'} onSave={(val) => onSave(block.id, 'props.verifiedLabel', val)} isEditable={isEditable} tag="span" className="text-[10px] text-green-600 font-medium" placeholder="Verified..." />
                             ) : (
                               <span className="text-[10px] text-green-600 font-medium">{getLocalizedString(props.verifiedLabel, locale) || 'Verified Purchase'}</span>

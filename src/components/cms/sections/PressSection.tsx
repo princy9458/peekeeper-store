@@ -54,7 +54,7 @@ export default function PressSection({ block, locale = 'en', isEditable = false,
     <section style={{ padding: '80px 0', background: 'white' }}>
       <div className="container-custom">
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.tag, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.tag', val)}
@@ -66,7 +66,7 @@ export default function PressSection({ block, locale = 'en', isEditable = false,
           ) : (
             <div className="sec-tag">{getLocalizedString(props.tag, locale)}</div>
           )}
-          {isEditable && onSave ? (
+          {onSave && isEditable ? (
             <EditableText
               value={getLocalizedString(props.heading, locale) || ''}
               onSave={(val) => onSave(block.id, 'props.heading', val)}

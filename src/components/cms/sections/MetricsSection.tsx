@@ -23,7 +23,7 @@ export default function MetricsSection({ block, locale = 'en', isEditable = fals
       <div className="container-custom">
         {(title || subtitle) && (
           <div className="text-center mb-10">
-            {title && (onSave ? (
+            {title && (onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(title, locale)}
                 onSave={(val) => onSave(block.id, 'props.sectionTitle', val)}
@@ -35,7 +35,7 @@ export default function MetricsSection({ block, locale = 'en', isEditable = fals
             ) : (
               <h2 className="text-3xl font-bold">{getLocalizedString(title, locale)}</h2>
             ))}
-            {subtitle && (onSave ? (
+            {subtitle && (onSave && isEditable ? (
               <EditableText
                 value={getLocalizedString(subtitle, locale)}
                 onSave={(val) => onSave(block.id, 'props.sectionSubtitle', val)}
@@ -52,7 +52,7 @@ export default function MetricsSection({ block, locale = 'en', isEditable = fals
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {items.map((item: any, idx: number) => (
             <div key={item.id} className="text-center">
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(item.props?.value, locale) || ''}
                   onSave={(val) => onSave(block.id, `content.${idx}.props.value`, val)}
@@ -64,7 +64,7 @@ export default function MetricsSection({ block, locale = 'en', isEditable = fals
               ) : (
                 <div className="text-3xl font-bold text-[var(--primary)]">{getLocalizedString(item.props?.value, locale)}</div>
               )}
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText
                   value={getLocalizedString(item.props?.label, locale)}
                   onSave={(val) => onSave(block.id, `content.${idx}.props.label`, val)}

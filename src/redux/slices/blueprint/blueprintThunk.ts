@@ -2,8 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '@/redux/store';
 import type { BlueprintPayload, Theme, BrandValue, BusinessProfile, Navigation } from './blueprintType';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
-
 const getTenantHeader = () => ({
   'x-tenant-db': process.env.NEXT_PUBLIC_TENANT_DB || '',
 });

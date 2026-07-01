@@ -42,27 +42,27 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
         <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
             <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.breadcrumbHomeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>Home</>
               )}
             </Link>
             <span>/</span>
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbLabel', val)} isEditable={isEditable} tag="span" className="text-[var(--text)]" />
             ) : (
 <span className="text-[var(--text)]">{getLocalizedString(props.breadcrumbLabel, locale)}</span>
             )}
           </div>
 
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.dashboardHeading, locale) || ''} onSave={(val) => onSave(block.id, 'props.dashboardHeading', val)} isEditable={isEditable} tag="h1" className="text-3xl font-bold mb-8" placeholder="Heading..." />
           ) : (
             <h1 className="text-3xl font-bold mb-8">{getLocalizedString(props.dashboardHeading, locale)}</h1>
           )}
           <p className="text-[var(--text-secondary)] mb-6">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.signInHeading, locale) || ''} onSave={(val) => onSave(block.id, 'props.signInHeading', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>{getLocalizedString(props.signInHeading, locale)}</>
@@ -77,7 +77,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               <svg className="w-8 h-8 mx-auto mb-3 text-[var(--primary)]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.menuMyOrdersLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.menuMyOrdersLabel', val)} isEditable={isEditable} tag="span" className="text-sm font-medium" />
               ) : (
                 <span className="text-sm font-medium">{getLocalizedString(props.menuMyOrdersLabel, locale)}</span>
@@ -90,7 +90,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               <svg className="w-8 h-8 mx-auto mb-3 text-[var(--primary)]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
               </svg>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.menuProfileLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.menuProfileLabel', val)} isEditable={isEditable} tag="span" className="text-sm font-medium" />
               ) : (
                 <span className="text-sm font-medium">{getLocalizedString(props.menuProfileLabel, locale)}</span>
@@ -103,7 +103,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               <svg className="w-8 h-8 mx-auto mb-3 text-red-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
               </svg>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.menuLogoutLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.menuLogoutLabel', val)} isEditable={isEditable} tag="span" className="text-sm font-medium" />
               ) : (
                 <span className="text-sm font-medium">{getLocalizedString(props.menuLogoutLabel, locale)}</span>
@@ -120,14 +120,14 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
       <div className="container-custom">
         <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
           <Link href={`${localePrefix}/`} className="hover:text-[var(--primary)]">
-            {onSave ? (
+            {onSave && isEditable ? (
               <EditableText value={getLocalizedString(props.breadcrumbHomeLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbHomeLabel', val)} isEditable={isEditable} tag="span" className="" />
             ) : (
               <>Home</>
             )}
           </Link>
           <span>/</span>
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.breadcrumbLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.breadcrumbLabel', val)} isEditable={isEditable} tag="span" className="text-[var(--text)]" />
           ) : (
             <span className="text-[var(--text)]">{getLocalizedString(props.breadcrumbLabel, locale)}</span>
@@ -135,7 +135,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
         </div>
 
         <div className="max-w-md mx-auto">
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={isRegister ? (getLocalizedString(props.createAccountHeading, locale) || '') : (getLocalizedString(props.signInHeading, locale) || '')} onSave={(val) => onSave(block.id, isRegister ? 'props.createAccountHeading' : 'props.signInHeading', val)} isEditable={isEditable} tag="h1" className="text-2xl font-bold text-center mb-8" placeholder="Heading..." />
           ) : (
             <h1 className="text-2xl font-bold text-center mb-8">
@@ -145,7 +145,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-[var(--radius-md)] p-4 mb-6">
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.errorDisplay, locale) || ''} onSave={(val) => onSave(block.id, 'props.errorDisplay', val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>{getLocalizedString(props.errorDisplay, locale)}</>
@@ -157,7 +157,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
             {isRegister && (
               <>
                 <div>
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.firstNameLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.firstNameLabel', val)} isEditable={isEditable} tag="label" className="block text-sm font-medium mb-1" />
                   ) : (
                     <label className="block text-sm font-medium mb-1">{getLocalizedString(props.firstNameLabel, locale)}</label>
@@ -165,7 +165,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
                   <input className="form-input" placeholder={getLocalizedString(props.firstNamePlaceholder, locale)} value={firstName} onChange={e => setFirstName(e.target.value)} required />
                 </div>
                 <div>
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.lastNameLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.lastNameLabel', val)} isEditable={isEditable} tag="label" className="block text-sm font-medium mb-1" />
                   ) : (
                     <label className="block text-sm font-medium mb-1">{getLocalizedString(props.lastNameLabel, locale)}</label>
@@ -173,7 +173,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
                   <input className="form-input" placeholder={getLocalizedString(props.lastNamePlaceholder, locale)} value={lastName} onChange={e => setLastName(e.target.value)} required />
                 </div>
                 <div>
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText value={getLocalizedString(props.phoneLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.phoneLabel', val)} isEditable={isEditable} tag="label" className="block text-sm font-medium mb-1" />
                   ) : (
                     <label className="block text-sm font-medium mb-1">{getLocalizedString(props.phoneLabel, locale)}</label>
@@ -183,7 +183,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               </>
             )}
             <div>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.emailLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.emailLabel', val)} isEditable={isEditable} tag="label" className="block text-sm font-medium mb-1" />
               ) : (
                 <label className="block text-sm font-medium mb-1">{getLocalizedString(props.emailLabel, locale)}</label>
@@ -191,7 +191,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               <input className="form-input" type="email" placeholder={getLocalizedString(props.emailPlaceholder, locale)} value={email} onChange={e => setEmail(e.target.value)} required />
             </div>
             <div>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.passwordLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.passwordLabel', val)} isEditable={isEditable} tag="label" className="block text-sm font-medium mb-1" />
               ) : (
                 <label className="block text-sm font-medium mb-1">{getLocalizedString(props.passwordLabel, locale)}</label>
@@ -199,7 +199,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               <input className="form-input" type="password" placeholder={getLocalizedString(props.passwordPlaceholder, locale)} value={password} onChange={e => setPassword(e.target.value)} required />
             </div>
             <button type="submit" className="btn-primary w-full" disabled={loading}>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={loading ? (getLocalizedString(props.loadingText, locale) || '') : (isRegister ? (getLocalizedString(props.createAccountButtonLabel, locale) || '') : (getLocalizedString(props.signInButtonLabel, locale) || ''))} onSave={(val) => onSave(block.id, loading ? 'props.loadingText' : (isRegister ? 'props.createAccountButtonLabel' : 'props.signInButtonLabel'), val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>{loading ? getLocalizedString(props.loadingText, locale) : (isRegister ? getLocalizedString(props.createAccountButtonLabel, locale) : getLocalizedString(props.signInButtonLabel, locale))}</>
@@ -212,7 +212,7 @@ export default function AccountSection({ block, locale = 'en', localePrefix = ''
               className="text-[var(--primary)] hover:underline cursor-pointer bg-transparent border-none"
               onClick={() => { setIsRegister(!isRegister); setEmail(''); setPassword(''); setFirstName(''); setLastName(''); setPhone(''); }}
             >
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={isRegister ? (getLocalizedString(props.toggleToLoginLabel, locale) || '') : (getLocalizedString(props.toggleToRegisterLabel, locale) || '')} onSave={(val) => onSave(block.id, isRegister ? 'props.toggleToLoginLabel' : 'props.toggleToRegisterLabel', val)} isEditable={isEditable} tag="span" className="" />
               ) : (
                 <>{isRegister ? getLocalizedString(props.toggleToLoginLabel, locale) : getLocalizedString(props.toggleToRegisterLabel, locale)}</>

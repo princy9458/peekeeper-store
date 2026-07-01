@@ -22,7 +22,7 @@ export default function SearchSection({ block, locale = 'en', localePrefix = '',
     <div className="section-padding">
       <div className="container-custom">
         <div className="max-w-2xl mx-auto">
-          {onSave ? (
+          {onSave && isEditable ? (
             <EditableText value={getLocalizedString(props.heading, locale) || ''} onSave={(val) => onSave(block.id, 'props.heading', val)} isEditable={isEditable} tag="h1" className="text-3xl font-bold text-center mb-8" placeholder="Heading..." />
           ) : (
             <h1 className="text-3xl font-bold text-center mb-8">{getLocalizedString(props.heading, locale)}</h1>
@@ -46,17 +46,17 @@ export default function SearchSection({ block, locale = 'en', localePrefix = '',
               <svg className="w-20 h-20 mx-auto text-[var(--border)] mb-6" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><line x1="8" y1="11" x2="14" y2="11" />
               </svg>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.noResultsTitle, locale) || ''} onSave={(val) => onSave(block.id, 'props.noResultsTitle', val)} isEditable={isEditable} tag="h2" className="text-xl font-bold mb-2" placeholder="No results title..." />
               ) : (
                 <h2 className="text-xl font-bold mb-2">{getLocalizedString(props.noResultsTitle, locale)}</h2>
               )}
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.noResultsDescription, locale) || ''} onSave={(val) => onSave(block.id, 'props.noResultsDescription', val)} isEditable={isEditable} tag="p" className="text-[var(--text-secondary)] max-w-md mx-auto mb-8" placeholder="No results description..." />
               ) : (
                 <p className="text-[var(--text-secondary)] max-w-md mx-auto mb-8">{getLocalizedString(props.noResultsDescription, locale)}</p>
               )}
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value={getLocalizedString(props.noResultsCtaLabel, locale) || ''} onSave={(val) => onSave(block.id, 'props.noResultsCtaLabel', val)} isEditable={isEditable} tag="span" className="btn-primary inline-flex items-center gap-2" placeholder="CTA..." />
               ) : (
                 <Link href={`${localePrefix}/shop`} className="btn-primary inline-flex items-center gap-2">
@@ -71,7 +71,7 @@ export default function SearchSection({ block, locale = 'en', localePrefix = '',
               <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
               </svg>
-              {onSave ? (
+              {onSave && isEditable ? (
                 <EditableText value="Enter a keyword to search our products" onSave={(val) => onSave(block.id, 'props.emptyStateLabel', val)} isEditable={isEditable} tag="p" placeholder="Search prompt..." />
               ) : (
                 <p>Enter a keyword to search our products</p>

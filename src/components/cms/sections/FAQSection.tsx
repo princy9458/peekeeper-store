@@ -32,7 +32,7 @@ export default function FAQSection({ block, locale = 'en', isEditable = false, o
                 onClick={() => toggleItem(item.id)}
                 className="w-full flex items-center justify-between p-5 text-left font-medium hover:bg-[var(--surface)] transition-colors"
               >
-                {onSave ? (
+                {onSave && isEditable ? (
                   <EditableText
                     value={getLocalizedString(item.props?.question, locale)}
                     onSave={(val) => onSave(block.id, `content.${idx}.props.question`, val)}
@@ -50,7 +50,7 @@ export default function FAQSection({ block, locale = 'en', isEditable = false, o
               </button>
               {openItems[item.id] && (
                 <div className="px-5 pb-5">
-                  {onSave ? (
+                  {onSave && isEditable ? (
                     <EditableText
                       value={getLocalizedString(item.props?.answer, locale)}
                       onSave={(val) => onSave(block.id, `content.${idx}.props.answer`, val)}
